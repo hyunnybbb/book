@@ -268,11 +268,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/Datamanim/book"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdataset/02_mushroomClassification/question.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/Datamanim/book/issues/new?title=Issue%20on%20page%20%2Fdataset/02_mushroomClassification/question.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -293,7 +293,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/dataset/02_mushroomClassification/question.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Datamanim/book/gh-pages/?urlpath=tree/_sources/dataset/02_mushroomClassification/question.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -301,7 +301,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/docs/dataset/02_mushroomClassification/question.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/Datamanim/book/blob/gh-pages//_sources/dataset/02_mushroomClassification/question.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -327,13 +327,15 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h1>버섯분류 데이터 셋<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="c1"># os.chdir -&gt; 데이터가 저장된 경로</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;../../../../data/02_mushroom/mushroom&#39;</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/mushroom/main/mushpre.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -737,7 +739,7 @@ weighted avg       0.76      0.75      0.74      2438
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/question_18_0.png" src="../../_images/question_18_0.png" />
+<img alt="../../_images/question_19_0.png" src="../../_images/question_19_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>base line: ROC AUC=0.500
 pred: ROC AUC=0.860
 </pre></div>
@@ -755,7 +757,7 @@ pred: ROC AUC=0.860
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/question_20_0.png" src="../../_images/question_20_0.png" />
+<img alt="../../_images/question_21_01.png" src="../../_images/question_21_01.png" />
 </div>
 </div>
 <div class="admonition-question-8 admonition">
@@ -920,7 +922,7 @@ weighted avg       0.82      0.80      0.80      2438
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/question_25_0.png" src="../../_images/question_25_0.png" />
+<img alt="../../_images/question_26_0.png" src="../../_images/question_26_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>base line: ROC AUC=0.500
 pred: ROC AUC=0.905
 </pre></div>

@@ -22,7 +22,7 @@ testNAN = X_test.isnull().sum()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-8-d1e528df8099>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-7-d1e528df8099>[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mtestNAN[0m [0;34m=[0m [0mX_test[0m[0;34m.[0m[0misnull[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0msum[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;31mNameError[0m: name 'X_test' is not defined

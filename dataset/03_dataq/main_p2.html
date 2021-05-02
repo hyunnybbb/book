@@ -267,11 +267,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/Datamanim/book"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdataset/03_dataq/main_p2.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/Datamanim/book/issues/new?title=Issue%20on%20page%20%2Fdataset/03_dataq/main_p2.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -292,7 +292,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/dataset/03_dataq/main_p2.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Datamanim/book/gh-pages/?urlpath=tree/_sources/dataset/03_dataq/main_p2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -300,7 +300,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/docs/dataset/03_dataq/main_p2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/Datamanim/book/blob/gh-pages//_sources/dataset/03_dataq/main_p2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -358,19 +358,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="c1"># os.chdir -&gt; 데이터가 저장된 경로</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;../../../../data/03_dataq/dataq&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;y_train.csv&#39;</span><span class="p">)</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;X_train.csv&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
-<span class="n">test</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;X_test.csv&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/dataq/main/y_train.csv&#39;</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/dataq/main/X_train.csv&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
+<span class="n">test</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/dataq/main/X_test.csv&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -548,7 +538,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_p2_13_0.png" src="../../_images/main_p2_13_0.png" />
+<img alt="../../_images/main_p2_12_0.png" src="../../_images/main_p2_12_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -845,31 +835,31 @@ Name: 환불금액, dtype: float64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>총구매액
 </pre></div>
 </div>
-<img alt="../../_images/main_p2_28_1.png" src="../../_images/main_p2_28_1.png" />
+<img alt="../../_images/main_p2_27_1.png" src="../../_images/main_p2_27_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>최대구매액
 </pre></div>
 </div>
-<img alt="../../_images/main_p2_28_3.png" src="../../_images/main_p2_28_3.png" />
+<img alt="../../_images/main_p2_27_3.png" src="../../_images/main_p2_27_3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>환불금액
 </pre></div>
 </div>
-<img alt="../../_images/main_p2_28_5.png" src="../../_images/main_p2_28_5.png" />
+<img alt="../../_images/main_p2_27_5.png" src="../../_images/main_p2_27_5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>내점일수
 </pre></div>
 </div>
-<img alt="../../_images/main_p2_28_7.png" src="../../_images/main_p2_28_7.png" />
+<img alt="../../_images/main_p2_27_7.png" src="../../_images/main_p2_27_7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>내점당구매건수
 </pre></div>
 </div>
-<img alt="../../_images/main_p2_28_9.png" src="../../_images/main_p2_28_9.png" />
+<img alt="../../_images/main_p2_27_9.png" src="../../_images/main_p2_27_9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>주말방문비율
 </pre></div>
 </div>
-<img alt="../../_images/main_p2_28_11.png" src="../../_images/main_p2_28_11.png" />
+<img alt="../../_images/main_p2_27_11.png" src="../../_images/main_p2_27_11.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>구매주기
 </pre></div>
 </div>
-<img alt="../../_images/main_p2_28_13.png" src="../../_images/main_p2_28_13.png" />
+<img alt="../../_images/main_p2_27_13.png" src="../../_images/main_p2_27_13.png" />
 </div>
 </div>
 <div class="admonition-question-5 admonition">
@@ -1168,7 +1158,7 @@ Name: 환불금액, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_p2_36_0.png" src="../../_images/main_p2_36_0.png" />
+<img alt="../../_images/main_p2_35_0.png" src="../../_images/main_p2_35_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
