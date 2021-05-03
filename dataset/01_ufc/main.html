@@ -348,20 +348,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;../../../../data/01_utc&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="admonition-q1 admonition">
 <p class="admonition-title">Q1</p>
 <p><em>데이터를 ufc 변수에 로드하라</em></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ufc.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/ufc/main/ufc.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -628,7 +621,7 @@ Name: Gender, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_14_0.png" src="../../_images/main_14_0.png" />
+<img alt="../../_images/main_13_0.png" src="../../_images/main_13_0.png" />
 </div>
 </div>
 <div class="attention admonition">
@@ -686,7 +679,7 @@ Name: date, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_19_0.png" src="../../_images/main_19_0.png" />
+<img alt="../../_images/main_18_0.png" src="../../_images/main_18_0.png" />
 </div>
 </div>
 <div class="admonition-q6 admonition">
@@ -1103,7 +1096,7 @@ Name: Referee, dtype: int64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">pv_table</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">pv_table</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">pv_table</span><span class="o">.</span><span class="n">index</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">pv_table</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">pv_table</span><span class="o">.</span><span class="n">index</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">pv_table</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="nb">list</span><span class="p">(</span><span class="n">pv_table</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
@@ -1114,7 +1107,7 @@ Name: Referee, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_25_0.png" src="../../_images/main_25_0.png" />
+<img alt="../../_images/main_24_0.png" src="../../_images/main_24_0.png" />
 </div>
 </div>
 <div class="admonition-q8 admonition">
@@ -1540,6 +1533,7 @@ Name: Referee, dtype: int64
         <span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">value</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
             <span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">value</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">value</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
             
@@ -1548,6 +1542,7 @@ Name: Referee, dtype: int64
         <span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
             <span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">value</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">value</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">value</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">value</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">]</span>
       
@@ -1564,8 +1559,8 @@ Name: Referee, dtype: int64
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Open Stance_Orthodox&#39;: [7, 4, 0],
  &#39;Open Stance_Southpaw&#39;: [2, 2, 0],
- &#39;Orthodox_Southpaw&#39;: [694, 787, 12],
- &#39;Orthodox_Switch&#39;: [127, 134, 2],
+ &#39;Orthodox_Southpaw&#39;: [694, 787, 31],
+ &#39;Orthodox_Switch&#39;: [127, 134, 5],
  &#39;Southpaw_Switch&#39;: [38, 39, 0]}
 </pre></div>
 </div>
@@ -1594,8 +1589,8 @@ Name: Referee, dtype: int64
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Open Stance_Orthodox&#39;: [7, 4, 0],
  &#39;Southpaw_Open Stance&#39;: [2, 2, 0],
- &#39;Southpaw_Orthodox&#39;: [787, 694, 12],
- &#39;Switch_Orthodox&#39;: [134, 127, 2],
+ &#39;Southpaw_Orthodox&#39;: [787, 694, 31],
+ &#39;Switch_Orthodox&#39;: [134, 127, 5],
  &#39;Switch_Southpaw&#39;: [39, 38, 0]}
 </pre></div>
 </div>
@@ -1655,13 +1650,13 @@ Name: Referee, dtype: int64
       <th>Southpaw_Orthodox</th>
       <td>787</td>
       <td>694</td>
-      <td>12</td>
+      <td>31</td>
     </tr>
     <tr>
       <th>Switch_Orthodox</th>
       <td>134</td>
       <td>127</td>
-      <td>2</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>Switch_Southpaw</th>
@@ -1741,13 +1736,13 @@ Name: Referee, dtype: int64
       <th>2</th>
       <td>Southpaw</td>
       <td>Orthodox</td>
-      <td>52.712659</td>
+      <td>52.050265</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Switch</td>
       <td>Orthodox</td>
-      <td>50.950570</td>
+      <td>50.375940</td>
     </tr>
     <tr>
       <th>4</th>
@@ -2061,7 +2056,7 @@ Name: Referee, dtype: int64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_lst</span><span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">newUfc</span><span class="o">.</span><span class="n">fighter</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
-    <span class="n">each_df</span> <span class="o">=</span> <span class="n">newUfc</span><span class="p">[[</span><span class="s1">&#39;Winner&#39;</span><span class="p">,</span><span class="s1">&#39;date&#39;</span><span class="p">]][</span><span class="n">newUfc</span><span class="o">.</span><span class="n">fighter</span> <span class="o">==</span><span class="n">value</span><span class="p">]</span>
+    <span class="n">each_df</span> <span class="o">=</span> <span class="n">newUfc</span><span class="p">[[</span><span class="s1">&#39;Winner&#39;</span><span class="p">,</span><span class="s1">&#39;date&#39;</span><span class="p">]][</span><span class="n">newUfc</span><span class="o">.</span><span class="n">fighter</span> <span class="o">==</span><span class="n">value</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">each_df</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][[</span><span class="s1">&#39;Winner&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">Winner</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">each_df</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][[</span><span class="s1">&#39;Winner&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">Winner</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
         <span class="n">new_lst</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">value</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
@@ -2077,6 +2072,20 @@ Name: Referee, dtype: int64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steakWin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">new_lst</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;steakWinCount&#39;</span><span class="p">})</span>\
                              <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;steakWinCount&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>\
                              <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># newUfc.loc[newUfc.fighter ==&#39;Georges St-Pierre&#39;].sort_values(&#39;date&#39;,ascending=False)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steakWin</span> <span class="o">=</span><span class="n">steakWin</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;steakWinCount&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2113,27 +2122,27 @@ Name: Referee, dtype: int64
   <tbody>
     <tr>
       <th>0</th>
-      <td>Georges St-Pierre</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Jon Jones</td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>Anderson Silva</td>
       <td>16</td>
     </tr>
     <tr>
+      <th>1</th>
+      <td>Khabib Nurmagomedov</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Jon Jones</td>
+      <td>13</td>
+    </tr>
+    <tr>
       <th>3</th>
-      <td>Michael Bisping</td>
-      <td>14</td>
+      <td>Georges St-Pierre</td>
+      <td>13</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Khabib Nurmagomedov</td>
+      <td>Demetrious Johnson</td>
       <td>13</td>
     </tr>
     <tr>
@@ -2143,27 +2152,27 @@ Name: Referee, dtype: int64
     </tr>
     <tr>
       <th>1467</th>
-      <td>Wagner Prado</td>
+      <td>Adam Yandiev</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1468</th>
-      <td>Simeon Thoresen</td>
+      <td>Abubakar Nurmagomedov</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1469</th>
-      <td>Ben Alloway</td>
+      <td>Aaron Rosa</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1470</th>
-      <td>Bristol Marunde</td>
+      <td>Aaron Phillips</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1471</th>
-      <td>Alex Karalexis</td>
+      <td>Aalon Cruz</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -2194,7 +2203,7 @@ Name: Referee, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Boxplot of Age of year&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/main_62_1.png" src="../../_images/main_62_1.png" />
+<img alt="../../_images/main_63_1.png" src="../../_images/main_63_1.png" />
 </div>
 </div>
 

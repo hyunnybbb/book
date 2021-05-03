@@ -88,8 +88,6 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="업데이트" href="../02_mushroomClassification/README.html" />
-    <link rel="prev" title="UFC 경기 데이터" href="status.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -126,12 +124,12 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../content.html">
    파이썬으로 캐글 데이터 분석해보기
   </a>
-  <ul class="current collapse-ul">
+  <ul class="collapse-ul">
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../00_olympic/README.html">
      00_올림픽 데이터셋
@@ -146,18 +144,18 @@ commentsRunWhenDOMLoaded(addUtterances);
     <i class="fas fa-chevron-down">
     </i>
    </li>
-   <li class="toctree-l2 current active collapsible-parent">
+   <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="README.html">
      01_ufc 기록 데이터셋
     </a>
-    <ul class="current collapse-ul">
+    <ul class="collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="status.html">
        개   요
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="question.html">
        문  제  만
       </a>
      </li>
@@ -252,7 +250,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/dataset/01_ufc/question.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/dataset/01_ufc/question3.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -272,7 +270,7 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/Datamanim/book/issues/new?title=Issue%20on%20page%20%2Fdataset/01_ufc/question.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/Datamanim/book/issues/new?title=Issue%20on%20page%20%2Fdataset/01_ufc/question3.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -293,7 +291,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/Datamanim/book/gh-pages/?urlpath=tree/_sources/dataset/01_ufc/question.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Datamanim/book/gh-pages/?urlpath=tree/_sources/dataset/01_ufc/question3.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -301,7 +299,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/Datamanim/book/blob/gh-pages//_sources/dataset/01_ufc/question.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/Datamanim/book/blob/gh-pages//_sources/dataset/01_ufc/question3.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -328,7 +326,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
@@ -337,21 +334,14 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/ufc/main/ufc.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="admonition-q1 admonition">
 <p class="admonition-title">Q1</p>
-<p><em>데이터를 ufc 변수에 로드하라</em></p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/ufc/main/ufc.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<p><strong>데이터를 ufc 변수에 로드하라</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -515,7 +505,7 @@ Name: Gender, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values_count</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value_counts</span>
 </pre></div>
 </div>
 </div>
@@ -533,7 +523,7 @@ Name: Gender, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -541,8 +531,6 @@ Name: Gender, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    2021
 1    2021
 2    2021
-3    2021
-4    2021
 Name: year, dtype: int64
 </pre></div>
 </div>
@@ -555,7 +543,7 @@ Name: year, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/question_12_0.png" src="../../_images/question_12_0.png" />
+<img alt="../../_images/question3_11_0.png" src="../../_images/question3_11_0.png" />
 </div>
 </div>
 <div class="attention admonition">
@@ -585,11 +573,11 @@ Name: year, dtype: int64
 </div>
 <div class="admonition-q5 admonition">
 <p class="admonition-title">Q5</p>
-<p><em>몇년도 몇월에 가장 많은 경기가 있었는지 확인하라. 매 달 발생한 경기수를 시각화 하여라</em></p>
+<p><strong>몇년도 몇월에 가장 많은 경기가 있었는지 확인하라. 매 달 발생한 경기수를 시각화 하여라</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Max</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_month_count</span>
 </pre></div>
 </div>
 </div>
@@ -607,16 +595,16 @@ Name: date, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/question_17_0.png" src="../../_images/question_17_0.png" />
+<img alt="../../_images/question3_16_0.png" src="../../_images/question3_16_0.png" />
 </div>
 </div>
 <div class="admonition-q6 admonition">
 <p class="admonition-title">Q6</p>
-<p><em>타이틀매치(column : title_bout=True)에 가장 많은 경기를 심판(column : Referee)본 인물과 그 횟수는?</em></p>
+<p><strong>타이틀매치(column : title_bout=True)에 가장 많은 경기를 심판(column : Referee)본 인물과 그 횟수는?</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">referee</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">referee_max</span>
 </pre></div>
 </div>
 </div>
@@ -629,7 +617,7 @@ Name: Referee, dtype: int64
 </div>
 <div class="admonition-q7 admonition">
 <p class="admonition-title">Q7</p>
-<p><em>년도에 따른 체급별 타이틀 매치에 관한 데이터를 아래와 같이 새롭게 구성하고 히트맵으로 표시하라(축 label 및 title 설정까지)</em></p>
+<p><strong>년도에 따른 체급별 타이틀 매치에 관한 데이터를 아래와 같이 새롭게 구성하고 히트맵으로 표시하라(축 label 및 title 설정까지)</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1017,12 +1005,12 @@ Name: Referee, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/question_22_0.png" src="../../_images/question_22_0.png" />
+<img alt="../../_images/question3_21_0.png" src="../../_images/question3_21_0.png" />
 </div>
 </div>
 <div class="admonition-q8 admonition">
 <p class="admonition-title">Q8</p>
-<p><em>stance가 다른 선수가 붙었을때 각 stance에 따른 승률을 구하여라. 결과는 아래와 같다. (stance1 : 승률 높은 스탠스 , stance2: 승률 낮은 스탠스, ratio: 승률 높은 스탠스의 승률</em></p>
+<p><strong>stance가 다른 선수가 붙었을때 각 stance에 따른 승률을 구하여라. 결과는 아래와 같다. (stance1 : 승률 높은 스탠스 , stance2: 승률 낮은 스탠스, ratio: 승률 높은 스탠스의 승률</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1071,13 +1059,13 @@ Name: Referee, dtype: int64
       <th>2</th>
       <td>Southpaw</td>
       <td>Orthodox</td>
-      <td>52.050265</td>
+      <td>52.712659</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Switch</td>
       <td>Orthodox</td>
-      <td>50.375940</td>
+      <td>50.950570</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1091,18 +1079,18 @@ Name: Referee, dtype: int64
 </div>
 <div class="admonition-q9 admonition">
 <p class="admonition-title">Q9</p>
-<p>*현재 하나의 row에 Red,Blue 2명의 데이터가 존재한다. 하나의 row에 한 선수의 정보가 들어가도록 아래와 같은 새로운 데이터프레임 newUfc를 정의하라.</p>
+<p><strong>현재 하나의 row에 Red,Blue 2명의 데이터가 존재한다. 하나의 row에 한 선수의 정보가 들어가도록 아래와 같은 새로운 데이터프레임 newUfc를 정의하라.</strong></p>
 <ul class="simple">
 <li><ol class="simple">
-<li><p>R_ ,B_ 가 공통으로 들어가는 컬럼명에서 해당 단어 제외</p></li>
+<li><p><strong>R_ ,B_ 가 공통으로 들어가는 컬럼명에서 해당 단어 제외</strong></p></li>
 </ol>
 </li>
 <li><ol class="simple">
-<li><p>R_ ,B_ 가 없는 컬럼들은 동일한 컬럼명으로 추가</p></li>
+<li><p><strong>R_ ,B_ 가 없는 컬럼들은 동일한 컬럼명으로 추가</strong></p></li>
 </ol>
 </li>
 <li><ol class="simple">
-<li><p>Winner 컬럼의 경우 승리한 경우 1, 패배하거나 비긴 경우 0 으로 변환*</p></li>
+<li><p><strong>Winner 컬럼의 경우 승리한 경우 1, 패배하거나 비긴 경우 0 으로 변환</strong></p></li>
 </ol>
 </li>
 </ul>
@@ -1346,27 +1334,27 @@ Name: Referee, dtype: int64
   <tbody>
     <tr>
       <th>0</th>
+      <td>Georges St-Pierre</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jon Jones</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>2</th>
       <td>Anderson Silva</td>
       <td>16</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Khabib Nurmagomedov</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Jon Jones</td>
-      <td>13</td>
-    </tr>
-    <tr>
       <th>3</th>
-      <td>Georges St-Pierre</td>
-      <td>13</td>
+      <td>Michael Bisping</td>
+      <td>14</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Demetrious Johnson</td>
+      <td>Khabib Nurmagomedov</td>
       <td>13</td>
     </tr>
     <tr>
@@ -1376,27 +1364,27 @@ Name: Referee, dtype: int64
     </tr>
     <tr>
       <th>1467</th>
-      <td>Adam Yandiev</td>
+      <td>Wagner Prado</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1468</th>
-      <td>Abubakar Nurmagomedov</td>
+      <td>Simeon Thoresen</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1469</th>
-      <td>Aaron Rosa</td>
+      <td>Ben Alloway</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1470</th>
-      <td>Aaron Phillips</td>
+      <td>Bristol Marunde</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1471</th>
-      <td>Aalon Cruz</td>
+      <td>Alex Karalexis</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -1422,10 +1410,7 @@ Name: Referee, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Boxplot of Age of year&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/question_33_1.png" src="../../_images/question_33_1.png" />
+<img alt="../../_images/question3_32_0.png" src="../../_images/question3_32_0.png" />
 </div>
 </div>
 </div>
@@ -1455,8 +1440,6 @@ Name: Referee, dtype: int64
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="status.html" title="previous page">UFC 경기 데이터</a>
-    <a class='right-next' id="next-link" href="../02_mushroomClassification/README.html" title="next page">업데이트</a>
 
         </div>
         
