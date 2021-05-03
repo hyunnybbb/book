@@ -12,6 +12,23 @@ DataManim
 **이용 방법**
 -------------  
 <details>
+<summary> 코드확인 </summary>
+     
+----------   
+    
+![colab](./dataset/img/showlst1.png)   
+     
+----------   
+**좌측상단의 버튼을 클릭하면 데이터 코드 리스트가 생성됩니다.**  
+----------   
+    
+![colab](./dataset/img/showlst2.png)   
+     
+----------   
+
+</details>
+
+<details>
 <summary> 코랩연동 </summary>
      
 ----------   
