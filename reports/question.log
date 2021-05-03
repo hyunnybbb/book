@@ -17,14 +17,46 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-uniqueDf.head(3)
+ufc['Gender'].head(3)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-4-d2afbfee295a>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0muniqueDf[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;36m3[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   3079[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3080[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mcasted_key[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3081[0m             [0;32mexcept[0m [0mKeyError[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;31mKeyError[0m: 'Gender'
+
+The above exception was the direct cause of the following exception:
+
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-5-691f609cdb92>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mufc[0m[0;34m[[0m[0;34m'Gender'[0m[0;34m][0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;36m3[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
-[0;31mNameError[0m: name 'uniqueDf' is not defined
-NameError: name 'uniqueDf' is not defined
+[0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pandas/core/frame.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m   3022[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mcolumns[0m[0;34m.[0m[0mnlevels[0m [0;34m>[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3023[0m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_multilevel[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3024[0;31m             [0mindexer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mcolumns[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3025[0m             [0;32mif[0m [0mis_integer[0m[0;34m([0m[0mindexer[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3026[0m                 [0mindexer[0m [0;34m=[0m [0;34m[[0m[0mindexer[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   3080[0m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mcasted_key[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3081[0m             [0;32mexcept[0m [0mKeyError[0m [0;32mas[0m [0merr[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3082[0;31m                 [0;32mraise[0m [0mKeyError[0m[0;34m([0m[0mkey[0m[0;34m)[0m [0;32mfrom[0m [0merr[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3083[0m [0;34m[0m[0m
+[1;32m   3084[0m         [0;32mif[0m [0mtolerance[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mKeyError[0m: 'Gender'
+KeyError: 'Gender'
 
