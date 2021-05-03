@@ -19,7 +19,8 @@ DataManim
 ![colab](./dataset/img/showlst1.png)   
      
 ----------   
-**좌측상단의 버튼을 클릭하면 데이터 코드 리스트가 생성됩니다.**  
+**좌측상단의 버튼을 클릭하면 데이터 코드 리스트가 생성됩니다.**   
+   
 ----------   
     
 ![colab](./dataset/img/showlst2.png)   
