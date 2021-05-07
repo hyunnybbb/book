@@ -443,7 +443,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outlier</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">wt</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">wt</span><span class="o">&gt;=</span> <span class="n">q50</span> <span class="o">+</span> <span class="n">iqr</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">wt</span> <span class="o">&lt;=</span> <span class="n">q50</span> <span class="o">-</span> <span class="n">iqr</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outlier</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">wt</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">wt</span><span class="o">&gt;=</span> <span class="n">q75</span> <span class="o">+</span> <span class="n">iqr</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">wt</span> <span class="o">&lt;=</span> <span class="n">q25</span> <span class="o">-</span> <span class="n">iqr</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
@@ -455,7 +455,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5.25 , 5.424, 5.345, 1.615, 1.513])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5.25 , 5.424, 5.345])
 </pre></div>
 </div>
 </div>
