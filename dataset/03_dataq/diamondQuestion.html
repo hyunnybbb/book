@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; DataManim</title>
+    <title>다이아몬드 데이터셋 &#8212; DataManim</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -126,12 +126,12 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="../../content.html">
    파이썬으로 캐글 데이터 분석해보기
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../00_olympic/README.html">
      00_올림픽 데이터셋
@@ -184,11 +184,11 @@ commentsRunWhenDOMLoaded(addUtterances);
     <i class="fas fa-chevron-down">
     </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 current active collapsible-parent">
     <a class="reference internal" href="README.html">
      03_빅분기예시문제
     </a>
-    <ul class="collapse-ul">
+    <ul class="current collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="status.html">
        개   요
@@ -197,6 +197,11 @@ commentsRunWhenDOMLoaded(addUtterances);
      <li class="toctree-l3">
       <a class="reference internal" href="main_p1.html">
        작 업 형 1 유 형 _dataq 예제문제
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       작 업 형 1 유 형 _diamond 데이터셋
       </a>
      </li>
      <li class="toctree-l3">
@@ -315,16 +320,6 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
         </div>
     </div>
 </div>
@@ -333,7 +328,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="id1">
+<h1>다이아몬드 데이터셋<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/dataq/main/diamonds.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -359,7 +356,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/diamondQuestion_3_0.png" src="../../_images/diamondQuestion_3_0.png" />
+<img alt="../../_images/diamondQuestion_4_0.png" src="../../_images/diamondQuestion_4_0.png" />
 </div>
 </div>
 <div class="admonition-question-2 admonition">
@@ -430,7 +427,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;color&#39;, ylabel=&#39;price&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/diamondQuestion_11_1.png" src="../../_images/diamondQuestion_11_1.png" />
+<img alt="../../_images/diamondQuestion_12_1.png" src="../../_images/diamondQuestion_12_1.png" />
 </div>
 </div>
 <div class="admonition-question-3-1 admonition">
@@ -906,6 +903,7 @@ Name: colorLabel, dtype: int64
   </tbody>
 </table>
 </div></div></div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
