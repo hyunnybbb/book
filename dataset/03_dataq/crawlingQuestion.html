@@ -356,16 +356,1323 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">head</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;meta content=&quot;text/html; charset=utf-8&quot; http-equiv=&quot;Content-Type&quot;/&gt;,
- &lt;meta content=&quot;IE=edge&quot; http-equiv=&quot;X-UA-Compatible&quot;/&gt;,
- &lt;meta content=&quot;http://imgmovie.naver.com/today/naverme/naverme_profile.jpg&quot; property=&quot;me2:image&quot;/&gt;,
- &lt;meta content=&quot;네이버영화 &quot; property=&quot;me2:post_tag&quot;/&gt;,
- &lt;meta content=&quot;네이버영화&quot; property=&quot;me2:category1&quot;/&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+&lt;meta content=&quot;text/html; charset=utf-8&quot; http-equiv=&quot;Content-Type&quot;/&gt;
+&lt;meta content=&quot;IE=edge&quot; http-equiv=&quot;X-UA-Compatible&quot;/&gt;
+&lt;meta content=&quot;http://imgmovie.naver.com/today/naverme/naverme_profile.jpg&quot; property=&quot;me2:image&quot;/&gt;
+&lt;meta content=&quot;네이버영화 &quot; property=&quot;me2:post_tag&quot;/&gt;
+&lt;meta content=&quot;네이버영화&quot; property=&quot;me2:category1&quot;/&gt;
+&lt;meta content=&quot;&quot; property=&quot;me2:category2&quot;/&gt;
+&lt;meta content=&quot;랭킹 : 네이버 영화&quot; property=&quot;og:title&quot;/&gt;
+&lt;meta content=&quot;영화, 영화인, 예매, 박스오피스 랭킹 정보 제공&quot; property=&quot;og:description&quot;/&gt;
+&lt;meta content=&quot;article&quot; property=&quot;og:type&quot;/&gt;
+&lt;meta content=&quot;https://movie.naver.com/movie/sdb/rank/rmovie.nhn?sel=cur&amp;amp;date=20210503&quot; property=&quot;og:url&quot;/&gt;
+&lt;meta content=&quot;http://static.naver.net/m/movie/icons/OG_270_270.png&quot; property=&quot;og:image&quot;/&gt;&lt;!-- http://static.naver.net/m/movie/im/navermovie.jpg --&gt;
+&lt;meta content=&quot;http://imgmovie.naver.com/today/naverme/naverme_profile.jpg&quot; property=&quot;og:article:thumbnailUrl&quot;/&gt;
+&lt;meta content=&quot;네이버 영화&quot; property=&quot;og:article:author&quot;/&gt;
+&lt;meta content=&quot;https://movie.naver.com/&quot; property=&quot;og:article:author:url&quot;/&gt;
+&lt;link href=&quot;https://ssl.pstatic.net/static/m/movie/icons/naver_movie_favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot;/&gt;
+&lt;title&gt;랭킹 : 네이버 영화&lt;/title&gt;
+&lt;link href=&quot;/common/css/movie_tablet.css?20210419123311&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+&lt;link href=&quot;/common/css/common.css?20210419123311&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+&lt;link href=&quot;/common/css/layout.css?20210419123311&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+&lt;link href=&quot;/common/css/old_default.css?20210419123311&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+&lt;link href=&quot;/common/css/old_layout.css?20210419123311&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+&lt;link href=&quot;/common/css/old_common.css?20210419123311&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+&lt;link href=&quot;/common/css/old_super_db.css?20210419123311&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+&lt;script src=&quot;/common/js/default-min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;fix&quot; id=&quot;wrap&quot;&gt;
+&lt;!-- GNB --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function delayed_submit(object) {
+	if (navigator.userAgent.indexOf(&#39;MSIE&#39;) == -1) {
+		var b = c = new Date();
+      	while ((b.getTime() - c.getTime()) &lt; 100) {
+			b = new Date();
+      	}
+		//window.setTimeout(function() {object.submit(); console.log(&#39;s&#39;);}, 300);
+	} 
+}
+var gnb_service = &#39;movie&#39;;
+var gnb_logout = &#39;http://movie.naver.com/movie/sdb/rank/rmovie.nhn%3Fsel%3Dcur%26date%3D20210503&#39;;
+var gnb_template = &quot;gnb_quirks_euckr&quot;; /* https://ssl.pstatic.net/static.gn/templates/gnb_utf8.nhn */
+var gnb_brightness=3;
+var gnb_response = true;
+&lt;/script&gt;
+&lt;a name=&quot;gnb_top&quot;&gt;&lt;/a&gt;
+&lt;!-- skip navigation --&gt;
+&lt;div id=&quot;u_skip&quot;&gt;
+&lt;a href=&quot;#header&quot; onclick=&quot;document.getElementById(&#39;header&#39;).tabIndex=-1;document.getElementById(&#39;header&#39;).focus();return false;&quot;&gt;&lt;span&gt;메인 메뉴로 바로가기&lt;/span&gt;&lt;/a&gt;
+&lt;a href=&quot;#content&quot; id=&quot;gnb_goContent&quot; onclick=&quot;document.getElementById(&#39;content&#39;).tabIndex=-1;document.getElementById(&#39;content&#39;).focus();return false;&quot;&gt;&lt;span&gt;본문으로 바로가기&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;!-- //skip navigation --&gt;
+&lt;!-- GNB --&gt;
+&lt;div class=&quot;gnb_container&quot;&gt;
+&lt;div class=&quot;gnb_content&quot;&gt;
+&lt;div class=&quot;gnb_box&quot;&gt;
+&lt;div class=&quot;gnb_wrap&quot;&gt;
+&lt;div id=&quot;gnb&quot; onload=&quot;javascript:getGNB();&quot;&gt;
+&lt;script charset=&quot;utf-8&quot; src=&quot;https://ssl.pstatic.net/static.gn/templates/gnb_utf8.nhn&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 검색창 --&gt;
+&lt;form action=&quot;/movie/search/result.nhn&quot; id=&quot;jSearchForm&quot; method=&quot;get&quot; style=&quot;margin:0;display:none;&quot;&gt;
+&lt;input maxlength=&quot;100&quot; name=&quot;query&quot; title=&quot;영화검색&quot; type=&quot;text&quot;/&gt;
+&lt;input name=&quot;section&quot; type=&quot;hidden&quot; value=&quot;all&quot;/&gt;
+&lt;/form&gt;
+&lt;fieldset class=&quot;srch_area&quot; id=&quot;jSearchArea&quot;&gt;
+&lt;legend&gt;&lt;span class=&quot;blind&quot;&gt;영화검색 영역&lt;/span&gt;&lt;/legend&gt;
+&lt;div class=&quot;srch_field_on _view&quot;&gt;
+&lt;span class=&quot;ipt_srch&quot;&gt;
+&lt;label for=&quot;ipt_tx_srch&quot; id=&quot;search_placeholder&quot;&gt;영화검색&lt;/label&gt;
+&lt;input accesskey=&quot;s&quot; autocomplete=&quot;off&quot; class=&quot;ipt_tx_srch&quot; id=&quot;ipt_tx_srch&quot; maxlength=&quot;100&quot; name=&quot;query&quot; style=&quot;ime-mode:active;&quot; type=&quot;text&quot;/&gt;
+&lt;span class=&quot;align&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;auto_tx&quot;&gt;&lt;a href=&quot;#&quot; title=&quot;자동완성 펼치기&quot;&gt;&lt;img alt=&quot;자동완성 펼치기&quot; height=&quot;4&quot; src=&quot;https://ssl.pstatic.net/static/movie/2012/06/srch_arrow_down.gif&quot; title=&quot;자동완성 펼치기&quot; width=&quot;7&quot;/&gt;&lt;/a&gt;&lt;/span&gt;
+&lt;/span&gt;
+&lt;button class=&quot;btn_srch&quot; onclick=&quot;clickcr(this, &#39;GNB.search&#39;, &#39;&#39;, &#39;&#39;, event); delayed_submit(this);&quot; title=&quot;검색&quot; type=&quot;submit&quot;&gt;&lt;span class=&quot;blind&quot;&gt;검색&lt;/span&gt;&lt;/button&gt;
+&lt;!-- 자동 완성 영역임 #autocomplate_template--&gt;
+&lt;/div&gt;
+&lt;/fieldset&gt;
+&lt;!-- //검색창 --&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- //GNB --&gt;
+&lt;!-- nClicks --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;var nsc = &quot;movie.sdb&quot;;&lt;/script&gt;
+&lt;script src=&quot;/common/js/clickcr.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;!-- // nClicks --&gt;
+&lt;!-- //GNB --&gt;
+&lt;!-- LNB --&gt;
+&lt;!-- header --&gt;
+&lt;div id=&quot;header&quot;&gt;
+&lt;h1 class=&quot;svc_name&quot;&gt;
+&lt;a class=&quot;ci_logo&quot; href=&quot;http://www.naver.com/&quot; id=&quot;lnb_gonaver&quot; onclick=&quot;clickcr(this, &#39;LNB.naver&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;naver로 바로가기&quot;&gt;&lt;img alt=&quot;NAVER&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/static/movie/2013/07/logo_ci.png&quot; width=&quot;62&quot;/&gt;&lt;/a&gt;
+&lt;a class=&quot;svc_logo&quot; href=&quot;/&quot; onclick=&quot;clickcr(this, &#39;LNB.movie&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;영화서비스홈으로 바로가기&quot;&gt;&lt;img alt=&quot;영화&quot; height=&quot;19&quot; src=&quot;https://ssl.pstatic.net/static/movie/2012/06/logo_svc.png&quot; width=&quot;34&quot;/&gt;&lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class=&quot;scrollbar scrollbar-noscript&quot; id=&quot;scrollbar&quot;&gt;
+&lt;div class=&quot;scrollbar-box&quot;&gt;
+&lt;div class=&quot;scrollbar-content&quot;&gt;
+&lt;div class=&quot;in_scroll&quot;&gt;
+&lt;ul class=&quot;navi&quot;&gt;
+&lt;li&gt;
+&lt;a class=&quot;menu01&quot; href=&quot;/&quot; onclick=&quot;clickcr(this, &#39;LNB.home&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;영화홈&quot;&gt;&lt;strong&gt;영화홈&lt;/strong&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a class=&quot;menu02&quot; href=&quot;/movie/running/current.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.movies&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;상영작·예정작&quot;&gt;&lt;strong&gt;상영작·예정작&lt;/strong&gt;&lt;/a&gt;
+&lt;ul class=&quot;navi_sub&quot; style=&quot;display:none&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;sub2_1&quot; href=&quot;/movie/running/current.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.now&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;현재 상영영화&quot;&gt;&lt;em&gt;현재 상영영화&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;sub2_2&quot; href=&quot;/movie/running/premovie.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.soon&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;개봉 예정영화&quot;&gt;&lt;em&gt;개봉 예정영화&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;sub2_4&quot; href=&quot;/movie/running/movieclip.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.tailer&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;예고편&quot;&gt;&lt;em&gt;예고편&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a class=&quot;menu03_on&quot; href=&quot;/movie/sdb/rank/rmovie.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.db&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;영화랭킹&quot;&gt;&lt;strong&gt;영화랭킹&lt;/strong&gt;&lt;/a&gt;
+&lt;ul class=&quot;navi_sub&quot; style=&quot;display:block&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;sub3_1_on&quot; href=&quot;/movie/sdb/rank/rmovie.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.rank&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;랭킹&quot;&gt;&lt;em&gt;랭킹&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;sub3_2&quot; href=&quot;/movie/sdb/browsing/bmovie_nation.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.dir&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;디렉토리&quot;&gt;&lt;em&gt;디렉토리&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a class=&quot;menu05&quot; href=&quot;/movie/bi/mi/reserve.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.ticket&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;예매&quot;&gt;&lt;strong&gt;예매&lt;/strong&gt;&lt;/a&gt;
+&lt;ul class=&quot;navi_sub&quot; style=&quot;display:none&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;sub5_1&quot; href=&quot;http://ticket.movie.naver.com/Ticket/Reserve.aspx&quot; onclick=&quot;clickcr(this, &#39;LNB.buy&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;예매하기&quot;&gt;&lt;em&gt;예매하기&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;sub5_2&quot; href=&quot;http://ticket.movie.naver.com/Order/OrderList.aspx&quot; onclick=&quot;clickcr(this, &#39;LNB.check&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;예매확인·취소&quot;&gt;&lt;em&gt;예매확인·취소&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;sub5_3&quot; href=&quot;http://ticket.movie.naver.com/Coupon/Ticket.aspx&quot; onclick=&quot;clickcr(this, &#39;LNB.disticket&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;예매권·할인권 등록&quot;&gt;&lt;em&gt;예매권·할인권 등록&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;sub5_4&quot; href=&quot;http://ticket.movie.naver.com/Discount/DiscountCard.aspx&quot; onclick=&quot;clickcr(this, &#39;LNB.discard&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;할인카드안내·등록&quot;&gt;&lt;em&gt;할인카드안내·등록&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;sub5_5&quot; href=&quot;http://help.naver.com/ops/step2/faq.nhn?parentId=77&amp;amp;depth=2&quot; onclick=&quot;clickcr(this, &#39;LNB.service&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot; title=&quot;이용안내&quot;&gt;&lt;em&gt;이용안내&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a class=&quot;menu07&quot; href=&quot;/movie/point/af/list.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.comm&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;평점&quot;&gt;&lt;strong&gt;평점&lt;/strong&gt;&lt;/a&gt;
+&lt;ul class=&quot;navi_sub&quot; style=&quot;display:none&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;sub7_1&quot; href=&quot;/movie/point/af/list.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.rating&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;네티즌 평점&quot;&gt;&lt;em&gt;네티즌 평점&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;sub7_2&quot; href=&quot;/movie/board/review/list.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.review&#39;, &#39;&#39;, &#39;&#39;, event);&quot; title=&quot;네티즌 리뷰&quot;&gt;&lt;em&gt;네티즌 리뷰&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a class=&quot;menu08&quot; href=&quot;http://serieson.naver.com/movie/home.nhn&quot; onclick=&quot;clickcr(this, &#39;LNB.download&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot; title=&quot;다운로드&quot;&gt;&lt;strong&gt;다운로드&lt;/strong&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;nav_indi&quot;&gt;
+&lt;a href=&quot;http://tv.naver.com/indiecinema&quot; target=&quot;_blank&quot; title=&quot;인디극장 UP&quot;&gt;&lt;strong&gt;인디극장 UP&lt;/strong&gt;&lt;/a&gt;&lt;!-- N=a:LNB.indie --&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- div class=&quot;view_mode&quot;&gt;
+							&lt;a href=&quot;#&quot; title=&quot;&quot; class=&quot;normal_on&quot;&gt;&lt;em&gt;1단 보기&lt;/em&gt;&lt;/a&gt;
+							&lt;a href=&quot;#&quot; title=&quot;&quot; class=&quot;wide_off&quot;&gt;&lt;em&gt;2단 보기&lt;/em&gt;&lt;/a&gt;
+						&lt;/div --&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;scrollbar-v&quot;&gt;
+&lt;div class=&quot;scrollbar-button-up&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;scrollbar-track&quot;&gt;
+&lt;div class=&quot;scrollbar-thumb&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;scrollbar-button-down&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- //header --&gt;
+&lt;!-- //LNB --&gt;
+&lt;div id=&quot;container&quot;&gt;
+&lt;!-- content --&gt;
+&lt;div id=&quot;content&quot;&gt;
+&lt;div class=&quot;article&quot;&gt;
+&lt;div class=&quot;old_layout old_super_db&quot;&gt;
+&lt;h3 class=&quot;h_db_rank&quot;&gt;&lt;strong class=&quot;blind&quot;&gt;랭킹&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul class=&quot;tab_db_rank&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;db_tab01_on&quot; href=&quot;/movie/sdb/rank/rmovie.nhn&quot; title=&quot;영화&quot;&gt;&lt;em&gt;영화&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;db_tab02&quot; href=&quot;/movie/sdb/rank/rpeople.nhn&quot; title=&quot;영화인&quot;&gt;&lt;em&gt;영화인&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;!-- li&gt;&lt;a href=&quot;/movie/sdb/rank/rfestival.nhn&quot; title=&quot;영화제&quot; class=&quot;db_tab03&quot;&gt;&lt;em&gt;영화제&lt;/em&gt;&lt;/a&gt;&lt;/li --&gt;
+&lt;!-- li&gt;&lt;a href=&quot;/movie/sdb/rank/rcompany.nhn&quot; title=&quot;영화사&quot; class=&quot;db_tab04&quot;&gt;&lt;em&gt;영화사&lt;/em&gt;&lt;/a&gt;&lt;/li --&gt;
+&lt;!-- li&gt;&lt;a href=&quot;/movie/sdb/rank/rnews.nhn&quot; title=&quot;기자영화&quot; class=&quot;db_tab05&quot;&gt;&lt;em&gt;기자&lt;/em&gt;&lt;/a&gt;&lt;/li --&gt;
+&lt;!-- li&gt;&lt;a href=&quot;/movie/sdb/rank/rreview.nhn&quot; title=&quot;네티즌리뷰&quot; class=&quot;db_tab06&quot;&gt;&lt;em&gt;네티즌리뷰&lt;/em&gt;&lt;/a&gt;&lt;/li --&gt;
+&lt;/ul&gt;
+&lt;!-- Content Body --&gt;
+&lt;div class=&quot;type_1&quot; id=&quot;cbody&quot;&gt;
+&lt;div id=&quot;old_content&quot;&gt;
+&lt;h4 class=&quot;tlt&quot;&gt;&lt;img alt=&quot;영화랭킹&quot; height=&quot;15&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/tlt_ranking_movie.gif&quot; width=&quot;65&quot;/&gt;
+&lt;/h4&gt;
+&lt;!-- 탭메뉴 --&gt;
+&lt;div class=&quot;tab_type_6&quot;&gt;
+&lt;ul&gt;&lt;!--활성화된 탭의 이미지는 _on.gif 입니다--&gt;
+&lt;li&gt;&lt;a href=&quot;rmovie.nhn?sel=cnt&amp;amp;date=20210503&quot;&gt;&lt;img alt=&quot;조회순&quot; height=&quot;28&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/tab_movie_1_off.gif&quot; width=&quot;112&quot;/&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;rmovie.nhn?sel=cur&amp;amp;date=20210503&quot;&gt;&lt;img alt=&quot;평점순(현재상영영화)&quot; height=&quot;28&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/tab_movie_2_on.gif&quot; width=&quot;126&quot;/&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;rmovie.nhn?sel=pnt&amp;amp;date=20210503&quot;&gt;&lt;img alt=&quot;평점순(모든영화)&quot; height=&quot;28&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/tab_movie_3_off.gif&quot; width=&quot;126&quot;/&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;r_date&quot;&gt;2021.05.03 &lt;a href=&quot;rmovie.nhn?sel=cur&amp;amp;tg=0&amp;amp;date=20210502&quot;&gt;&lt;img alt=&quot;prev&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/btn_prev.gif&quot; style=&quot;margin-right:1px;&quot; width=&quot;13&quot;/&gt;&lt;/a&gt;&lt;a href=&quot;rmovie.nhn?sel=cur&amp;amp;tg=0&amp;amp;date=20210504&quot;&gt;&lt;img alt=&quot;next&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/btn_next.gif&quot; width=&quot;13&quot;/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- //탭메뉴 --&gt;
+&lt;!-- 랭킹 리스트 --&gt;
+&lt;table cellspacing=&quot;0&quot; class=&quot;list_ranking&quot;&gt;
+&lt;caption class=&quot;blind&quot;&gt;랭킹 테이블&lt;/caption&gt;
+&lt;col width=&quot;6%&quot;/&gt;&lt;col width=&quot;*&quot;/&gt;&lt;col width=&quot;15%&quot;/&gt;&lt;col width=&quot;3%&quot;/&gt;&lt;col width=&quot;12%&quot;/&gt;&lt;col width=&quot;2%&quot;/&gt;&lt;col width=&quot;5%&quot;/&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th scope=&quot;col&quot;&gt;순위&lt;/th&gt;
+&lt;th scope=&quot;col&quot;&gt;영화명&lt;/th&gt;
+&lt;th colspan=&quot;3&quot; scope=&quot;col&quot;&gt;평점&lt;/th&gt;
+&lt;th colspan=&quot;2&quot; scope=&quot;col&quot;&gt;변동폭&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td class=&quot;blank01&quot; colspan=&quot;8&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;!-- 예제
+				&lt;tr&gt;
+					&lt;td class=&quot;ac&quot;&gt;&lt;img src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g50.gif&quot; alt=&quot;50&quot; width=&quot;14&quot; height=&quot;13&quot;&gt;&lt;/td&gt;
+					&lt;td class=&quot;title&quot;&gt;&lt;a href=&quot;#&quot;&gt;트랜스포머&lt;/a&gt;&lt;/td&gt;
+					&lt;td class=&quot;ac&quot;&gt;&lt;img src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; alt=&quot;down&quot; width=&quot;7&quot; height=&quot;10&quot;&gt;&lt;/td&gt;
+					&lt;td class=&quot;range ac&quot;&gt;7&lt;/td&gt;
+				&lt;/tr&gt;
+				--&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;01&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_r01.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=17170&quot; title=&quot;레옹&quot;&gt;레옹&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:93.69999885559082%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.37&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=17170&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;02&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_r02.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=154573&quot; title=&quot;다시 태어나도 우리&quot;&gt;다시 태어나도 우리&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:93.50000381469727%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.35&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=154573&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;03&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_r03.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=35187&quot; title=&quot;피아니스트&quot;&gt;피아니스트&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:93.29999923706055%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.33&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=35187&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;04&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_r04.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=185275&quot; title=&quot;미안해요, 리키&quot;&gt;미안해요, 리키&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:93.19999694824219%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.32&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=185275&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;05&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_r05.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=194334&quot; title=&quot;부활: 그 증거&quot;&gt;부활: 그 증거&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:93.10000419616699%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.31&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=194334&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;06&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_r06.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=189075&quot; title=&quot;자산어보&quot;&gt;자산어보&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:93.10000419616699%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.31&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=189075&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;07&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_r07.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=184517&quot; title=&quot;소울&quot;&gt;소울&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:93.00000190734863%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.30&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=184517&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;08&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_r08.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=196051&quot; title=&quot;극장판 귀멸의 칼날: 무한열차편&quot;&gt;극장판 귀멸의 칼날: 무한열차편&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:93.00000190734863%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.30&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=196051&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;09&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_r09.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=76309&quot; title=&quot;플립&quot;&gt;플립&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:92.70000457763672%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.27&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=76309&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;010&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_r10.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=146504&quot; title=&quot;우리들&quot;&gt;우리들&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:92.60000228881836%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.26&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=146504&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;line01&quot; colspan=&quot;8&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;11&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g11.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=192066&quot; title=&quot;소년시절의 너&quot;&gt;소년시절의 너&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:92.60000228881836%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.26&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=192066&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;12&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g12.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=10020&quot; title=&quot;바람과 함께 사라지다&quot;&gt;바람과 함께 사라지다&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:92.39999771118164%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.24&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=10020&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;up&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;13&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g13.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=19335&quot; title=&quot;해피 투게더&quot;&gt;해피 투게더&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:91.99999809265137%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.20&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=19335&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;new_icon&quot; colspan=&quot;2&quot;&gt;&lt;img alt=&quot;new&quot; height=&quot;5&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_new_1.gif&quot; width=&quot;20&quot;/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;14&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g14.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=152160&quot; title=&quot;킹 오브 프리즘&quot;&gt;킹 오브 프리즘&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:91.80000305175781%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.18&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=152160&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;na&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_na_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;15&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g15.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=184518&quot; title=&quot;라야와 마지막 드래곤&quot;&gt;라야와 마지막 드래곤&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:91.49999618530273%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.15&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=184518&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;na&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_na_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;16&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g16.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=164290&quot; title=&quot;킹 오브 프리즘 프라이드 더 히어로&quot;&gt;킹 오브 프리즘 프라이드 더 히어로&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:91.19999885559082%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.12&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=164290&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;na&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_na_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;17&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g17.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=185282&quot; title=&quot;타오르는 여인의 초상&quot;&gt;타오르는 여인의 초상&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:90.60000419616699%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.06&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=185282&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;new_icon&quot; colspan=&quot;2&quot;&gt;&lt;img alt=&quot;new&quot; height=&quot;5&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_new_1.gif&quot; width=&quot;20&quot;/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;18&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g18.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=16601&quot; title=&quot;바그다드 카페 : 디렉터스컷&quot;&gt;바그다드 카페 : 디렉터스컷&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:90.50000190734863%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.05&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=16601&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;19&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g19.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=88669&quot; title=&quot;그 시절, 우리가 좋아했던 소녀&quot;&gt;그 시절, 우리가 좋아했던 소녀&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:90.20000457763672%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.02&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=88669&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;20&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g20.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=130989&quot; title=&quot;룸&quot;&gt;룸&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:90.10000228881836%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;9.01&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=130989&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;line01&quot; colspan=&quot;8&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;21&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g21.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=203097&quot; title=&quot;명탐정 코난: 비색의 탄환&quot;&gt;명탐정 코난: 비색의 탄환&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:89.70000267028809%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.97&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=203097&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;22&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g22.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=158180&quot; title=&quot;그것만이 내 세상&quot;&gt;그것만이 내 세상&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:89.30000305175781%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.93&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=158180&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;23&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g23.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=36843&quot; title=&quot;러브 액츄얼리&quot;&gt;러브 액츄얼리&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:89.30000305175781%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.93&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=36843&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;24&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g24.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=17059&quot; title=&quot;중경삼림&quot;&gt;중경삼림&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:89.30000305175781%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.93&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=17059&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;25&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g25.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=202901&quot; title=&quot;더 박스&quot;&gt;더 박스&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:89.20000076293945%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.92&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=202901&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;26&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g26.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=120125&quot; title=&quot;장수상회&quot;&gt;장수상회&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:88.90000343322754%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.89&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=120125&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;27&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g27.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=38546&quot; title=&quot;아무도 모른다&quot;&gt;아무도 모른다&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:88.69999885559082%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.87&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=38546&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;28&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g28.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=172113&quot; title=&quot;이별의 아침에 약속의 꽃을 장식하자&quot;&gt;이별의 아침에 약속의 꽃을 장식하자&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:88.69999885559082%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.87&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=172113&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;29&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g29.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=154449&quot; title=&quot;리틀 포레스트&quot;&gt;리틀 포레스트&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:88.19999694824219%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.82&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=154449&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;30&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g30.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=28876&quot; title=&quot;화양연화&quot;&gt;화양연화&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:87.79999732971191%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.78&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=28876&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;line01&quot; colspan=&quot;8&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;31&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g31.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=146508&quot; title=&quot;죽여주는 여자&quot;&gt;죽여주는 여자&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:87.70000457763672%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.77&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=146508&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;32&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g32.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=189624&quot; title=&quot;찬실이는 복도 많지&quot;&gt;찬실이는 복도 많지&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:87.5%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.75&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=189624&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;33&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g33.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=132610&quot; title=&quot;바닷마을 다이어리&quot;&gt;바닷마을 다이어리&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:87.29999542236328%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.73&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=132610&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;34&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g34.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=84856&quot; title=&quot;아티스트&quot;&gt;아티스트&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:87.20000267028809%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.72&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=84856&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;35&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g35.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=185450&quot; title=&quot;우리집&quot;&gt;우리집&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:87.10000038146973%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.71&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=185450&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;36&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g36.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=87663&quot; title=&quot;진짜로 일어날지도 몰라 기적&quot;&gt;진짜로 일어날지도 몰라 기적&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:86.99999809265137%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.70&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=87663&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;37&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g37.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=197520&quot; title=&quot;노바디 &quot;&gt;노바디 &lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:86.5999984741211%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.66&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=197520&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;38&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g38.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=164719&quot; title=&quot;플로리다 프로젝트&quot;&gt;플로리다 프로젝트&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:86.40000343322754%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.64&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=164719&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;39&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g39.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=146548&quot; title=&quot;태풍이 지나가고&quot;&gt;태풍이 지나가고&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:86.00000381469727%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.60&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=146548&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;40&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g40.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=82283&quot; title=&quot;실버라이닝 플레이북&quot;&gt;실버라이닝 플레이북&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:85.69999694824219%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.57&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=82283&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;line01&quot; colspan=&quot;8&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;41&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g41.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=191914&quot; title=&quot;더 스파이&quot;&gt;더 스파이&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:85.29999732971191%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.53&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=191914&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;42&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g42.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=101950&quot; title=&quot;그녀&quot;&gt;그녀&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:85.20000457763672%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.52&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=101950&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;43&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g43.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=120759&quot; title=&quot;스틸 앨리스&quot;&gt;스틸 앨리스&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:84.79999542236328%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.48&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=120759&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;44&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g44.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=10546&quot; title=&quot;아비정전&quot;&gt;아비정전&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:84.70000267028809%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.47&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=10546&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;new_icon&quot; colspan=&quot;2&quot;&gt;&lt;img alt=&quot;new&quot; height=&quot;5&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_new_1.gif&quot; width=&quot;20&quot;/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;45&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g45.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=196215&quot; title=&quot;노매드랜드&quot;&gt;노매드랜드&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:84.30000305175781%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.43&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=196215&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;46&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g46.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=144975&quot; title=&quot;패터슨&quot;&gt;패터슨&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:82.89999961853027%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.29&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=144975&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;47&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g47.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=191637&quot; title=&quot;고질라 VS. 콩&quot;&gt;고질라 VS. 콩&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:82.39999771118164%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.24&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=191637&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;48&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g48.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=80219&quot; title=&quot;팅커 테일러 솔저 스파이&quot;&gt;팅커 테일러 솔저 스파이&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:82.10000038146973%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.21&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=80219&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;49&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g49.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=90537&quot; title=&quot;문라이즈 킹덤&quot;&gt;문라이즈 킹덤&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:81.09999656677246%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.11&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=90537&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;down&quot; class=&quot;arrow&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_down_1.gif&quot; width=&quot;7&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;img alt=&quot;50&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/bullet_r_g50.gif&quot; width=&quot;14&quot;/&gt;&lt;/td&gt;
+&lt;td class=&quot;title&quot;&gt;
+&lt;div class=&quot;tit5&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=49501&quot; title=&quot;일대종사&quot;&gt;일대종사&lt;/a&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;!-- 평점순일 때 평점 추가하기  --&gt;
+&lt;td&gt;&lt;div class=&quot;point_type_2&quot;&gt;&lt;div class=&quot;mask&quot; style=&quot;width:80.0%&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;14&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_2_bg_on.gif&quot; width=&quot;79&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+&lt;td class=&quot;point&quot;&gt;8.00&lt;/td&gt;
+&lt;td class=&quot;ac&quot;&gt;&lt;a class=&quot;txt_link&quot; href=&quot;/movie/point/af/list.nhn?st=mcode&amp;amp;sword=49501&quot;&gt;평점주기&lt;/a&gt;&lt;/td&gt;
+&lt;!-----------------------------------------&gt;
+&lt;td class=&quot;new_icon&quot; colspan=&quot;2&quot;&gt;&lt;img alt=&quot;new&quot; height=&quot;5&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_new_1.gif&quot; width=&quot;20&quot;/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;blank01&quot; colspan=&quot;8&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- 페이지 네비게이션 시작 --&gt;
+&lt;!-- 페이지 네비게이션 끝 --&gt;
+&lt;!-- //랭킹 리스트 --&gt;
+&lt;span class=&quot;txt_mark&quot;&gt;※&lt;/span&gt; &lt;span class=&quot;txt_term&quot;&gt;집계기준 : &lt;strong&gt;2021.05.03&lt;/strong&gt;일 까지 네이버영화에 수록 된 영화의 관람 후 평점&lt;/span&gt;
+&lt;!-- 네이버 영화평점랭킹 선정방법 --&gt;
+&lt;div class=&quot;box_choice_way&quot;&gt;
+&lt;img alt=&quot;네이버 영화평점랭킹 선정방법&quot; height=&quot;13&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/txt_movie_ranking_01.gif&quot; width=&quot;154&quot;/&gt;
+&lt;dl class=&quot;choice_way&quot;&gt;
+&lt;dt&gt;&lt;img alt=&quot;집계기준&quot; height=&quot;11&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/txt_movie_ranking_01_1.gif&quot; width=&quot;39&quot;/&gt;&lt;/dt&gt;&lt;dd&gt;전국기준 현재 상영되고 있는 영화 중 &lt;em&gt;평점 응답자가 &lt;strong&gt;300명&lt;/strong&gt; 이상&lt;/em&gt;인 경우&lt;/dd&gt;
+&lt;dt&gt;&lt;img alt=&quot;집계기간&quot; height=&quot;11&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/txt_movie_ranking_01_2.gif&quot; width=&quot;40&quot;/&gt;&lt;/dt&gt;&lt;dd&gt;전일까지의 누적 평점&lt;/dd&gt;
+&lt;dt&gt;&lt;img alt=&quot;표본오차&quot; height=&quot;11&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/txt_movie_ranking_01_3.gif&quot; width=&quot;40&quot;/&gt;&lt;/dt&gt;&lt;dd&gt;&lt;em&gt;95% 신뢰수준에서 ±5.65&lt;/em&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;choice_way_data&quot;&gt;
+&lt;col width=&quot;48&quot;/&gt;&lt;col width=&quot;73&quot;/&gt;&lt;col width=&quot;73&quot;/&gt;&lt;col width=&quot;73&quot;/&gt;&lt;col width=&quot;73&quot;/&gt;&lt;col width=&quot;73&quot;/&gt;&lt;col width=&quot;110&quot;/&gt;
+&lt;tr&gt;
+&lt;th class=&quot;bgwhite&quot; scope=&quot;row&quot;&gt;구분&lt;/th&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Range&lt;/td&gt;
+&lt;td&gt;Minimum&lt;/td&gt;
+&lt;td&gt;Maximum&lt;/td&gt;
+&lt;td&gt;Mean&lt;/td&gt;
+&lt;td&gt;Std.Deviation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th class=&quot;bgwhite&quot; scope=&quot;row&quot;&gt;평점&lt;/th&gt;
+&lt;td class=&quot;range ac&quot;&gt;26&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;4.39&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;4.75&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;9.14&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;7.59&lt;/td&gt;
+&lt;td class=&quot;range ac&quot;&gt;7.59&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;dl class=&quot;choice_way_qna&quot;&gt;
+&lt;dt&gt;&lt;img alt=&quot;왜 평점응답자를 300명 이상으로 정하나요?&quot; height=&quot;12&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/txt_movie_ranking_02.gif&quot; width=&quot;221&quot;/&gt;&lt;/dt&gt;
+&lt;dd&gt;일반적인 여론조사에서의 최소 응답자수가 300명이기 때문입니다.&lt;/dd&gt;
+&lt;dt&gt;&lt;img alt=&quot;표본오차 95% 신뢰수준에서 ±5.65가 무슨 뜻인가요?&quot; height=&quot;12&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/txt_movie_ranking_03.gif&quot; width=&quot;271&quot;/&gt;&lt;/dt&gt;
+&lt;dd&gt;동일한 실험을 100번 했을 경우 95번은 ±5.65% 범위 내에서 동일한 결과가 나온다는 말입니다.&lt;/dd&gt;
+&lt;dt&gt;&lt;img alt=&quot;Descriptive Statistics는 어떻게 보는건가요?&quot; height=&quot;12&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/txt_movie_ranking_04.gif&quot; width=&quot;234&quot;/&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ul&gt;
+&lt;li&gt;N=Case의 숫자&lt;/li&gt;
+&lt;li&gt;Range=응답자의 범위&lt;/li&gt;
+&lt;li&gt;Minimum=최소 응답값&lt;/li&gt;
+&lt;li&gt;Maximum=최대응답값&lt;/li&gt;
+&lt;li&gt;Mean=평균&lt;/li&gt;
+&lt;li&gt;Std.Deviation=표준편자&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;!-- //네이버 영화평점랭킹 선정방법 --&gt;
+&lt;!-- 탑버튼 --&gt;
+&lt;div class=&quot;go_top&quot;&gt;
+&lt;a href=&quot;#gnb_top&quot;&gt;&lt;img alt=&quot;TOP&quot; height=&quot;11&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/btn_top.gif&quot; width=&quot;30&quot;/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;!-- //탑버튼 --&gt;
+&lt;img alt=&quot;&quot; class=&quot;clear&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/blank.gif&quot;/&gt;
+&lt;!-- //Content Body --&gt;
+&lt;script src=&quot;/common/js/jindo2.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&quot;assistant&quot;&gt;
+&lt;!-- 우측 메뉴 --&gt;
+&lt;!-- 영화 인기검색어 --&gt;
+&lt;div class=&quot;box_type_1 mb_8&quot;&gt;
+&lt;h3&gt;&lt;img alt=&quot;영화 인기검색어&quot; height=&quot;11&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/tlt_r_best_movie.gif&quot; width=&quot;75&quot;/&gt;&lt;/h3&gt;
+&lt;ul class=&quot;r_ranking&quot;&gt;
+&lt;li class=&quot;ranking01&quot;&gt;
+&lt;a class=&quot;b&quot; href=&quot;/movie/bi/mi/basic.nhn?code=192620&quot; onclick=&quot;clickcr(this,&#39;pop.list&#39;,&#39;192620&#39;,&#39;1&#39;,event);&quot; title=&quot;비와 당신의 이야기&quot;&gt;&lt;span class=&quot;blind&quot;&gt;1위&lt;/span&gt;비와 당신의 이야기&lt;/a&gt;
+&lt;span class=&quot;rank&quot;&gt;
+&lt;img alt=&quot;순위 변동 없음&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_na_1.gif&quot; width=&quot;7&quot;/&gt;0&lt;/span&gt;
+&lt;/li&gt;&lt;li class=&quot;ranking02&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=191914&quot; onclick=&quot;clickcr(this,&#39;pop.list&#39;,&#39;191914&#39;,&#39;2&#39;,event);&quot; title=&quot;더 스파이&quot;&gt;&lt;span class=&quot;blind&quot;&gt;2위&lt;/span&gt;더 스파이&lt;/a&gt;
+&lt;span class=&quot;rank&quot;&gt;
+&lt;img alt=&quot;순위 변동 없음&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_na_1.gif&quot; width=&quot;7&quot;/&gt;0&lt;/span&gt;
+&lt;/li&gt;&lt;li class=&quot;ranking03&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=187310&quot; onclick=&quot;clickcr(this,&#39;pop.list&#39;,&#39;187310&#39;,&#39;3&#39;,event);&quot; title=&quot;미나리&quot;&gt;&lt;span class=&quot;blind&quot;&gt;3위&lt;/span&gt;미나리&lt;/a&gt;
+&lt;span class=&quot;rank&quot;&gt;
+&lt;img alt=&quot;순위 변동 없음&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_na_1.gif&quot; width=&quot;7&quot;/&gt;0&lt;/span&gt;
+&lt;/li&gt;&lt;li class=&quot;ranking04&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=196051&quot; onclick=&quot;clickcr(this,&#39;pop.list&#39;,&#39;196051&#39;,&#39;4&#39;,event);&quot; title=&quot;극장판 귀멸의 칼날: 무한열차편&quot;&gt;&lt;span class=&quot;blind&quot;&gt;4위&lt;/span&gt;극장판 귀멸의 칼날..&lt;/a&gt;
+&lt;span class=&quot;rank&quot;&gt;
+&lt;img alt=&quot;순위 변동 없음&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_na_1.gif&quot; width=&quot;7&quot;/&gt;0&lt;/span&gt;
+&lt;/li&gt;&lt;li class=&quot;ranking05&quot;&gt;
+&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=185293&quot; onclick=&quot;clickcr(this,&#39;pop.list&#39;,&#39;185293&#39;,&#39;5&#39;,event);&quot; title=&quot;내일의 기억&quot;&gt;&lt;span class=&quot;blind&quot;&gt;5위&lt;/span&gt;내일의 기억&lt;/a&gt;
+&lt;span class=&quot;rank&quot;&gt;
+&lt;img alt=&quot;순위 변동 없음&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_na_1.gif&quot; width=&quot;7&quot;/&gt;0&lt;/span&gt;
+&lt;/li&gt;&lt;/ul&gt;
+&lt;!--[D] 더보기 위치 이동 --&gt;
+&lt;a class=&quot;more&quot; href=&quot;/movie/sdb/rank/rmovie.nhn&quot; onclick=&quot;clickcr(this,&#39;pop.more&#39;,&#39;&#39;,&#39;&#39;,event);&quot;&gt;더보기&lt;/a&gt;
+&lt;p class=&quot;term&quot;&gt;2021.05.07&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- 영화인 인기검색어 --&gt;
+&lt;div class=&quot;box_type_1 mb_8&quot;&gt;
+&lt;h3&gt;&lt;img alt=&quot;영화인 인기검색어&quot; height=&quot;11&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/super_db/tlt_r_best_star.gif&quot; width=&quot;85&quot;/&gt;&lt;/h3&gt;
+&lt;ul class=&quot;r_ranking&quot;&gt;
+&lt;li class=&quot;ranking01&quot;&gt;
+&lt;a class=&quot;b&quot; href=&quot;/movie/bi/pi/basic.nhn?st=1&amp;amp;code=356135&quot; onclick=&quot;clickcr(this,&#39;peo.list&#39;,&#39;356135&#39;,&#39;1&#39;,event);&quot; title=&quot;전여빈&quot;&gt;&lt;span class=&quot;blind&quot;&gt;1위&lt;/span&gt;전여빈&lt;/a&gt;
+&lt;span class=&quot;rank&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_na_1.gif&quot; width=&quot;7&quot;/&gt;0&lt;/span&gt;
+&lt;/li&gt;&lt;li class=&quot;ranking02&quot;&gt;
+&lt;a href=&quot;/movie/bi/pi/basic.nhn?st=1&amp;amp;code=7240&quot; onclick=&quot;clickcr(this,&#39;peo.list&#39;,&#39;7240&#39;,&#39;2&#39;,event);&quot; title=&quot;윤여정&quot;&gt;&lt;span class=&quot;blind&quot;&gt;2위&lt;/span&gt;윤여정&lt;/a&gt;
+&lt;span class=&quot;rank&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_na_1.gif&quot; width=&quot;7&quot;/&gt;0&lt;/span&gt;
+&lt;/li&gt;&lt;li class=&quot;ranking03&quot;&gt;
+&lt;a href=&quot;/movie/bi/pi/basic.nhn?st=1&amp;amp;code=247761&quot; onclick=&quot;clickcr(this,&#39;peo.list&#39;,&#39;247761&#39;,&#39;3&#39;,event);&quot; title=&quot;클로이 자오&quot;&gt;&lt;span class=&quot;blind&quot;&gt;3위&lt;/span&gt;클로이 자오&lt;/a&gt;
+&lt;span class=&quot;rank&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;1&lt;/span&gt;
+&lt;/li&gt;&lt;li class=&quot;ranking04&quot;&gt;
+&lt;a href=&quot;/movie/bi/pi/basic.nhn?st=1&amp;amp;code=43284&quot; onclick=&quot;clickcr(this,&#39;peo.list&#39;,&#39;43284&#39;,&#39;4&#39;,event);&quot; title=&quot;마동석&quot;&gt;&lt;span class=&quot;blind&quot;&gt;4위&lt;/span&gt;마동석&lt;/a&gt;
+&lt;span class=&quot;rank&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;1&lt;/span&gt;
+&lt;/li&gt;&lt;li class=&quot;ranking05&quot;&gt;
+&lt;a href=&quot;/movie/bi/pi/basic.nhn?st=1&amp;amp;code=438&quot; onclick=&quot;clickcr(this,&#39;peo.list&#39;,&#39;438&#39;,&#39;5&#39;,event);&quot; title=&quot;프란시스 맥도맨드&quot;&gt;&lt;span class=&quot;blind&quot;&gt;5위&lt;/span&gt;프란시스 맥도맨드&lt;/a&gt;
+&lt;span class=&quot;rank&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/icon_up_1.gif&quot; width=&quot;7&quot;/&gt;1&lt;/span&gt;
+&lt;/li&gt;&lt;/ul&gt;
+&lt;a class=&quot;more&quot; href=&quot;/movie/sdb/rank/rpeople.nhn&quot; onclick=&quot;clickcr(this,&#39;peo.more&#39;,&#39;&#39;,&#39;&#39;,event);&quot;&gt;더보기&lt;/a&gt;
+&lt;p class=&quot;term&quot;&gt;2021.05.07&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--티켓예매순--&gt;
+&lt;div class=&quot;box_type_1 mb_8&quot;&gt;
+&lt;h3&gt;&lt;img alt=&quot;티켓예매순&quot; height=&quot;11&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/running/tlt_r_reservation.gif&quot; width=&quot;51&quot;/&gt;&lt;/h3&gt;
+&lt;div id=&quot;reserveRanking0&quot; style=&quot;display:block&quot;&gt;
+&lt;ul class=&quot;r_ranking&quot;&gt;
+&lt;li class=&quot;ranking01&quot;&gt;&lt;a class=&quot;b&quot; href=&quot;/movie/bi/mi/basic.nhn?code=107992&quot; onclick=&quot;clickcr(this,&#39;tck.list&#39;,&#39;107992&#39;,&#39;1&#39;,event);&quot; title=&quot;크루즈 패밀리: 뉴 에이지&quot;&gt;&lt;span class=&quot;blind&quot;&gt;1위&lt;/span&gt;크루즈 패밀리: 뉴 ..&lt;/a&gt;&lt;span class=&quot;ratio check&quot;&gt;29.58%&lt;/span&gt;&lt;/li&gt;
+&lt;li class=&quot;ranking02&quot;&gt;&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=203488&quot; onclick=&quot;clickcr(this,&#39;tck.list&#39;,&#39;203488&#39;,&#39;2&#39;,event);&quot; title=&quot;극장판 콩순이: 장난감나라 대모험&quot;&gt;&lt;span class=&quot;blind&quot;&gt;2위&lt;/span&gt;극장판 콩순이: 장..&lt;/a&gt; &lt;span class=&quot;ratio&quot;&gt;9.28%&lt;/span&gt;&lt;/li&gt;
+&lt;li class=&quot;ranking03&quot;&gt;&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=191914&quot; onclick=&quot;clickcr(this,&#39;tck.list&#39;,&#39;191914&#39;,&#39;3&#39;,event);&quot; title=&quot;더 스파이&quot;&gt;&lt;span class=&quot;blind&quot;&gt;3위&lt;/span&gt;더 스파이&lt;/a&gt; &lt;span class=&quot;ratio&quot;&gt;8.71%&lt;/span&gt;&lt;/li&gt;
+&lt;li class=&quot;ranking04&quot;&gt;&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=192620&quot; onclick=&quot;clickcr(this,&#39;tck.list&#39;,&#39;192620&#39;,&#39;4&#39;,event);&quot; title=&quot;비와 당신의 이야기&quot;&gt;&lt;span class=&quot;blind&quot;&gt;4위&lt;/span&gt;비와 당신의 이야기&lt;/a&gt; &lt;span class=&quot;ratio&quot;&gt;7.22%&lt;/span&gt;&lt;/li&gt;
+&lt;li class=&quot;ranking05&quot;&gt;&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=187310&quot; onclick=&quot;clickcr(this,&#39;tck.list&#39;,&#39;187310&#39;,&#39;5&#39;,event);&quot; title=&quot;미나리&quot;&gt;&lt;span class=&quot;blind&quot;&gt;5위&lt;/span&gt;미나리&lt;/a&gt; &lt;span class=&quot;ratio&quot;&gt;6.3%&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class=&quot;more&quot; href=&quot;/movie/sdb/rank/rreserve.nhn&quot; id=&quot;ticketRankLink&quot; onclick=&quot;clickcr(this,&#39;tck.more&#39;,&#39;&#39;,&#39;&#39;,event);&quot;&gt;더보기&lt;/a&gt;
+&lt;div class=&quot;term_1&quot;&gt;&lt;img alt=&quot;출처:YES24&quot; height=&quot;12&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/txt_source_yes24_02.gif&quot; width=&quot;54&quot;/&gt;&lt;div class=&quot;date&quot;&gt;2021.05.08&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!--//티켓예매순--&gt;
+&lt;!--박스오피스--&gt;
+&lt;div class=&quot;box_type_1 mb_8&quot;&gt;
+&lt;h3&gt;&lt;img alt=&quot;박스오피스&quot; height=&quot;11&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/running/tlt_r_boxoffice.gif&quot; width=&quot;51&quot;/&gt;&lt;/h3&gt;
+&lt;ul class=&quot;r_ranking box&quot;&gt;
+&lt;li class=&quot;ranking01&quot;&gt;&lt;a class=&quot;b&quot; href=&quot;/movie/bi/mi/basic.nhn?code=192620&quot; onclick=&quot;clickcr(this,&#39;box.list&#39;,&#39;192620&#39;,&#39;1&#39;,event);&quot; title=&quot;비와 당신의 이야기&quot;&gt;&lt;span class=&quot;blind&quot;&gt;1위&lt;/span&gt;비와 당신의 이야기&lt;/a&gt; &lt;span class=&quot;ratio check&quot;&gt;&lt;em&gt;122238&lt;/em&gt; 명&lt;/span&gt;&lt;/li&gt;
+&lt;li class=&quot;ranking02&quot;&gt;&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=191914&quot; onclick=&quot;clickcr(this,&#39;box.list&#39;,&#39;191914&#39;,&#39;2&#39;,event);&quot; title=&quot;더 스파이&quot;&gt;&lt;span class=&quot;blind&quot;&gt;2위&lt;/span&gt;더 스파이&lt;/a&gt; &lt;span class=&quot;ratio&quot;&gt;&lt;em&gt;88503&lt;/em&gt; 명&lt;/span&gt;&lt;/li&gt;
+&lt;li class=&quot;ranking03&quot;&gt;&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=185293&quot; onclick=&quot;clickcr(this,&#39;box.list&#39;,&#39;185293&#39;,&#39;3&#39;,event);&quot; title=&quot;내일의 기억&quot;&gt;&lt;span class=&quot;blind&quot;&gt;3위&lt;/span&gt;내일의 기억&lt;/a&gt; &lt;span class=&quot;ratio&quot;&gt;&lt;em&gt;55007&lt;/em&gt; 명&lt;/span&gt;&lt;/li&gt;
+&lt;li class=&quot;ranking04&quot;&gt;&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=187310&quot; onclick=&quot;clickcr(this,&#39;box.list&#39;,&#39;187310&#39;,&#39;4&#39;,event);&quot; title=&quot;미나리&quot;&gt;&lt;span class=&quot;blind&quot;&gt;4위&lt;/span&gt;미나리&lt;/a&gt; &lt;span class=&quot;ratio&quot;&gt;&lt;em&gt;52738&lt;/em&gt; 명&lt;/span&gt;&lt;/li&gt;
+&lt;li class=&quot;ranking05&quot;&gt;&lt;a href=&quot;/movie/bi/mi/basic.nhn?code=196051&quot; onclick=&quot;clickcr(this,&#39;box.list&#39;,&#39;196051&#39;,&#39;5&#39;,event);&quot; title=&quot;극장판 귀멸의 칼날: 무한열차편&quot;&gt;&lt;span class=&quot;blind&quot;&gt;5위&lt;/span&gt;극장판 귀멸의 칼날: 무한열차편&lt;/a&gt; &lt;span class=&quot;ratio&quot;&gt;&lt;em&gt;43934&lt;/em&gt; 명&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class=&quot;more&quot; href=&quot;/movie/sdb/rank/rboxoffice.nhn&quot; onclick=&quot;clickcr(this,&#39;box.more&#39;,&#39;&#39;,&#39;&#39;,event);&quot;&gt;더보기&lt;/a&gt;
+&lt;div class=&quot;term_1&quot;&gt;&lt;span class=&quot;cnt&quot;&gt;주말관객 기준&lt;/span&gt;&lt;div class=&quot;date&quot;&gt;20210430-20210502&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!--//박스오피스--&gt;
+&lt;/div&gt;
+&lt;img alt=&quot;&quot; class=&quot;clear&quot; src=&quot;https://ssl.pstatic.net/imgmovie/2007/img/common/blank.gif&quot;/&gt;
+&lt;/div&gt;
+&lt;!-- //Content Body --&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- //content --&gt;
+&lt;/div&gt;
+&lt;!-- //container --&gt;
+&lt;!-- Footer --&gt;
+&lt;script src=&quot;/common/js/jindo/component/1.0.2/jindo.Component.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/common/js/jindo/component/1.0.2/jindo.UIComponent.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;!-- footer --&gt;
+&lt;div id=&quot;footer&quot;&gt;
+&lt;div class=&quot;in_footer&quot;&gt;
+&lt;div class=&quot;foot_con&quot;&gt;
+&lt;ul&gt;
+&lt;li class=&quot;first&quot;&gt;&lt;a href=&quot;http://www.naver.com/rules/service.html&quot; onclick=&quot;clickcr(this, &#39;fot.agreement&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;이용약관&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.naver.com/rules/privacy.html&quot; onclick=&quot;clickcr(this, &#39;fot.privacy&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;개인정보처리방침&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.naver.com/rules/disclaimer.html&quot; onclick=&quot;clickcr(this, &#39;fot.disclaimer&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;책임의 한계와 법적고지&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://help.naver.com/support/service/main.nhn?serviceNo=800&quot; onclick=&quot;clickcr(this, &#39;fot.help&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;영화 고객센터&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;info&quot;&gt;본 콘텐츠의 저작권은 저작권자 또는 제공처에 있으며, 이를 무단 이용하는 경우 저작권법 등에 따라 법적 책임을 질 수 있습니다.&lt;/p&gt;
+&lt;p class=&quot;info&quot;&gt;
+					사업자등록번호 : 220-81-62517&lt;span&gt;통신판매업 신고번호&lt;/span&gt; : 경기성남 제 2006 - 692호&lt;span&gt;대표이사 : 한성숙&lt;/span&gt;&lt;span&gt;&lt;a href=&quot;http://www.ftc.go.kr/info/bizinfo/communicationList.jsp&quot; onclick=&quot;clickcr(this, &#39;fot.bizinfo&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;사업자등록정보 확인&lt;/a&gt;&lt;/span&gt;&lt;br/&gt;
+					주소 : 경기도 성남시 분당구 불정로 6 네이버 그린팩토리 &lt;span&gt;대표전화 : 1588-3820&lt;/span&gt;
+&lt;/p&gt;
+&lt;address&gt;
+&lt;a class=&quot;logo&quot; href=&quot;http://www.navercorp.com&quot; onclick=&quot;clickcr(this, &#39;fot.nhn&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;NAVER&quot; height=&quot;11&quot; src=&quot;https://ssl.pstatic.net/static/movie/2013/07/logo_naver.png&quot; width=&quot;63&quot;/&gt;&lt;/a&gt;
+&lt;em&gt;Copyright ©&lt;/em&gt;
+&lt;a href=&quot;http://www.navercorp.com&quot; onclick=&quot;clickcr(this, &#39;fot.corp&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;NAVER Corp.&lt;/a&gt;
+&lt;span&gt;All Rights Reserved.&lt;/span&gt;
+&lt;/address&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- //footer --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+if (false) {
+	var alertType = &quot;NONE&quot;;
+	var koreanTitle = &quot;&quot;;
+	var movieCode = &quot;0&quot;;
+	var userReserveCount = &quot;0&quot;;
+	var todayDatetime = &quot;20210508175300&quot;;
+	var endDatetimeAfterTwoDays = &quot;00000000000000&quot;;
+	
+	
+	if (movieCode &gt; 0) {
+		openWriteActualPointAlert (alertType, koreanTitle, movieCode, userReserveCount, todayDatetime, endDatetimeAfterTwoDays);
+	}
+}
+
+function openWriteActualPointAlert (alertType, koreanTitle, movieCode, count, today, endDate) {
+	if (alertType == &quot;ONE&quot;) {
+		setCookieLastUserReserveDate(today, endDate);
+		if (confirm(&quot;관람하신 &quot; + koreanTitle + &quot;에\n평점 등록 시 네이버페이 마일리지 500원 적립!\n지금 평점쓰기 메뉴로 이동하시겠습니까?&quot;)) {
+			top.location.href = &quot;http://movie.naver.com/movie/bi/mi/point.nhn?code=&quot; + movieCode;
+		}
+	} else if (alertType == &quot;MORE&quot;) {
+		setCookieLastUserReserveDate(today, endDate);
+		if (confirm(&quot;관람하신 작품에 평점을 등록해주세요\n작품당 네이버페이 마일리지 500원씩 적립!\n평점 미등록작 리스트를 확인하시겠습니까?&quot;)) {
+			top.location.href = &quot;http://ticket.movie.naver.com/Order/OverdueList.aspx&quot;;
+		}
+	}
+}
+
+function setCookieLastUserReserveDate(today, endDate) {
+	var cookieForNotOpenActualPointPopup = jindo.$Cookie();
+	
+	
+	cookieForNotOpenActualPointPopup.remove(&quot;lastUserReserveDatetime&quot;);
+	cookieForNotOpenActualPointPopup.remove(&quot;lastUserReserveCheckDatetime&quot;);
+	
+	cookieForNotOpenActualPointPopup.set(&quot;lastUserReserveDatetime&quot;, endDate, 9999, &quot;movie.naver.com&quot;);
+	cookieForNotOpenActualPointPopup.set(&quot;lastUserReserveCheckDatetime&quot;, today, 9999, &quot;movie.naver.com&quot;);
+}
+
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	
+		
+		
+		
+		
+			var alertMessage = &quot;지원되지 않는 브라우저로 서비스 이용에 제한이 있습니다.&quot;;
+		
+	
+
+	function getBrowser() {
+		var ua = navigator.userAgent;
+		if (/NAVER/.test(ua)) {
+			return &quot;NAVER_APP&quot;;
+		} else if (/IEMobile/.test(ua)) {
+			return &quot;INTERNET_EXPLORER_MOBILE&quot;;
+		} else if (/MSIE/.test(ua) || /Trident/.test(ua)) {
+			return &quot;INTERNET_EXPLORER&quot;;
+		} else if (/Firefox/.test(ua)) {
+			return &quot;FIREFOX&quot;;
+		} else if (/Opera\//.test(ua) || /OPR\//.test(ua)) {
+			return &quot;OPERA&quot;;
+		}  else if (/Swing\//.test(ua)) {
+			return &quot;SWING&quot;;
+		} else if (/Chrome\//.test(ua) || /CriOS\//.test(ua)) {
+			return &quot;CHROME&quot;;
+		} else if (/BAND\//.test(ua)) {
+			return &quot;BAND_APP&quot;;
+		} else if (/FBAN\/FBIOS/.test(ua)) {
+			return &quot;FACEBOOK_APP&quot;;
+		} else if (/Twitter/.test(ua)) {
+			return &quot;TWITTER_APP&quot;;
+		} else if (/KAKAOTALK/.test(ua)) {
+			return &quot;KAKAOTALK_APP&quot;;
+		} else if (/Android/.test(ua) &amp;&amp; /Safari/.test(ua)) {
+			return &quot;ANDROID_INTERNET_APP&quot;;
+		} else if (/Safari/.test(ua)) {
+			return &quot;SAFARI&quot;;
+		}
+
+		return &quot;&quot;;
+	}
+	
+	if (getBrowser() === &quot;UNKNOWN&quot; &amp;&amp; jindo.$Cookie().get(&quot;notSupportBrowserAlert&quot;) != &#39;true&#39;) {
+		alert(alertMessage);
+		jindo.$Cookie().set(&quot;notSupportBrowserAlert&quot;, &quot;true&quot;, &quot;9999&quot;, &quot;movie.naver.com&quot;);
+	}
+&lt;/script&gt;
+&lt;script src=&quot;/common/js/lcslog.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/common/js/jindo/component/1.0.2/jindo.Component.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script charset=&quot;UTF-8&quot; src=&quot;/common/js/vendor/jindo.WatchInput.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script charset=&quot;UTF-8&quot; src=&quot;/common/js/lib/Core.js?20210419123311&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script charset=&quot;UTF-8&quot; src=&quot;/common/js/lib/LNB.js?20210419123311&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script charset=&quot;UTF-8&quot; src=&quot;/common/js/lib/Search.js?20210419123311&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+// nhn.movie.Search가 jindo 기반이어서 javascript로 전환함
+if (document.addEventListener) {
+	document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+		document.removeEventListener(&quot;DOMContentLoaded&quot;, arguments.callee, false);
+		loadFooter();
+	}, false);
+}
+// Internet Explorer
+else if (document.attachEvent) {
+	// onreadystatechange 는 모든 브라우저가 반환
+	document.attachEvent(&quot;onreadystatechange&quot;, function () {
+		if (document.readyState == &quot;complete&quot; || document.readyState == &#39;loaded&#39;) {
+			document.detachEvent(&quot;onreadystatechange&quot;, arguments.callee);
+			loadFooter();
+		}
+	});
+}
+
+function loadFooter() {
+	var goNaver = document.getElementById(&quot;lnb_gonaver&quot;);
+	goNaver.addEventListener(&quot;focus&quot;, focusonNaverIcon, false);
+
+	// LNB - 사용처를 못 찾음
+//   	var oLNB = new nhn.movie.LNB();
+	
+	// 상단 검색영역
+	var oSearch = new nhn.movie.Search({
+		area : &quot;jSearchArea&quot;,
+		autosearch : &quot;https://auto-movie.naver.com/ac?q_enc=UTF-8&amp;st=1&amp;r_lt=1&amp;n_ext=1&amp;t_koreng=1&amp;r_format=json&amp;r_enc=UTF-8&amp;r_unicode=0&amp;r_escape=1&amp;q=&quot;,
+		movelink : &quot;/movie/bi/mi/basic.nhn?code=&quot;,
+		peoplelink : &quot;/movie/bi/pi/basic.nhn?code=&quot;
+	});
+	
+	getGNB();	
+}
+
+function focusonNaverIcon(event) {
+	event.preventDefault();	// jindo.$Event.CANCEL_DEFAULT 와 동일한 기능으로 추측됨
+	document.getElementById(&#39;ipt_tx_srch&#39;).value= &quot;&quot;;
+	document.getElementById(&#39;search_placeholder&#39;).style = &quot;display:inline;&quot;;
+	if (document.getElementById(&#39;jAutoComplate&#39;) != undefined &amp;&amp; document.getElementById(&#39;jAutoComplate&#39;) !== null) {
+		document.getElementById(&#39;jAutoComplate&#39;).style = &quot;display:none;&quot;
+	}
+}
+
+
+window.addEventListener(&#39;pageshow&#39;, function(event) { lcs_do(); });
+
+document.addEventListener(&#39;click&#39;, function (event) {
+	var welSource = event.srcElement;	// jindo.$Element(oEvent.element);
+	if (!document.getElementById(&quot;gnb&quot;).contains(welSource)) {
+		gnbAllLayerClose();
+	}
+});
+&lt;/script&gt;
+&lt;!-- //Footer --&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt; 
 </pre></div>
 </div>
 </div>
@@ -424,7 +1731,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="admonition-question-4 admonition">
 <p class="admonition-title">Question 4</p>
-<p><strong>lstRanking에서 모든 영화의 순위, 이름, 평점을 가져와서 데이터프레임을 만들고 movieTable 변수에 저장하라</strong></p>
+<p><strong>lstRanking에서 모든 영화의 순위, 이름, 평점, 영화정보링크를 가져와서 데이터프레임을 만들고 movieTable 변수에 저장하라</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -454,6 +1761,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       <th>rank</th>
       <th>title</th>
       <th>point</th>
+      <th>link</th>
     </tr>
   </thead>
   <tbody>
@@ -462,30 +1770,668 @@ commentsRunWhenDOMLoaded(addUtterances);
       <td>1</td>
       <td>레옹</td>
       <td>9.37</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2</td>
       <td>다시 태어나도 우리</td>
       <td>9.35</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
       <td>피아니스트</td>
       <td>9.33</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
       <td>미안해요, 리키</td>
       <td>9.32</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
     </tr>
     <tr>
       <th>4</th>
       <td>5</td>
       <td>부활: 그 증거</td>
       <td>9.31</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-5 admonition">
+<p class="admonition-title">Question 5</p>
+<p><strong>movieTable에 date 컬럼을 추가하여 2021-05-03 을 입력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movieTable</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>title</th>
+      <th>point</th>
+      <th>link</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>레옹</td>
+      <td>9.37</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-05-03</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>다시 태어나도 우리</td>
+      <td>9.35</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-05-03</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>피아니스트</td>
+      <td>9.33</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-05-03</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>미안해요, 리키</td>
+      <td>9.32</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-05-03</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>부활: 그 증거</td>
+      <td>9.31</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-05-03</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-5 admonition">
+<p class="admonition-title">Question 5</p>
+<p><strong>21년 4월 1일 부터 4월 30일까지 일자별 리스트를 생성하여 하나의 데이터 프레임(변수명 total)에 저장하라. 날짜는 date컬럼에 생성한다.</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>title</th>
+      <th>point</th>
+      <th>link</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>9.48</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>9.42</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>9.38</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>죽은 시인의 사회</td>
+      <td>9.38</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>9.36</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>title</th>
+      <th>point</th>
+      <th>link</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1495</th>
+      <td>46</td>
+      <td>팅커 테일러 솔저 스파이</td>
+      <td>8.21</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-30</td>
+    </tr>
+    <tr>
+      <th>1496</th>
+      <td>47</td>
+      <td>테넷</td>
+      <td>8.17</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-30</td>
+    </tr>
+    <tr>
+      <th>1497</th>
+      <td>48</td>
+      <td>문라이즈 킹덤</td>
+      <td>8.11</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-30</td>
+    </tr>
+    <tr>
+      <th>1498</th>
+      <td>49</td>
+      <td>날씨의 아이</td>
+      <td>7.95</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-30</td>
+    </tr>
+    <tr>
+      <th>1499</th>
+      <td>50</td>
+      <td>비와 당신의 이야기</td>
+      <td>7.93</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-6 admonition">
+<p class="admonition-title">Question 6</p>
+<p><strong>total 데이터에서 일자별 3위 rank의 데이터를 rankThree 변수에 저장하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rankThree</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>title</th>
+      <th>point</th>
+      <th>link</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>9.38</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>소년시절의 너</td>
+      <td>9.39</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-02</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>소년시절의 너</td>
+      <td>9.39</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-03</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>소년시절의 너</td>
+      <td>9.39</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-04</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>9.38</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-05</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-7 admonition">
+<p class="admonition-title">Question 7</p>
+<p><strong>해당기간동안 랭킹 1위 영화들의 그 횟수를 구하여라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>counts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>극장판 바이올렛 에버가든</th>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>부활: 그 증거</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>레옹</th>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-8 admonition">
+<p class="admonition-title">Question 8</p>
+<p><strong>데이터를 재구성하여 일자별 랭킹의 영화 제목을 출력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rebuild</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>date</th>
+      <th>2021-04-01</th>
+      <th>2021-04-02</th>
+      <th>2021-04-03</th>
+      <th>2021-04-04</th>
+      <th>2021-04-05</th>
+      <th>2021-04-06</th>
+      <th>2021-04-07</th>
+      <th>2021-04-08</th>
+      <th>2021-04-09</th>
+      <th>2021-04-10</th>
+      <th>2021-04-11</th>
+      <th>2021-04-12</th>
+      <th>2021-04-13</th>
+      <th>2021-04-14</th>
+      <th>2021-04-15</th>
+      <th>2021-04-16</th>
+      <th>2021-04-17</th>
+      <th>2021-04-18</th>
+      <th>2021-04-19</th>
+      <th>2021-04-20</th>
+      <th>2021-04-21</th>
+      <th>2021-04-22</th>
+      <th>2021-04-23</th>
+      <th>2021-04-24</th>
+      <th>2021-04-25</th>
+      <th>2021-04-26</th>
+      <th>2021-04-27</th>
+      <th>2021-04-28</th>
+      <th>2021-04-29</th>
+      <th>2021-04-30</th>
+    </tr>
+    <tr>
+      <th>rank</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>레옹</td>
+      <td>레옹</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>레옹</td>
+      <td>레옹</td>
+      <td>레옹</td>
+      <td>다시 태어나도 우리</td>
+      <td>다시 태어나도 우리</td>
+      <td>레옹</td>
+      <td>레옹</td>
+      <td>레옹</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>소년시절의 너</td>
+      <td>소년시절의 너</td>
+      <td>소년시절의 너</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>죽은 시인의 사회</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>피아니스트</td>
+      <td>부활: 그 증거</td>
+      <td>다시 태어나도 우리</td>
+      <td>다시 태어나도 우리</td>
+      <td>다시 태어나도 우리</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>죽은 시인의 사회</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>피아니스트</td>
+      <td>피아니스트</td>
+      <td>피아니스트</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>피아니스트</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>천녀유혼</td>
+      <td>천녀유혼</td>
+      <td>천녀유혼</td>
+      <td>천녀유혼</td>
+      <td>자산어보</td>
+      <td>자산어보</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>피아니스트</td>
+      <td>피아니스트</td>
+      <td>피아니스트</td>
     </tr>
   </tbody>
 </table>

@@ -1551,7 +1551,7 @@ if (false) {
 	var koreanTitle = &quot;&quot;;
 	var movieCode = &quot;0&quot;;
 	var userReserveCount = &quot;0&quot;;
-	var todayDatetime = &quot;20210508172656&quot;;
+	var todayDatetime = &quot;20210508175424&quot;;
 	var endDatetimeAfterTwoDays = &quot;00000000000000&quot;;
 	
 	
@@ -4450,7 +4450,7 @@ var gnb_response = true;
 	var koreanTitle = &quot;&quot;;
 	var movieCode = &quot;0&quot;;
 	var userReserveCount = &quot;0&quot;;
-	var todayDatetime = &quot;20210508172656&quot;;
+	var todayDatetime = &quot;20210508175424&quot;;
 	var endDatetimeAfterTwoDays = &quot;00000000000000&quot;;
 	
 	
@@ -5449,13 +5449,14 @@ document.addEventListener(&#39;click&#39;, function (event) {
 </div>
 <div class="admonition-question-4 admonition">
 <p class="admonition-title">Question 4</p>
-<p><strong>lstRanking에서 모든 영화의 순위, 이름, 평점을 가져와서 데이터프레임을 만들고 movieTable 변수에 저장하라</strong></p>
+<p><strong>lstRanking에서 모든 영화의 순위, 이름, 평점, 영화정보링크를 가져와서 데이터프레임을 만들고 movieTable 변수에 저장하라</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lstRanking</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;tit5&#39;</span><span class="p">)]</span>
 <span class="n">point</span> <span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lstRanking</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">,</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;point&#39;</span><span class="p">)]</span>
 <span class="n">rank</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">point</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">link</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://movie.naver.com&#39;</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lstRanking</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;tit5&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -5469,7 +5470,7 @@ document.addEventListener(&#39;click&#39;, function (event) {
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movieTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;rank&#39;</span><span class="p">:</span><span class="n">rank</span><span class="p">,</span><span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="n">title</span><span class="p">,</span><span class="s1">&#39;point&#39;</span><span class="p">:</span><span class="n">point</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movieTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;rank&#39;</span><span class="p">:</span><span class="n">rank</span><span class="p">,</span><span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="n">title</span><span class="p">,</span><span class="s1">&#39;point&#39;</span><span class="p">:</span><span class="n">point</span><span class="p">,</span><span class="s1">&#39;link&#39;</span><span class="p">:</span><span class="n">link</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -5502,6 +5503,7 @@ document.addEventListener(&#39;click&#39;, function (event) {
       <th>rank</th>
       <th>title</th>
       <th>point</th>
+      <th>link</th>
     </tr>
   </thead>
   <tbody>
@@ -5510,30 +5512,752 @@ document.addEventListener(&#39;click&#39;, function (event) {
       <td>1</td>
       <td>레옹</td>
       <td>9.37</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2</td>
       <td>다시 태어나도 우리</td>
       <td>9.35</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
       <td>피아니스트</td>
       <td>9.33</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
       <td>미안해요, 리키</td>
       <td>9.32</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
     </tr>
     <tr>
       <th>4</th>
       <td>5</td>
       <td>부활: 그 증거</td>
       <td>9.31</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-5 admonition">
+<p class="admonition-title">Question 5</p>
+<p><strong>movieTable에 date 컬럼을 추가하여 2021-05-03 을 입력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movieTable</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;2021-05-03&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movieTable</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>title</th>
+      <th>point</th>
+      <th>link</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>레옹</td>
+      <td>9.37</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-05-03</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>다시 태어나도 우리</td>
+      <td>9.35</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-05-03</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>피아니스트</td>
+      <td>9.33</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-05-03</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>미안해요, 리키</td>
+      <td>9.32</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-05-03</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>부활: 그 증거</td>
+      <td>9.31</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-05-03</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-5 admonition">
+<p class="admonition-title">Question 5</p>
+<p><strong>21년 4월 1일 부터 4월 30일까지 일자별 리스트를 생성하여 하나의 데이터 프레임(변수명 total)에 저장하라. 날짜는 date컬럼에 생성한다.</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#위의 과정을 하나의 함수로 생성한다</span>
+<span class="k">def</span> <span class="nf">get_movieDataEachDays</span><span class="p">(</span><span class="n">day</span><span class="p">):</span>
+    
+    
+    <span class="k">if</span> <span class="n">day</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">:</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">day</span> <span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+        
+        
+    <span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;https://movie.naver.com/movie/sdb/rank/rmovie.nhn?sel=cur&amp;date=202104&#39;</span> <span class="o">+</span><span class="n">day</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">lstRanking</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">&quot;list_ranking&quot;</span><span class="p">)</span>
+
+    <span class="n">title</span><span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lstRanking</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;tit5&#39;</span><span class="p">)]</span>
+    <span class="n">point</span> <span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lstRanking</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">,</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;point&#39;</span><span class="p">)]</span>
+    <span class="n">rank</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">point</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://movie.naver.com&#39;</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lstRanking</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;tit5&#39;</span><span class="p">)]</span>
+    
+    <span class="n">movieTable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;rank&#39;</span><span class="p">:</span><span class="n">rank</span><span class="p">,</span><span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="n">title</span><span class="p">,</span><span class="s1">&#39;point&#39;</span><span class="p">:</span><span class="n">point</span><span class="p">,</span><span class="s1">&#39;link&#39;</span><span class="p">:</span><span class="n">link</span><span class="p">})</span>
+    <span class="n">movieTable</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;2021-04-&#39;</span><span class="o">+</span><span class="n">day</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">movieTable</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#날짜별 데이터프레임을 생성하고 최종적으로 하나의 데이터 프레임을 생성</span>
+<span class="n">dfLst</span><span class="o">=</span><span class="p">[]</span>
+
+
+<span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">31</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_movieDataEachDays</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+    <span class="n">dfLst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfLst</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>title</th>
+      <th>point</th>
+      <th>link</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>9.48</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>9.42</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>9.38</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>죽은 시인의 사회</td>
+      <td>9.38</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>9.36</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>title</th>
+      <th>point</th>
+      <th>link</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1495</th>
+      <td>46</td>
+      <td>팅커 테일러 솔저 스파이</td>
+      <td>8.21</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-30</td>
+    </tr>
+    <tr>
+      <th>1496</th>
+      <td>47</td>
+      <td>테넷</td>
+      <td>8.17</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-30</td>
+    </tr>
+    <tr>
+      <th>1497</th>
+      <td>48</td>
+      <td>문라이즈 킹덤</td>
+      <td>8.11</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-30</td>
+    </tr>
+    <tr>
+      <th>1498</th>
+      <td>49</td>
+      <td>날씨의 아이</td>
+      <td>7.95</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-30</td>
+    </tr>
+    <tr>
+      <th>1499</th>
+      <td>50</td>
+      <td>비와 당신의 이야기</td>
+      <td>7.93</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-6 admonition">
+<p class="admonition-title">Question 6</p>
+<p><strong>total 데이터에서 일자별 3위 rank의 데이터를 rankThree 변수에 저장하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rankThree</span> <span class="o">=</span> <span class="n">total</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">total</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rankThree</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>title</th>
+      <th>point</th>
+      <th>link</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>9.38</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>소년시절의 너</td>
+      <td>9.39</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-02</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>소년시절의 너</td>
+      <td>9.39</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-03</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>소년시절의 너</td>
+      <td>9.39</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-04</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>9.38</td>
+      <td>https://movie.naver.com/movie/bi/mi/basic.nhn?...</td>
+      <td>2021-04-05</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-7 admonition">
+<p class="admonition-title">Question 7</p>
+<p><strong>해당기간동안 랭킹 1위 영화들의 그 횟수를 구하여라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="n">total</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">total</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">&#39;counts&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>counts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>극장판 바이올렛 에버가든</th>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>부활: 그 증거</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>레옹</th>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-8 admonition">
+<p class="admonition-title">Question 8</p>
+<p><strong>데이터를 재구성하여 일자별 랭킹의 영화 제목을 출력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rebuild</span> <span class="o">=</span> <span class="n">total</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;rank&#39;</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rebuild</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>date</th>
+      <th>2021-04-01</th>
+      <th>2021-04-02</th>
+      <th>2021-04-03</th>
+      <th>2021-04-04</th>
+      <th>2021-04-05</th>
+      <th>2021-04-06</th>
+      <th>2021-04-07</th>
+      <th>2021-04-08</th>
+      <th>2021-04-09</th>
+      <th>2021-04-10</th>
+      <th>2021-04-11</th>
+      <th>2021-04-12</th>
+      <th>2021-04-13</th>
+      <th>2021-04-14</th>
+      <th>2021-04-15</th>
+      <th>2021-04-16</th>
+      <th>2021-04-17</th>
+      <th>2021-04-18</th>
+      <th>2021-04-19</th>
+      <th>2021-04-20</th>
+      <th>2021-04-21</th>
+      <th>2021-04-22</th>
+      <th>2021-04-23</th>
+      <th>2021-04-24</th>
+      <th>2021-04-25</th>
+      <th>2021-04-26</th>
+      <th>2021-04-27</th>
+      <th>2021-04-28</th>
+      <th>2021-04-29</th>
+      <th>2021-04-30</th>
+    </tr>
+    <tr>
+      <th>rank</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>레옹</td>
+      <td>레옹</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+      <td>극장판 바이올렛 에버가든</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>가나의 혼인잔치: 언약</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>레옹</td>
+      <td>레옹</td>
+      <td>레옹</td>
+      <td>다시 태어나도 우리</td>
+      <td>다시 태어나도 우리</td>
+      <td>레옹</td>
+      <td>레옹</td>
+      <td>레옹</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>소년시절의 너</td>
+      <td>소년시절의 너</td>
+      <td>소년시절의 너</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>죽은 시인의 사회</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>피아니스트</td>
+      <td>부활: 그 증거</td>
+      <td>다시 태어나도 우리</td>
+      <td>다시 태어나도 우리</td>
+      <td>다시 태어나도 우리</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>죽은 시인의 사회</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>반지의 제왕: 왕의 귀환</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>피아니스트</td>
+      <td>피아니스트</td>
+      <td>피아니스트</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>피아니스트</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+      <td>부활: 그 증거</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>죽은 시인의 사회</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>반지의 제왕: 두 개의 탑</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>천녀유혼</td>
+      <td>천녀유혼</td>
+      <td>천녀유혼</td>
+      <td>천녀유혼</td>
+      <td>자산어보</td>
+      <td>자산어보</td>
+      <td>소울</td>
+      <td>소울</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>극장판 귀멸의 칼날: 무한열차편</td>
+      <td>패왕별희 디 오리지널</td>
+      <td>피아니스트</td>
+      <td>피아니스트</td>
+      <td>피아니스트</td>
     </tr>
   </tbody>
 </table>
