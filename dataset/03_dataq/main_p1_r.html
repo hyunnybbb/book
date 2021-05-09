@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rtest &#8212; DataManim</title>
+    <title>작업형 제 1유형 예시문제 (코드기여자 : 익명요청 ㅠ) &#8212; DataManim</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -351,8 +351,8 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <div class="section" id="rtest">
-<h1>Rtest<a class="headerlink" href="#rtest" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="id1">
+<h1>작업형 제 1유형 예시문제 (코드기여자 : 익명요청 ㅠ)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-question-1 admonition">
 <p class="admonition-title">Question 1</p>
 <p><strong>mtcars 데이터셋(mtcars.csv)의 qsec 컬럼을 최소 최대 척도(min-max scale)로 변환한 후 0.5보다 큰 값을 가지는 레코드 수를 구하시오.</strong></p>
@@ -378,22 +378,355 @@ commentsRunWhenDOMLoaded(addUtterances);
 </table>
 </div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 1) 사용자 정의 함수</span>
+
+<span class="n">min_max_scale</span><span class="o">&lt;-</span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
+  <span class="nf">return </span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="p">}</span>
+
+<span class="n">ans11</span> <span class="o">&lt;-</span> <span class="nf">min_max_scale</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">qsec</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">ans11</span> <span class="o">&gt;</span> <span class="m">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">9</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#colab에서는 세션마다 패키지를 설치 필요, 편의서을 위해 아래 함수를 작성함</span>
+<span class="n">check_package</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">name</span><span class="p">){</span>
+    <span class="nf">if</span><span class="p">(</span><span class="o">!</span><span class="n">name</span> <span class="o">%in%</span> <span class="nf">rownames</span><span class="p">(</span><span class="nf">installed.packages</span><span class="p">())){</span>
+        <span class="nf">install.packages</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">check_package</span><span class="p">(</span><span class="s">&quot;caret&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 2) caret 라이브러리 사용</span>
+
+<span class="nf">library</span><span class="p">(</span><span class="n">caret</span><span class="p">)</span>
+<span class="n">min_max_model</span> <span class="o">&lt;-</span> <span class="nf">preProcess</span><span class="p">(</span><span class="n">mtcars</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;range&quot;</span><span class="p">)</span>
+<span class="n">ans12</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">min_max_model</span><span class="p">,</span> <span class="n">mtcars</span><span class="p">)</span><span class="o">$</span><span class="n">qsec</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">ans12</span> <span class="o">&gt;</span> <span class="m">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: lattice
+Loading required package: ggplot2
+Registered S3 methods overwritten by &#39;ggplot2&#39;:
+  method         from 
+  [.quosures     rlang
+  c.quosures     rlang
+  print.quosures rlang
+</pre></div>
+</div>
+<div class="output text_html">9</div></div>
+</div>
 <div class="admonition-question-2 admonition">
 <p class="admonition-title">Question 2</p>
 <p><strong>mtcars 데이터셋(mtcars.csv)의 qsec 컬럼을 표준정규분포 데이터 표준화 (standardization) 변환 후 최대, 최소값을 각각 구하시오.</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_scale</span><span class="o">&lt;-</span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
-  <span class="nf">return </span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
-<span class="p">}</span>
-<span class="n">res1</span> <span class="o">=</span> <span class="nf">min_max_scale</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">qsec</span><span class="p">)</span>
-<span class="nf">sum</span><span class="p">(</span><span class="n">res1</span><span class="o">&gt;</span><span class="m">0.5</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 1) scale() 함수 이용</span>
+
+<span class="n">ans21</span> <span class="o">&lt;-</span> <span class="nf">scale</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">qsec</span><span class="p">)</span>
+<span class="nf">range</span><span class="p">(</span><span class="n">ans21</span><span class="p">)[</span><span class="m">2</span><span class="o">:</span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">9</div></div>
+<div class="output text_html"><ol class=list-inline>
+	<li>2.82675459296249</li>
+	<li>-1.87401028323348</li>
+</ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 2) 사용자 정의 함수</span>
+
+<span class="n">standardization</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
+  <span class="nf">return</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="nf">sd</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="n">ans22</span> <span class="o">&lt;-</span> <span class="nf">standardization</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">qsec</span><span class="p">)</span>
+<span class="nf">range</span><span class="p">(</span><span class="n">ans22</span><span class="p">)[</span><span class="m">2</span><span class="o">:</span><span class="m">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>2.82675459296249</li>
+	<li>-1.87401028323348</li>
+</ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 3) caret 라이브러리 사용</span>
+
+<span class="n">stand_model</span> <span class="o">&lt;-</span> <span class="nf">preProcess</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span> <span class="c1">#default: standardization</span>
+<span class="n">ans23</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">stand_model</span><span class="p">,</span> <span class="n">mtcars</span><span class="p">)</span><span class="o">$</span><span class="n">qsec</span>
+<span class="nf">range</span><span class="p">(</span><span class="n">ans23</span><span class="p">)[</span><span class="m">2</span><span class="o">:</span><span class="m">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>2.82675459296249</li>
+	<li>-1.87401028323348</li>
+</ol>
+</div></div>
+</div>
+<div class="admonition-question-3 admonition">
+<p class="admonition-title">Question 3</p>
+<p>*<em>mtcars 데이터셋(mtcars.csv)의 wt 컬럼의 이상치(IQR <em>1.5 외부에 존재하는)값들을 outlier 변수에 저장하라</em></em></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Q1, Q3, IQR 계산</span>
+<span class="n">q25</span> <span class="o">&lt;-</span> <span class="nf">quantile</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">,</span> <span class="m">0.25</span><span class="p">)</span>
+<span class="n">q75</span> <span class="o">&lt;-</span> <span class="nf">quantile</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">,</span> <span class="m">0.75</span><span class="p">)</span>
+<span class="n">iqr</span> <span class="o">&lt;-</span> <span class="n">q75</span> <span class="o">-</span> <span class="n">q25</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># outlier 저장</span>
+<span class="n">flag</span> <span class="o">&lt;-</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">q75</span><span class="m">+1.5</span><span class="o">*</span><span class="n">iqr</span><span class="p">)</span> <span class="o">|</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">q25</span><span class="m">-1.5</span><span class="o">*</span><span class="n">iqr</span><span class="p">)</span>
+<span class="n">outlier</span> <span class="o">&lt;-</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">[</span><span class="n">flag</span><span class="p">]</span>
+<span class="n">outlier</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>5.25</li>
+	<li>5.424</li>
+	<li>5.345</li>
+</ol>
+</div></div>
+</div>
+<div class="admonition-question-4 admonition">
+<p class="admonition-title">Question 4</p>
+<p><strong>mtcars 데이터셋에서 mpg변수와 나머지 변수들의 상관계수를 구하여 다음과 같이 내림차순 정렬하여 표현하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="nf">cor</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)[</span><span class="m">-1</span><span class="p">,</span><span class="m">1</span><span class="p">],</span><span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>sort(cor(mtcars)[-1, 1], decreasing = T)</th></tr></thead>
+<tbody>
+	<tr><th scope=row>drat</th><td> 0.6811719</td></tr>
+	<tr><th scope=row>vs</th><td> 0.6640389</td></tr>
+	<tr><th scope=row>am</th><td> 0.5998324</td></tr>
+	<tr><th scope=row>gear</th><td> 0.4802848</td></tr>
+	<tr><th scope=row>qsec</th><td> 0.4186840</td></tr>
+	<tr><th scope=row>carb</th><td>-0.5509251</td></tr>
+	<tr><th scope=row>hp</th><td>-0.7761684</td></tr>
+	<tr><th scope=row>disp</th><td>-0.8475514</td></tr>
+	<tr><th scope=row>cyl</th><td>-0.8521620</td></tr>
+	<tr><th scope=row>wt</th><td>-0.8676594</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="admonition-question-5 admonition">
+<p class="admonition-title">Question 5</p>
+<p><strong>mtcars 데이터셋에서 mpg변수를 제외하고 데이터 정규화 (standardscaler) 과정을 진행한 이후 PCA를 통해 변수 축소를 하려한다. 누적설명 분산량이 92%를 넘기기 위해서는 몇개의 주성분을 선택해야하는지 설명하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars_q5</span> <span class="o">&lt;-</span> <span class="n">mtcars</span><span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
+<span class="n">mtcars_q5_scale</span> <span class="o">&lt;-</span> <span class="nf">scale</span><span class="p">(</span><span class="n">mtcars_q5</span><span class="p">)</span>
+
+<span class="n">pca</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="n">mtcars_q5_scale</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Importance of components:
+                         PC1   PC2     PC3     PC4     PC5     PC6     PC7
+Standard deviation     2.400 1.628 0.77280 0.51914 0.47143 0.45839 0.36458
+Proportion of Variance 0.576 0.265 0.05972 0.02695 0.02223 0.02101 0.01329
+Cumulative Proportion  0.576 0.841 0.90071 0.92766 0.94988 0.97089 0.98419
+                           PC8     PC9    PC10
+Standard deviation     0.28405 0.23163 0.15426
+Proportion of Variance 0.00807 0.00537 0.00238
+Cumulative Proportion  0.99226 0.99762 1.00000
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>4개의 주성분을 사용할 때 Cumulative Proportion이 92%를 넘김</p>
+</div></blockquote>
+<div class="admonition-question-6 admonition">
+<p class="admonition-title">Question 6</p>
+<p><strong>mtcars 의 index는 (업체명) - (모델명)으로 구성된다. (valiant는 업체명) mtcars에 ‘brand’ 컬럼을 추가하고 value 값으로 업체명을 입력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 1) sapply 사용</span>
+
+<span class="nf">sapply</span><span class="p">(</span><span class="nf">strsplit</span><span class="p">(</span><span class="nf">rownames</span><span class="p">(</span><span class="n">mtcars</span><span class="p">),</span><span class="s">&quot; &quot;</span><span class="p">),</span><span class="n">`[`</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>'Mazda'</li>
+	<li>'Mazda'</li>
+	<li>'Datsun'</li>
+	<li>'Hornet'</li>
+	<li>'Hornet'</li>
+	<li>'Valiant'</li>
+	<li>'Duster'</li>
+	<li>'Merc'</li>
+	<li>'Merc'</li>
+	<li>'Merc'</li>
+	<li>'Merc'</li>
+	<li>'Merc'</li>
+	<li>'Merc'</li>
+	<li>'Merc'</li>
+	<li>'Cadillac'</li>
+	<li>'Lincoln'</li>
+	<li>'Chrysler'</li>
+	<li>'Fiat'</li>
+	<li>'Honda'</li>
+	<li>'Toyota'</li>
+	<li>'Toyota'</li>
+	<li>'Dodge'</li>
+	<li>'AMC'</li>
+	<li>'Camaro'</li>
+	<li>'Pontiac'</li>
+	<li>'Fiat'</li>
+	<li>'Porsche'</li>
+	<li>'Lotus'</li>
+	<li>'Ford'</li>
+	<li>'Ferrari'</li>
+	<li>'Maserati'</li>
+	<li>'Volvo'</li>
+</ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 2) for문 사용</span>
+<span class="c1"># - strsplit하면 list형태로 분리됨</span>
+
+<span class="n">tmp</span> <span class="o">&lt;-</span> <span class="nf">strsplit</span><span class="p">(</span><span class="nf">rownames</span><span class="p">(</span><span class="n">mtcars</span><span class="p">),</span><span class="s">&quot; &quot;</span><span class="p">)</span>
+<span class="n">tmp2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">tmp</span><span class="p">)){</span>
+    <span class="n">tmp2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">tmp2</span><span class="p">,</span><span class="n">tmp</span><span class="p">[[</span><span class="n">i</span><span class="p">]][</span><span class="m">1</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="n">mtcars</span><span class="o">$</span><span class="n">brand</span> <span class="o">&lt;-</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">tmp2</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>mpg</th><th scope=col>cyl</th><th scope=col>disp</th><th scope=col>hp</th><th scope=col>drat</th><th scope=col>wt</th><th scope=col>qsec</th><th scope=col>vs</th><th scope=col>am</th><th scope=col>gear</th><th scope=col>carb</th><th scope=col>brand</th></tr></thead>
+<tbody>
+	<tr><th scope=row>Mazda RX4</th><td>21.0   </td><td>6      </td><td>160    </td><td>110    </td><td>3.90   </td><td>2.620  </td><td>16.46  </td><td>0      </td><td>1      </td><td>4      </td><td>4      </td><td>Mazda  </td></tr>
+	<tr><th scope=row>Mazda RX4 Wag</th><td>21.0   </td><td>6      </td><td>160    </td><td>110    </td><td>3.90   </td><td>2.875  </td><td>17.02  </td><td>0      </td><td>1      </td><td>4      </td><td>4      </td><td>Mazda  </td></tr>
+	<tr><th scope=row>Datsun 710</th><td>22.8   </td><td>4      </td><td>108    </td><td> 93    </td><td>3.85   </td><td>2.320  </td><td>18.61  </td><td>1      </td><td>1      </td><td>4      </td><td>1      </td><td>Datsun </td></tr>
+	<tr><th scope=row>Hornet 4 Drive</th><td>21.4   </td><td>6      </td><td>258    </td><td>110    </td><td>3.08   </td><td>3.215  </td><td>19.44  </td><td>1      </td><td>0      </td><td>3      </td><td>1      </td><td>Hornet </td></tr>
+	<tr><th scope=row>Hornet Sportabout</th><td>18.7   </td><td>8      </td><td>360    </td><td>175    </td><td>3.15   </td><td>3.440  </td><td>17.02  </td><td>0      </td><td>0      </td><td>3      </td><td>2      </td><td>Hornet </td></tr>
+	<tr><th scope=row>Valiant</th><td>18.1   </td><td>6      </td><td>225    </td><td>105    </td><td>2.76   </td><td>3.460  </td><td>20.22  </td><td>1      </td><td>0      </td><td>3      </td><td>1      </td><td>Valiant</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="admonition-question-7 admonition">
+<p class="admonition-title">Question 7</p>
+<p><strong>추가된 brand 컬럼을 제외한 모든 컬럼을 통해 pca를 실시한다. 2개의 주성분과 brand컬럼으로 구성된 새로운 데이터 프레임을 출력하고, brand에 따른 2개 주성분을 시각화하여라 (brand를 구분 할수 있도록 색이다른 scatterplot, legend를 표시한다)</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      mpg             cyl             disp             hp       
+ Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+ 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+ Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+ Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+ 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+ Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+                                                                
+      drat             wt             qsec             vs        
+ Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+ 1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+ Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+ Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+ 3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+ Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+                                                                 
+       am              gear            carb           brand   
+ Min.   :0.0000   Min.   :3.000   Min.   :1.000   Merc   : 7  
+ 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000   Fiat   : 2  
+ Median :0.0000   Median :4.000   Median :2.000   Hornet : 2  
+ Mean   :0.4062   Mean   :3.688   Mean   :2.812   Mazda  : 2  
+ 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000   Toyota : 2  
+ Max.   :1.0000   Max.   :5.000   Max.   :8.000   AMC    : 1  
+                                                  (Other):16  
+</pre></div>
+</div>
+</div>
+</div>
+<p>변수간 단위가 다르므로, scale 필요</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pca2</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="n">mtcars</span><span class="p">[,</span><span class="m">-12</span><span class="p">],</span><span class="n">scale</span><span class="o">=</span><span class="bp">T</span><span class="p">)</span>
+<span class="n">mtcars</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">mtcars</span><span class="p">,</span> <span class="n">pca2</span><span class="o">$</span><span class="n">x</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">check_package</span><span class="p">(</span><span class="s">&quot;ggplot2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">mtcars</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">PC1</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">PC2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">brand</span><span class="p">))</span><span class="o">+</span><span class="nf">geom_point</span><span class="p">()</span><span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">&quot;brand&quot;</span><span class="p">)</span>
+
+<span class="c1">#참고, 환경에 따라 PC2가 -PC2 값으로 나오기도 함.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/main_p1_r_26_0.png" src="../../_images/main_p1_r_26_0.png" />
+</div>
 </div>
 </div>
 
