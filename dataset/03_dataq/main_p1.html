@@ -88,7 +88,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="다이아몬드 데이터셋" href="diamondQuestion.html" />
+    <link rel="next" title="Rtest" href="main_p1_r.html" />
     <link rel="prev" title="빅분기 실기예제 데이터셋" href="status.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -196,7 +196,12 @@ commentsRunWhenDOMLoaded(addUtterances);
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       작 업 형 1 유 형 _dataq 예제문제
+       작 업 형 1 유 형 _dataq 예제문제(Py)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="main_p1_r.html">
+       작 업 형 1 유 형 _dataq 예제문제(R)
       </a>
      </li>
      <li class="toctree-l3">
@@ -401,7 +406,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">qsec</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">std</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">qsec</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">qsec</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 <span class="n">scale</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">qsec</span><span class="o">-</span><span class="n">mean</span><span class="p">)</span><span class="o">/</span><span class="n">std</span>
 </pre></div>
 </div>
@@ -417,12 +422,43 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">std</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7869432360968431
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">qsec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.758800638929836
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Max</span><span class="p">,</span><span class="n">Min</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.28300301141536494 -0.1876181805448562
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.826754592962484 -1.8740102832334835
 </pre></div>
 </div>
 </div>
@@ -831,7 +867,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_p1_30_0.png" src="../../_images/main_p1_30_0.png" />
+<img alt="../../_images/main_p1_33_0.png" src="../../_images/main_p1_33_0.png" />
 </div>
 </div>
 </div>
@@ -862,7 +898,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="status.html" title="previous page">빅분기 실기예제 데이터셋</a>
-    <a class='right-next' id="next-link" href="diamondQuestion.html" title="next page">다이아몬드 데이터셋</a>
+    <a class='right-next' id="next-link" href="main_p1_r.html" title="next page">Rtest</a>
 
         </div>
         

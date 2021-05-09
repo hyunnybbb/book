@@ -17,16 +17,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-pcaDf = df.iloc[:,1:]
-pcaDf = sc.fit_transform(pcaDf)
+mtcars<- read.csv("https://raw.githubusercontent.com/Datamanim/dataq/main/mtcars.csv",row.names==1)
+head(mtcars)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-18-770d1b5812f0>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0mpcaDf[0m [0;34m=[0m [0mdf[0m[0;34m.[0m[0miloc[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m[0;36m1[0m[0;34m:[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0mpcaDf[0m [0;34m=[0m [0msc[0m[0;34m.[0m[0mfit_transform[0m[0;34m([0m[0mpcaDf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mNameError[0m: name 'sc' is not defined
-NameError: name 'sc' is not defined
+[0;32m<ipython-input-1-d4f0952d42fa>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mmtcars[0m[0;34m<[0m[0;34m-[0m [0mread[0m[0;34m.[0m[0mcsv[0m[0;34m([0m[0;34m"https://raw.githubusercontent.com/Datamanim/dataq/main/mtcars.csv"[0m[0;34m,[0m[0mrow[0m[0;34m.[0m[0mnames[0m[0;34m==[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mhead[0m[0;34m([0m[0mmtcars[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'mtcars' is not defined
+NameError: name 'mtcars' is not defined
 
