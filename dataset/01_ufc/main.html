@@ -88,6 +88,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="업데이트" href="../02_mushroomClassification/README.html" />
+    <link rel="prev" title="UFC 경기 데이터" href="status.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -152,11 +154,6 @@ commentsRunWhenDOMLoaded(addUtterances);
      <li class="toctree-l3">
       <a class="reference internal" href="status.html">
        개   요
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="question.html">
-       문  제  만
       </a>
      </li>
     </ul>
@@ -528,9 +525,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Q2</p>
 <p><strong>성별에 관한 컬럼 Gender를 추가한다. 남성의경우 male, 여성의경우 Female로 표기 (Red, Blue 선수 상관없이 해당선수들의 성별을 하나의 컬럼에 입력)</strong></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ufc</span><span class="o">.</span><span class="n">weight_class</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;Female&#39;</span> <span class="k">if</span> <span class="s1">&#39;Women&#39;</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">else</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>
+
 <span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -548,7 +546,7 @@ Name: Gender, dtype: object
 <p class="admonition-title">Q3</p>
 <p><em>Gender 컬럼의 value 발생 빈도확인</em></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
@@ -566,24 +564,18 @@ Name: Gender, dtype: int64
 <p class="admonition-title">Q4</p>
 <p><em>‘year’ 컬럼에 해당 경기 발생 년도를 입력하라. 년도별 남성,여성각각의 경기숫자를 시각화 하여라</em></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">gender_count</span> <span class="o">=</span> <span class="n">ufc</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_count</span> <span class="o">=</span> <span class="n">ufc</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">gender_count</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_count</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -634,7 +626,7 @@ Name: Gender, dtype: int64
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">male_df</span> <span class="o">=</span> <span class="n">gender_count</span><span class="p">[</span><span class="n">gender_count</span><span class="o">.</span><span class="n">Gender</span><span class="o">==</span><span class="s1">&#39;male&#39;</span><span class="p">]</span>
 <span class="n">female_df</span> <span class="o">=</span> <span class="n">gender_count</span><span class="p">[</span><span class="n">gender_count</span><span class="o">.</span><span class="n">Gender</span><span class="o">==</span><span class="s1">&#39;Female&#39;</span><span class="p">]</span>
@@ -649,7 +641,7 @@ Name: Gender, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_13_0.png" src="../../_images/main_13_0.png" />
+<img alt="../../_images/main_12_0.png" src="../../_images/main_12_0.png" />
 </div>
 </div>
 <div class="attention admonition">
@@ -681,7 +673,7 @@ Name: Gender, dtype: int64
 <p class="admonition-title">Q5</p>
 <p><em>몇년도 몇월에 가장 많은 경기가 있었는지 확인하라. 매 달 발생한 경기수를 시각화 하여라</em></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month_df</span> <span class="o">=</span> <span class="n">ufc</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 <span class="n">month_df</span><span class="p">[</span><span class="n">month_df</span> <span class="o">==</span><span class="n">month_df</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
@@ -695,7 +687,7 @@ Name: date, dtype: int64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">month_df</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">month_df</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">month_df</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span><span class="p">))])</span>
@@ -707,14 +699,14 @@ Name: date, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_18_0.png" src="../../_images/main_18_0.png" />
+<img alt="../../_images/main_17_0.png" src="../../_images/main_17_0.png" />
 </div>
 </div>
 <div class="admonition-q6 admonition">
 <p class="admonition-title">Q6</p>
 <p><em>타이틀매치(column : title_bout=True)에 가장 많은 경기를 심판(column : Referee)본 인물과 그 횟수는?</em></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span><span class="p">[</span><span class="n">ufc</span><span class="o">.</span><span class="n">title_bout</span><span class="o">==</span><span class="kc">True</span><span class="p">]</span><span class="o">.</span><span class="n">Referee</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -731,7 +723,7 @@ Name: Referee, dtype: int64
 <p class="admonition-title">Q7</p>
 <p><em>년도에 따른 체급별 타이틀 매치에 관한 데이터를 아래와 같이 새롭게 구성하고 히트맵으로 표시하라(축 label 및 title 설정까지)</em></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pv_table</span> <span class="o">=</span> <span class="n">ufc</span><span class="p">[</span><span class="n">ufc</span><span class="o">.</span><span class="n">title_bout</span> <span class="o">==</span><span class="kc">True</span><span class="p">][[</span><span class="s1">&#39;weight_class&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">]]</span><span class="o">.</span>\
                                         <span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span>\
@@ -1120,7 +1112,7 @@ Name: Referee, dtype: int64
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">pv_table</span><span class="p">)</span>
@@ -1135,423 +1127,29 @@ Name: Referee, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_24_0.png" src="../../_images/main_24_0.png" />
+<img alt="../../_images/main_23_0.png" src="../../_images/main_23_0.png" />
 </div>
 </div>
 <div class="admonition-q8 admonition">
 <p class="admonition-title">Q8</p>
 <p><em>stance가 다른 선수가 붙었을때 각 stance에 따른 승률을 구하여라. 결과는 아래와 같다. (stance1 : 승률 높은 스탠스 , stance2: 승률 낮은 스탠스, ratio: 승률 높은 스탠스의 승률</em></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ratio</span> <span class="o">=</span> <span class="n">ufc</span><span class="p">[[</span><span class="s1">&#39;B_Stance&#39;</span><span class="p">,</span><span class="s1">&#39;R_Stance&#39;</span><span class="p">,</span><span class="s1">&#39;Winner&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">df_ratio</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>B_Stance</th>
-      <th>R_Stance</th>
-      <th>Winner</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Orthodox</td>
-      <td>Orthodox</td>
-      <td>Red</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Orthodox</td>
-      <td>Orthodox</td>
-      <td>Red</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Orthodox</td>
-      <td>Southpaw</td>
-      <td>Red</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ratio</span><span class="p">[</span><span class="s1">&#39;Winner_blue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Winner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;Blue&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">df_ratio</span><span class="p">[</span><span class="s1">&#39;Winner_blue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Winner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;Blue&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 <span class="n">df_ratio</span><span class="p">[</span><span class="s1">&#39;Winner_red&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Winner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;Red&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 <span class="n">df_ratio</span><span class="p">[</span><span class="s1">&#39;Winner_draw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Winner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;Draw&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 <span class="n">df_ratio</span> <span class="o">=</span><span class="n">df_ratio</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Winner&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ratio</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="n">df_ration_diff</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="p">[[</span><span class="s1">&#39;B_Stance&#39;</span><span class="p">,</span><span class="s1">&#39;R_Stance&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;counts&#39;</span><span class="p">})</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>B_Stance</th>
-      <th>R_Stance</th>
-      <th>Winner_blue</th>
-      <th>Winner_red</th>
-      <th>Winner_draw</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Orthodox</td>
-      <td>Orthodox</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Orthodox</td>
-      <td>Orthodox</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Orthodox</td>
-      <td>Southpaw</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ration_diff</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="p">[[</span><span class="s1">&#39;B_Stance&#39;</span><span class="p">,</span><span class="s1">&#39;R_Stance&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;counts&#39;</span><span class="p">})</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ration_diff</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_ration_diff</span><span class="o">.</span><span class="n">B_Stance</span> <span class="o">!=</span> <span class="n">df_ration_diff</span><span class="o">.</span><span class="n">R_Stance</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>B_Stance</th>
-      <th>R_Stance</th>
-      <th>counts</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>Orthodox</td>
-      <td>Southpaw</td>
-      <td>774</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Southpaw</td>
-      <td>Orthodox</td>
-      <td>738</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Switch</td>
-      <td>Orthodox</td>
-      <td>159</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Orthodox</td>
-      <td>Switch</td>
-      <td>107</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Switch</td>
-      <td>Southpaw</td>
-      <td>40</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Southpaw</td>
-      <td>Switch</td>
-      <td>37</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Orthodox</td>
-      <td>Open Stance</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Open Stance</td>
-      <td>Southpaw</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Open Stance</td>
-      <td>Orthodox</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Southpaw</td>
-      <td>Open Stance</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratio_target</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;B_Stance&#39;</span><span class="p">,</span><span class="s1">&#39;R_Stance&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">ratio_target</span> <span class="o">=</span> <span class="n">df_ratio</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;B_Stance&#39;</span><span class="p">,</span><span class="s1">&#39;R_Stance&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">ratio_target_diff</span> <span class="o">=</span> <span class="n">ratio_target</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ratio_target</span><span class="o">.</span><span class="n">B_Stance</span> <span class="o">!=</span> <span class="n">ratio_target</span><span class="o">.</span><span class="n">R_Stance</span><span class="p">]</span>
 <span class="n">ratio_target_diff</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>B_Stance</th>
-      <th>R_Stance</th>
-      <th>Winner_blue</th>
-      <th>Winner_red</th>
-      <th>Winner_draw</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Open Stance</td>
-      <td>Orthodox</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Open Stance</td>
-      <td>Southpaw</td>
-      <td>1</td>
-      <td>2</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Orthodox</td>
-      <td>Open Stance</td>
-      <td>3</td>
-      <td>7</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratio_target_diff</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>B_Stance</th>
-      <th>R_Stance</th>
-      <th>Winner_blue</th>
-      <th>Winner_red</th>
-      <th>Winner_draw</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Open Stance</td>
-      <td>Orthodox</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Open Stance</td>
-      <td>Southpaw</td>
-      <td>1</td>
-      <td>2</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Orthodox</td>
-      <td>Open Stance</td>
-      <td>3</td>
-      <td>7</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Orthodox</td>
-      <td>Southpaw</td>
-      <td>255</td>
-      <td>507</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Orthodox</td>
-      <td>Switch</td>
-      <td>39</td>
-      <td>66</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Southpaw</td>
-      <td>Open Stance</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Southpaw</td>
-      <td>Orthodox</td>
-      <td>280</td>
-      <td>439</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Southpaw</td>
-      <td>Switch</td>
-      <td>13</td>
-      <td>24</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Switch</td>
-      <td>Orthodox</td>
-      <td>68</td>
-      <td>88</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Switch</td>
-      <td>Southpaw</td>
-      <td>15</td>
-      <td>25</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dic</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">dic</span><span class="o">=</span><span class="p">{}</span>
 <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ratio_target_diff</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
     <span class="n">lst</span> <span class="o">=</span><span class="p">[</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
     
@@ -1573,30 +1171,9 @@ Name: Referee, dtype: int64
             <span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">value</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">value</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">value</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">]</span>
-      
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dic</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Open Stance_Orthodox&#39;: [7, 4, 0],
- &#39;Open Stance_Southpaw&#39;: [2, 2, 0],
- &#39;Orthodox_Southpaw&#39;: [694, 787, 31],
- &#39;Orthodox_Switch&#39;: [127, 134, 5],
- &#39;Southpaw_Switch&#39;: [38, 39, 0]}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sort_dic</span> <span class="o">=</span> <span class="p">{}</span>
+    
+<span class="n">sort_dic</span> <span class="o">=</span> <span class="p">{}</span>
+
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
         <span class="n">new_key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;_&quot;</span><span class="o">+</span><span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -1604,115 +1181,15 @@ Name: Referee, dtype: int64
         
     <span class="k">else</span><span class="p">:</span>
         <span class="n">sort_dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span><span class="n">value</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sort_dic</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Open Stance_Orthodox&#39;: [7, 4, 0],
- &#39;Southpaw_Open Stance&#39;: [2, 2, 0],
- &#39;Southpaw_Orthodox&#39;: [787, 694, 31],
- &#39;Switch_Orthodox&#39;: [134, 127, 5],
- &#39;Switch_Southpaw&#39;: [39, 38, 0]}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratio_df</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sort_dic</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;lose&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;draw&#39;</span><span class="p">})</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratio_df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="n">ratio_df</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sort_dic</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;lose&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;draw&#39;</span><span class="p">})</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>win</th>
-      <th>lose</th>
-      <th>draw</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Open Stance_Orthodox</th>
-      <td>7</td>
-      <td>4</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>Southpaw_Open Stance</th>
-      <td>2</td>
-      <td>2</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>Southpaw_Orthodox</th>
-      <td>787</td>
-      <td>694</td>
-      <td>31</td>
-    </tr>
-    <tr>
-      <th>Switch_Orthodox</th>
-      <td>134</td>
-      <td>127</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>Switch_Southpaw</th>
-      <td>39</td>
-      <td>38</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;ratio&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;win&#39;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;win&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;lose&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;draw&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ratio_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratio_fi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sp</span><span class="p">,</span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;ratio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;stance1&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;stance2&#39;</span><span class="p">})</span>
+<span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;ratio&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;win&#39;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;win&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;lose&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;draw&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+
+<span class="n">sp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ratio_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)))</span>
+
+<span class="n">ratio_fi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sp</span><span class="p">,</span><span class="n">ratio_df</span><span class="p">[</span><span class="s1">&#39;ratio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;stance1&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;stance2&#39;</span><span class="p">})</span>\
+                <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;ratio&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1755,16 +1232,16 @@ Name: Referee, dtype: int64
       <td>63.636364</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Southpaw</td>
-      <td>Open Stance</td>
-      <td>50.000000</td>
-    </tr>
-    <tr>
       <th>2</th>
       <td>Southpaw</td>
       <td>Orthodox</td>
       <td>52.050265</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Switch</td>
+      <td>Southpaw</td>
+      <td>50.649351</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1773,10 +1250,10 @@ Name: Referee, dtype: int64
       <td>50.375940</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>Switch</td>
+      <th>1</th>
       <td>Southpaw</td>
-      <td>50.649351</td>
+      <td>Open Stance</td>
+      <td>50.000000</td>
     </tr>
   </tbody>
 </table>
@@ -1800,38 +1277,23 @@ Name: Referee, dtype: int64
 </li>
 </ul>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;R_Winner&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;Winner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span><span class="s1">&#39;Red&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;B_Winner&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ufc</span><span class="p">[</span><span class="s1">&#39;Winner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span><span class="s1">&#39;Blue&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span>  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ufc</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s1">&#39;R_&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+
+<span class="n">R_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span>  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ufc</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s1">&#39;R_&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 <span class="n">S_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span>  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ufc</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s1">&#39;B_&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
 <span class="n">else_col</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span>  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ufc</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">R_</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">S_</span><span class="p">)</span> <span class="p">]</span>
 <span class="n">else_col</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;Winner&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Rdf</span> <span class="o">=</span> <span class="n">ufc</span><span class="p">[</span><span class="n">R_</span><span class="o">+</span><span class="n">else_col</span><span class="p">]</span>
+
+<span class="n">Rdf</span> <span class="o">=</span> <span class="n">ufc</span><span class="p">[</span><span class="n">R_</span><span class="o">+</span><span class="n">else_col</span><span class="p">]</span>
 <span class="n">Rdf</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">R_</span><span class="p">]</span> <span class="o">+</span><span class="n">else_col</span>
 
 <span class="n">Sdf</span> <span class="o">=</span> <span class="n">ufc</span><span class="p">[</span><span class="n">S_</span><span class="o">+</span><span class="n">else_col</span><span class="p">]</span>
 <span class="n">Sdf</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">S_</span><span class="p">]</span> <span class="o">+</span><span class="n">else_col</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newUfc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Rdf</span><span class="p">,</span><span class="n">Sdf</span><span class="p">])</span>
+
+<span class="n">newUfc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">Rdf</span><span class="p">,</span><span class="n">Sdf</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1949,7 +1411,7 @@ Name: Referee, dtype: int64
 <p class="admonition-title">Q10</p>
 <p><strong>각 선수(name)의 첫시합과 마지막 시합날짜의 차이를 구하여 현역활동 기간을 일(days)수로 표현하여 데이터프레임을 만들고 Active_per 변수에 저장하라. 만약 대회를 1번만 참가하였다면 현역활동 기간을 1로 입력한다. 활동기간이 긴 순서대로 정렬하라</strong></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span><span class="o">=</span> <span class="p">[]</span> 
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">newUfc</span><span class="o">.</span><span class="n">fighter</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
@@ -1961,27 +1423,12 @@ Name: Referee, dtype: int64
         
     <span class="k">else</span><span class="p">:</span>
         <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Active_per</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">newUfc</span><span class="o">.</span><span class="n">fighter</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span><span class="n">lst</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;days&#39;</span><span class="p">})</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Active_per</span><span class="p">[</span><span class="s1">&#39;days&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Active_per</span><span class="p">[</span><span class="s1">&#39;days&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Active_per</span> <span class="o">=</span> <span class="n">Active_per</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;days&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">Active_per</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">newUfc</span><span class="o">.</span><span class="n">fighter</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span><span class="n">lst</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;days&#39;</span><span class="p">})</span>
+
+<span class="n">Active_per</span><span class="p">[</span><span class="s1">&#39;days&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Active_per</span><span class="p">[</span><span class="s1">&#39;days&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+
+<span class="n">Active_per</span> <span class="o">=</span> <span class="n">Active_per</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;days&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2080,7 +1527,7 @@ Name: Referee, dtype: int64
 <p class="admonition-title">Q11</p>
 <p><strong>각 선수들의 활동기간상의 최대 연승 횟수를 파악하려한다. (Winner 컬럼의 결과가 1인 경우를 기준으로 연승여부를 판단하라.) 선수명 연승 횟수를 담은 데이터프레임을 만들고 steakWin 변수에 저장하라. 연승횟수가 많은 선수 순서대로 정렬하라</strong></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_lst</span><span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">newUfc</span><span class="o">.</span><span class="n">fighter</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
@@ -2091,29 +1538,14 @@ Name: Referee, dtype: int64
         <span class="n">max_count</span> <span class="o">=</span><span class="nb">max</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">each_df</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][[</span><span class="s1">&#39;Winner&#39;</span><span class="p">]]</span>\
                                                  <span class="o">.</span><span class="n">Winner</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">])</span>
         <span class="n">new_lst</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">value</span><span class="p">,</span><span class="n">max_count</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steakWin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">new_lst</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;steakWinCount&#39;</span><span class="p">})</span>\
+
+<span class="n">steakWin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">new_lst</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;steakWinCount&#39;</span><span class="p">})</span>\
                              <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;steakWinCount&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>\
                              <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># newUfc.loc[newUfc.fighter ==&#39;Georges St-Pierre&#39;].sort_values(&#39;date&#39;,ascending=False)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steakWin</span> <span class="o">=</span><span class="n">steakWin</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;steakWinCount&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># newUfc.loc[newUfc.fighter ==&#39;Georges St-Pierre&#39;].sort_values(&#39;date&#39;,ascending=False)</span>
+
+<span class="n">steakWin</span> <span class="o">=</span><span class="n">steakWin</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;steakWinCount&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2212,16 +1644,11 @@ Name: Referee, dtype: int64
 <p class="admonition-title">Q12</p>
 <p><strong>년도별 남녀 선수의 나이를 box 그래프로 아래와 같이 나타내라</strong></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Gender&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">newUfc</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Boxplot of Age of year&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
@@ -2231,7 +1658,7 @@ Name: Referee, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Boxplot of Age of year&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/main_63_1.png" src="../../_images/main_63_1.png" />
+<img alt="../../_images/main_37_1.png" src="../../_images/main_37_1.png" />
 </div>
 </div>
 
@@ -2260,6 +1687,8 @@ Name: Referee, dtype: int64
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="status.html" title="previous page">UFC 경기 데이터</a>
+    <a class='right-next' id="next-link" href="../02_mushroomClassification/README.html" title="next page">업데이트</a>
 
         </div>
         
