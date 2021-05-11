@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; DataManim</title>
+    <title>UFC 데이터셋 분석 &#8212; DataManim</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -126,12 +126,12 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="../../content.html">
    파이썬으로 캐글 데이터 분석해보기
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../00_olympic/README.html">
      00_올림픽 데이터셋
@@ -146,14 +146,19 @@ commentsRunWhenDOMLoaded(addUtterances);
     <i class="fas fa-chevron-down">
     </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 current active collapsible-parent">
     <a class="reference internal" href="README.html">
      01_ufc 기록 데이터셋
     </a>
-    <ul class="collapse-ul">
+    <ul class="current collapse-ul">
      <li class="toctree-l3">
       <a class="reference internal" href="status.html">
        개   요
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       문  제  만
       </a>
      </li>
     </ul>
@@ -338,16 +343,6 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
         </div>
     </div>
 </div>
@@ -356,7 +351,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="ufc">
+<h1>UFC 데이터셋 분석<a class="headerlink" href="#ufc" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -641,7 +638,7 @@ Name: Gender, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_12_0.png" src="../../_images/main_12_0.png" />
+<img alt="../../_images/main_13_0.png" src="../../_images/main_13_0.png" />
 </div>
 </div>
 <div class="attention admonition">
@@ -699,7 +696,7 @@ Name: date, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_17_0.png" src="../../_images/main_17_0.png" />
+<img alt="../../_images/main_18_0.png" src="../../_images/main_18_0.png" />
 </div>
 </div>
 <div class="admonition-q6 admonition">
@@ -1127,7 +1124,7 @@ Name: Referee, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_23_0.png" src="../../_images/main_23_0.png" />
+<img alt="../../_images/main_24_0.png" src="../../_images/main_24_0.png" />
 </div>
 </div>
 <div class="admonition-q8 admonition">
@@ -1658,7 +1655,8 @@ Name: Referee, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Boxplot of Age of year&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/main_37_1.png" src="../../_images/main_37_1.png" />
+<img alt="../../_images/main_38_1.png" src="../../_images/main_38_1.png" />
+</div>
 </div>
 </div>
 
