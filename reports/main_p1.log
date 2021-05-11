@@ -19,14 +19,28 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 ------------------
 pcaDf = df.iloc[:,1:]
 pcaDf = sc.fit_transform(pcaDf)
+
+from sklearn.decomposition import PCA
+
+componentsNum=10
+pca = PCA(n_components=componentsNum) 
+printcipalComponents = pca.fit_transform(pcaDf)
+principalDf = pd.DataFrame(data=printcipalComponents, columns = ['component'+str(x) for x in range(componentsNum)])
+
+componentDf = pd.DataFrame(pca.explained_variance_ratio_,columns=['cumsumVariance']).cumsum().reset_index()
+componentDf['index'] +=1
+componentDf=componentDf.rename(columns={'index':'componentsCount'})
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-18-770d1b5812f0>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-14-d4f7635a989b>[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0mpcaDf[0m [0;34m=[0m [0mdf[0m[0;34m.[0m[0miloc[0m[0;34m[[0m[0;34m:[0m[0;34m,[0m[0;36m1[0m[0;34m:[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 2[0;31m [0mpcaDf[0m [0;34m=[0m [0msc[0m[0;34m.[0m[0mfit_transform[0m[0;34m([0m[0mpcaDf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mdecomposition[0m [0;32mimport[0m [0mPCA[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
 [0;31mNameError[0m: name 'sc' is not defined
 NameError: name 'sc' is not defined
 

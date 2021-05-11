@@ -435,11 +435,18 @@ Registered S3 methods overwritten by &#39;ggplot2&#39;:
 <p class="admonition-title">Question 2</p>
 <p><strong>mtcars 데이터셋(mtcars.csv)의 qsec 컬럼을 표준정규분포 데이터 표준화 (standardization) 변환 후 최대, 최소값을 각각 구하시오.</strong></p>
 </div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ans21</span> <span class="o">&lt;-</span> <span class="nf">scale</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">qsec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 1) scale() 함수 이용</span>
 
-<span class="n">ans21</span> <span class="o">&lt;-</span> <span class="nf">scale</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">qsec</span><span class="p">)</span>
+
 <span class="nf">range</span><span class="p">(</span><span class="n">ans21</span><span class="p">)[</span><span class="m">2</span><span class="o">:</span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -451,15 +458,21 @@ Registered S3 methods overwritten by &#39;ggplot2&#39;:
 </ol>
 </div></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 2) 사용자 정의 함수</span>
-
-<span class="n">standardization</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">standardization</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span>
   <span class="nf">return</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="nf">sd</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="n">ans22</span> <span class="o">&lt;-</span> <span class="nf">standardization</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">qsec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 2) 사용자 정의 함수</span>
+
 <span class="nf">range</span><span class="p">(</span><span class="n">ans22</span><span class="p">)[</span><span class="m">2</span><span class="o">:</span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -471,12 +484,18 @@ Registered S3 methods overwritten by &#39;ggplot2&#39;:
 </ol>
 </div></div>
 </div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">stand_model</span> <span class="o">&lt;-</span> <span class="nf">preProcess</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span> <span class="c1">#default: standardization</span>
+<span class="n">ans23</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">stand_model</span><span class="p">,</span> <span class="n">mtcars</span><span class="p">)</span><span class="o">$</span><span class="n">qsec</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 3) caret 라이브러리 사용</span>
 
-<span class="n">stand_model</span> <span class="o">&lt;-</span> <span class="nf">preProcess</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span> <span class="c1">#default: standardization</span>
-<span class="n">ans23</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">stand_model</span><span class="p">,</span> <span class="n">mtcars</span><span class="p">)</span><span class="o">$</span><span class="n">qsec</span>
 <span class="nf">range</span><span class="p">(</span><span class="n">ans23</span><span class="p">)[</span><span class="m">2</span><span class="o">:</span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -492,12 +511,15 @@ Registered S3 methods overwritten by &#39;ggplot2&#39;:
 <p class="admonition-title">Question 3</p>
 <p>*<em>mtcars 데이터셋(mtcars.csv)의 wt 컬럼의 이상치(IQR <em>1.5 외부에 존재하는)값들을 outlier 변수에 저장하라</em></em></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Q1, Q3, IQR 계산</span>
 <span class="n">q25</span> <span class="o">&lt;-</span> <span class="nf">quantile</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">,</span> <span class="m">0.25</span><span class="p">)</span>
 <span class="n">q75</span> <span class="o">&lt;-</span> <span class="nf">quantile</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">,</span> <span class="m">0.75</span><span class="p">)</span>
 <span class="n">iqr</span> <span class="o">&lt;-</span> <span class="n">q75</span> <span class="o">-</span> <span class="n">q25</span>
+
+<span class="n">flag</span> <span class="o">&lt;-</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">q75</span><span class="m">+1.5</span><span class="o">*</span><span class="n">iqr</span><span class="p">)</span> <span class="o">|</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">q25</span><span class="m">-1.5</span><span class="o">*</span><span class="n">iqr</span><span class="p">)</span>
+<span class="n">outlier</span> <span class="o">&lt;-</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">[</span><span class="n">flag</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -505,8 +527,6 @@ Registered S3 methods overwritten by &#39;ggplot2&#39;:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># outlier 저장</span>
-<span class="n">flag</span> <span class="o">&lt;-</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">q75</span><span class="m">+1.5</span><span class="o">*</span><span class="n">iqr</span><span class="p">)</span> <span class="o">|</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">q25</span><span class="m">-1.5</span><span class="o">*</span><span class="n">iqr</span><span class="p">)</span>
-<span class="n">outlier</span> <span class="o">&lt;-</span> <span class="n">mtcars</span><span class="o">$</span><span class="n">wt</span><span class="p">[</span><span class="n">flag</span><span class="p">]</span>
 <span class="n">outlier</span>
 </pre></div>
 </div>
@@ -551,13 +571,19 @@ Registered S3 methods overwritten by &#39;ggplot2&#39;:
 <p class="admonition-title">Question 5</p>
 <p><strong>mtcars 데이터셋에서 mpg변수를 제외하고 데이터 정규화 (standardscaler) 과정을 진행한 이후 PCA를 통해 변수 축소를 하려한다. 누적설명 분산량이 92%를 넘기기 위해서는 몇개의 주성분을 선택해야하는지 설명하라</strong></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars_q5</span> <span class="o">&lt;-</span> <span class="n">mtcars</span><span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
 <span class="n">mtcars_q5_scale</span> <span class="o">&lt;-</span> <span class="nf">scale</span><span class="p">(</span><span class="n">mtcars_q5</span><span class="p">)</span>
 
 <span class="n">pca</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="n">mtcars_q5_scale</span><span class="p">)</span>
-<span class="nf">summary</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -627,12 +653,9 @@ Cumulative Proportion  0.99226 0.99762 1.00000
 </ol>
 </div></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 2) for문 사용</span>
-<span class="c1"># - strsplit하면 list형태로 분리됨</span>
-
-<span class="n">tmp</span> <span class="o">&lt;-</span> <span class="nf">strsplit</span><span class="p">(</span><span class="nf">rownames</span><span class="p">(</span><span class="n">mtcars</span><span class="p">),</span><span class="s">&quot; &quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tmp</span> <span class="o">&lt;-</span> <span class="nf">strsplit</span><span class="p">(</span><span class="nf">rownames</span><span class="p">(</span><span class="n">mtcars</span><span class="p">),</span><span class="s">&quot; &quot;</span><span class="p">)</span>
 <span class="n">tmp2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
 
 <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">tmp</span><span class="p">)){</span>
@@ -640,6 +663,16 @@ Cumulative Proportion  0.99226 0.99762 1.00000
 <span class="p">}</span>
 
 <span class="n">mtcars</span><span class="o">$</span><span class="n">brand</span> <span class="o">&lt;-</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">tmp2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## 2) for문 사용</span>
+<span class="c1"># - strsplit하면 list형태로 분리됨</span>
+
+
 <span class="nf">head</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -725,7 +758,7 @@ Cumulative Proportion  0.99226 0.99762 1.00000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/main_p1_r_26_0.png" src="../../_images/main_p1_r_26_0.png" />
+<img alt="../../_images/main_p1_r_31_0.png" src="../../_images/main_p1_r_31_0.png" />
 </div>
 </div>
 </div>

@@ -399,7 +399,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Question 1</p>
 <p><strong>y_train,X_train데이터를 합쳐 trainDf 변수에 저장하라</strong></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trainDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">X_train</span><span class="p">)</span>
 </pre></div>
@@ -495,7 +495,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Question 2</p>
 <p><strong>trainDf와 X_test의 결측치가 있는 컬럼의 숫자 및 결측치 숫자를 파악하고 결측치처리 방식에 대해 생각해보자</strong></p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trainNAN</span> <span class="o">=</span> <span class="n">trainDf</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
@@ -525,7 +525,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testNAN</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
