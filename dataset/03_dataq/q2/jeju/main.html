@@ -1,0 +1,1187 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제주도 교통량 예측 문제 &#8212; DataManim</title>
+    
+  <link rel="stylesheet" href="../../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "dean-kg/datamanim_comment");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="prev" title="작업형 제 2 유형 예시문제" href="../../main_p2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../../index.html">
+  
+  <img src="../../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">DataManim</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../intro.html">
+   DataManim
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../../../content.html">
+   파이썬으로 캐글 데이터 분석해보기
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../../00_olympic/README.html">
+     00_올림픽 데이터셋
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../00_olympic/status.html">
+       개   요
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../../01_ufc/README.html">
+     01_ufc 기록 데이터셋
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../01_ufc/status.html">
+       개   요
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../01_ufc/main.html">
+       코   드
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../../02_mushroomClassification/README.html">
+     02_버섯 분류 데이터셋
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../02_mushroomClassification/status.html">
+       개   요
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../02_mushroomClassification/main.html">
+       코   드
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../../../../bigbun.html">
+   빅분기실기대비
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../README.html">
+     작업형 1유형
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../main_p1.html">
+       00_dataq 예제문제(Py)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../main_p1_r.html">
+       00_dataq 예제문제(R)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../diamondQuestion.html">
+       01_diamond 데이터셋
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../crawlingMain.html">
+       02_크롤링_네이버영화
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../../README2.html">
+     작업형 2유형
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../main_p2.html">
+       00_dataq 예제문제2(Py)
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       01_제주 교통량 예측 문제(Py)
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/dataset/03_dataq/q2/jeju/main.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Datamanim/book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Datamanim/book/issues/new?title=Issue%20on%20page%20%2Fdataset/03_dataq/q2/jeju/main.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Datamanim/book/gh-pages/?urlpath=tree/_sources/dataset/03_dataq/q2/jeju/main.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/Datamanim/book/blob/gh-pages//_sources/dataset/03_dataq/q2/jeju/main.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>제주도 교통량 예측 문제<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><strong>날씨 및 유동인구에 따른 교통량 추이</strong></p>
+<ul class="simple">
+<li><p>데이터 출처 : <a class="reference external" href="https://www.jejudatahub.net/data/view/data/753">https://www.jejudatahub.net/data/view/data/753</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>데이터 설명
+제주빅데이터센터 데이터를 활용하여 효율적인 교통량 측정을 위한 날씨/유동인구 활용 교통량 추이 데이터 제공</p>
+<ul class="simple">
+<li><p>거주인구, 근무인구, 방문인구는 해당 인구수의 일별 유동인구 수 합계</p></li>
+<li><p>유동인구는 01~24시 해당 시간 정각 측정 인구 (머문 시간(분)/60분)</p></li>
+<li><p>교통량 (대), 평균 속도 (km), 평균 소요 시간 (초), 평균 기온 (°C), 일일강수량 (mm), 평균 풍속(m/s)</p></li>
+</ul>
+</div>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p><strong>데이터를 로드하고 각데이터의 상위 3개 값을 출력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/Datamanim/jeju/main/Jeju_trainX.csv&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
+<span class="n">train_y</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/Datamanim/jeju/main/Jeju_trainy.csv&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
+<span class="n">test_X</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/Datamanim/jeju/main/Jeju_testX.csv&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
+<span class="n">sub</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/Datamanim/jeju/main/subExample.csv&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">train_X</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">train_y</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">test_X</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>일자</th>
+      <th>시도명</th>
+      <th>읍면동명</th>
+      <th>거주인구</th>
+      <th>근무인구</th>
+      <th>방문인구</th>
+      <th>총 유동인구</th>
+      <th>평균 속도</th>
+      <th>평균 소요 시간</th>
+      <th>평균 기온</th>
+      <th>일강수량</th>
+      <th>평균 풍속</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2018-01-01</td>
+      <td>서귀포시</td>
+      <td>남원읍</td>
+      <td>291408.897</td>
+      <td>18744.131</td>
+      <td>219588.857</td>
+      <td>529741.884</td>
+      <td>53.000</td>
+      <td>40.571</td>
+      <td>2.35</td>
+      <td>0.0</td>
+      <td>3.325</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2018-01-01</td>
+      <td>제주시</td>
+      <td>노형동</td>
+      <td>1215420.248</td>
+      <td>74964.858</td>
+      <td>445735.329</td>
+      <td>1736120.435</td>
+      <td>38.563</td>
+      <td>30.655</td>
+      <td>-2.30</td>
+      <td>0.0</td>
+      <td>1.100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2018-01-01</td>
+      <td>제주시</td>
+      <td>구좌읍</td>
+      <td>276220.023</td>
+      <td>17542.105</td>
+      <td>248104.122</td>
+      <td>541866.250</td>
+      <td>53.188</td>
+      <td>40.719</td>
+      <td>5.90</td>
+      <td>0.0</td>
+      <td>4.100</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>교통량</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>76.200</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1291.184</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>일자</th>
+      <th>시도명</th>
+      <th>읍면동명</th>
+      <th>거주인구</th>
+      <th>근무인구</th>
+      <th>방문인구</th>
+      <th>총 유동인구</th>
+      <th>평균 속도</th>
+      <th>평균 소요 시간</th>
+      <th>평균 기온</th>
+      <th>일강수량</th>
+      <th>평균 풍속</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22448</td>
+      <td>2018-01-01</td>
+      <td>제주시</td>
+      <td>도두동</td>
+      <td>32249.987</td>
+      <td>3418.266</td>
+      <td>102709.092</td>
+      <td>138377.345</td>
+      <td>39.556</td>
+      <td>29.167</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>22449</td>
+      <td>2018-01-01</td>
+      <td>제주시</td>
+      <td>외도동</td>
+      <td>213500.997</td>
+      <td>10341.172</td>
+      <td>112692.789</td>
+      <td>336534.958</td>
+      <td>32.900</td>
+      <td>30.900</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22450</td>
+      <td>2018-01-01</td>
+      <td>제주시</td>
+      <td>이도2동</td>
+      <td>1212382.218</td>
+      <td>96920.834</td>
+      <td>541194.481</td>
+      <td>1850497.533</td>
+      <td>29.538</td>
+      <td>35.692</td>
+      <td>2.9</td>
+      <td>0.0</td>
+      <td>2.4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>교통량</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22448</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>22449</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22450</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-2 admonition">
+<p class="admonition-title">Question 2</p>
+<p><strong>각데이터의 결측치, 데이터타입, 연속형변수의 분포를 파악하라</strong></p>
+</div>
+<p>info() , insull().sum(), describe() 함수 이용</p>
+<div class="admonition-question-3 admonition">
+<p class="admonition-title">Question 3</p>
+<p><strong>LabelEncoder를 이용하여 trainset의 읍면동, 시도명을 fit하고 train_X,test_X를 각각 transform 하여 pre_train, pre_test 변수에 저장하고 상위 5개값을 출력하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">le</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="p">[</span><span class="s1">&#39;읍면동명&#39;</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="n">train_X</span><span class="p">[</span><span class="s1">&#39;읍면동명&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_X</span><span class="p">[</span><span class="s1">&#39;읍면동명&#39;</span><span class="p">])</span>
+<span class="n">test_X</span><span class="p">[</span><span class="s1">&#39;읍면동명&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_X</span><span class="p">[</span><span class="s1">&#39;읍면동명&#39;</span><span class="p">])</span>
+
+<span class="n">train_X</span><span class="p">[</span><span class="s1">&#39;시도명&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_X</span><span class="p">[</span><span class="s1">&#39;시도명&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;서귀포시&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> 
+<span class="n">test_X</span><span class="p">[</span><span class="s1">&#39;시도명&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_X</span><span class="p">[</span><span class="s1">&#39;시도명&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;서귀포시&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_X</span><span class="p">[[</span><span class="s1">&#39;시도명&#39;</span><span class="p">,</span><span class="s1">&#39;읍면동명&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>시도명</th>
+      <th>읍면동명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>25</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-4 admonition">
+<p class="admonition-title">Question 4</p>
+<p><strong>‘id’ 컬럼을 제거하라. ‘일자’를 년도,월,일,요일(숫자)로 각각 분리하여 컬럼을 형성하라. 그후 ‘일자’컬럼을 제거하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">datePreprocessing</span><span class="p">(</span><span class="n">df2</span><span class="p">):</span>
+    
+    <span class="n">df</span> <span class="o">=</span><span class="n">df2</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;일자&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;일자&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;년도&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;일자&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;월&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;일자&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;일&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;일자&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;weekend&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;일자&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday</span>    
+    
+    
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">pre_train</span> <span class="o">=</span> <span class="n">datePreprocessing</span><span class="p">(</span><span class="n">train_X</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;일자&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pre_test</span> <span class="o">=</span> <span class="n">datePreprocessing</span><span class="p">(</span><span class="n">test_X</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;일자&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pre_train</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>시도명</th>
+      <th>읍면동명</th>
+      <th>거주인구</th>
+      <th>근무인구</th>
+      <th>방문인구</th>
+      <th>총 유동인구</th>
+      <th>평균 속도</th>
+      <th>평균 소요 시간</th>
+      <th>평균 기온</th>
+      <th>일강수량</th>
+      <th>평균 풍속</th>
+      <th>년도</th>
+      <th>월</th>
+      <th>일</th>
+      <th>weekend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2</td>
+      <td>291408.897</td>
+      <td>18744.131</td>
+      <td>219588.857</td>
+      <td>529741.884</td>
+      <td>53.000</td>
+      <td>40.571</td>
+      <td>2.35</td>
+      <td>0.0</td>
+      <td>3.325</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>3</td>
+      <td>1215420.248</td>
+      <td>74964.858</td>
+      <td>445735.329</td>
+      <td>1736120.435</td>
+      <td>38.563</td>
+      <td>30.655</td>
+      <td>-2.30</td>
+      <td>0.0</td>
+      <td>1.100</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>1</td>
+      <td>276220.023</td>
+      <td>17542.105</td>
+      <td>248104.122</td>
+      <td>541866.250</td>
+      <td>53.188</td>
+      <td>40.719</td>
+      <td>5.90</td>
+      <td>0.0</td>
+      <td>4.100</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-5 admonition">
+<p class="admonition-title">Question 5</p>
+<p><strong>인구 관련 컬럼(거주인구,근무인구,방문인구,총 유동인구를 정규화하라. 정규화시 trainset에 대한 fit을 test셋에 적용하라.</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">sc</span> <span class="o">=</span><span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">pre2</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">sc</span> <span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">sc</span> <span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+        <span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df2</span><span class="p">[[</span><span class="s1">&#39;거주인구&#39;</span><span class="p">,</span><span class="s1">&#39;근무인구&#39;</span><span class="p">,</span><span class="s1">&#39;방문인구&#39;</span><span class="p">,</span><span class="s1">&#39;총 유동인구&#39;</span><span class="p">]])</span>
+    <span class="n">df2</span><span class="p">[[</span><span class="s1">&#39;거주인구&#39;</span><span class="p">,</span><span class="s1">&#39;근무인구&#39;</span><span class="p">,</span><span class="s1">&#39;방문인구&#39;</span><span class="p">,</span><span class="s1">&#39;총 유동인구&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df2</span><span class="p">[[</span><span class="s1">&#39;거주인구&#39;</span><span class="p">,</span><span class="s1">&#39;근무인구&#39;</span><span class="p">,</span><span class="s1">&#39;방문인구&#39;</span><span class="p">,</span><span class="s1">&#39;총 유동인구&#39;</span><span class="p">]])</span>
+    
+    <span class="k">return</span> <span class="n">df2</span><span class="p">,</span><span class="n">sc</span>
+
+<span class="n">pre_train</span> <span class="p">,</span> <span class="n">sc</span> <span class="o">=</span> <span class="n">pre2</span><span class="p">(</span><span class="n">pre_train</span><span class="p">)</span>
+<span class="n">pre_test</span> <span class="p">,</span> <span class="n">sc2</span> <span class="o">=</span> <span class="n">pre2</span><span class="p">(</span><span class="n">pre_test</span><span class="p">,</span><span class="n">sc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pre_train</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>시도명</th>
+      <th>읍면동명</th>
+      <th>거주인구</th>
+      <th>근무인구</th>
+      <th>방문인구</th>
+      <th>총 유동인구</th>
+      <th>평균 속도</th>
+      <th>평균 소요 시간</th>
+      <th>평균 기온</th>
+      <th>일강수량</th>
+      <th>평균 풍속</th>
+      <th>년도</th>
+      <th>월</th>
+      <th>일</th>
+      <th>weekend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2</td>
+      <td>-0.087699</td>
+      <td>-0.418008</td>
+      <td>0.166825</td>
+      <td>-0.042833</td>
+      <td>53.000</td>
+      <td>40.571</td>
+      <td>2.35</td>
+      <td>0.0</td>
+      <td>3.325</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>3</td>
+      <td>3.011526</td>
+      <td>0.959452</td>
+      <td>1.775292</td>
+      <td>2.573146</td>
+      <td>38.563</td>
+      <td>30.655</td>
+      <td>-2.30</td>
+      <td>0.0</td>
+      <td>1.100</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>1</td>
+      <td>-0.138644</td>
+      <td>-0.447459</td>
+      <td>0.369639</td>
+      <td>-0.016541</td>
+      <td>53.188</td>
+      <td>40.719</td>
+      <td>5.90</td>
+      <td>0.0</td>
+      <td>4.100</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-6 admonition">
+<p class="admonition-title">Question 6</p>
+<p><strong>적당한 회귀 모델을 선정하고, 학습 및 mean_squared_error 값을 통해 모델을 검증하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">pre_train</span><span class="p">,</span> <span class="n">train_y</span><span class="p">[</span><span class="s1">&#39;교통량&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+
+<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mse</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7169.674733186257
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-7 admonition">
+<p class="admonition-title">Question 7</p>
+<p><strong>모델을 통해 테스트셋의 예측값을 추출하고 제출파일을 생성 및 저장하라.</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub</span><span class="p">[</span><span class="s1">&#39;교통량&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pre_test</span><span class="p">)</span>
+<span class="n">sub</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./submission.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>교통량</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22448</td>
+      <td>1369.73863</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>22449</td>
+      <td>1107.06700</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22450</td>
+      <td>313.38008</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>저장이 잘됐다면 저장된 테스트 셋의 mse값을 아래의 코드를 통해 확인해볼수 있습니다.</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FinalMseScore</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/Datamanim/jeju/main/Jeju_testy.csv&quot;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./submission.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span><span class="n">y_true</span><span class="p">[</span><span class="s1">&#39;교통량&#39;</span><span class="p">])</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;submission mse score : &#39;</span><span class="p">,</span><span class="n">mse</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mse</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_mse</span> <span class="o">=</span> <span class="n">FinalMseScore</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>submission mse score :  6797.38846471611
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-root-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-root-py",
+            path: "./dataset/03_dataq/q2/jeju"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-root-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../../main_p2.html" title="previous page">작업형 제 2 유형 예시문제</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By DataManim<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-194339703-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
