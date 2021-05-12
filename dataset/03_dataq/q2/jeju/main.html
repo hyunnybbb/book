@@ -393,14 +393,24 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">train_X</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;train_X&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">train_X</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;train_y&#39;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">train_y</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test_X&#39;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">test_X</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sub&#39;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train_X
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -439,8 +449,8 @@ commentsRunWhenDOMLoaded(addUtterances);
       <th>0</th>
       <td>0</td>
       <td>2018-01-01</td>
-      <td>서귀포시</td>
-      <td>남원읍</td>
+      <td>0</td>
+      <td>2</td>
       <td>291408.897</td>
       <td>18744.131</td>
       <td>219588.857</td>
@@ -455,8 +465,8 @@ commentsRunWhenDOMLoaded(addUtterances);
       <th>1</th>
       <td>1</td>
       <td>2018-01-01</td>
-      <td>제주시</td>
-      <td>노형동</td>
+      <td>0</td>
+      <td>3</td>
       <td>1215420.248</td>
       <td>74964.858</td>
       <td>445735.329</td>
@@ -471,8 +481,8 @@ commentsRunWhenDOMLoaded(addUtterances);
       <th>2</th>
       <td>2</td>
       <td>2018-01-01</td>
-      <td>제주시</td>
-      <td>구좌읍</td>
+      <td>0</td>
+      <td>1</td>
       <td>276220.023</td>
       <td>17542.105</td>
       <td>248104.122</td>
@@ -485,7 +495,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html"><div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train_y
+</pre></div>
+</div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -525,7 +538,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html"><div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test_X
+</pre></div>
+</div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -563,8 +579,8 @@ commentsRunWhenDOMLoaded(addUtterances);
       <th>0</th>
       <td>22448</td>
       <td>2018-01-01</td>
-      <td>제주시</td>
-      <td>도두동</td>
+      <td>0</td>
+      <td>7</td>
       <td>32249.987</td>
       <td>3418.266</td>
       <td>102709.092</td>
@@ -579,8 +595,8 @@ commentsRunWhenDOMLoaded(addUtterances);
       <th>1</th>
       <td>22449</td>
       <td>2018-01-01</td>
-      <td>제주시</td>
-      <td>외도동</td>
+      <td>0</td>
+      <td>23</td>
       <td>213500.997</td>
       <td>10341.172</td>
       <td>112692.789</td>
@@ -595,8 +611,8 @@ commentsRunWhenDOMLoaded(addUtterances);
       <th>2</th>
       <td>22450</td>
       <td>2018-01-01</td>
-      <td>제주시</td>
-      <td>이도2동</td>
+      <td>0</td>
+      <td>27</td>
       <td>1212382.218</td>
       <td>96920.834</td>
       <td>541194.481</td>
@@ -609,7 +625,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html"><div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub
+</pre></div>
+</div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -635,17 +654,17 @@ commentsRunWhenDOMLoaded(addUtterances);
     <tr>
       <th>0</th>
       <td>22448</td>
-      <td>0</td>
+      <td>1369.73863</td>
     </tr>
     <tr>
       <th>1</th>
       <td>22449</td>
-      <td>0</td>
+      <td>1107.06700</td>
     </tr>
     <tr>
       <th>2</th>
       <td>22450</td>
-      <td>0</td>
+      <td>313.38008</td>
     </tr>
   </tbody>
 </table>
