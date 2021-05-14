@@ -88,8 +88,6 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="업데이트" href="../03_dataq/README.html" />
-    <link rel="prev" title="업데이트 로그" href="README.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -126,7 +124,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../content.html">
    파이썬으로 캐글 데이터 분석해보기
@@ -188,18 +186,18 @@ commentsRunWhenDOMLoaded(addUtterances);
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../bigbun.html">
    빅분기실기대비
   </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2 current active collapsible-parent">
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="README.html">
      파이썬 튜토리얼
     </a>
-    <ul class="current collapse-ul">
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="pandasMain.html">
        Pandas
       </a>
      </li>
@@ -299,7 +297,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/dataset/99_pandas/pandasMain.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/dataset/99_pandas/pandasMainQ.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -319,7 +317,7 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/Datamanim/book/issues/new?title=Issue%20on%20page%20%2Fdataset/99_pandas/pandasMain.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/Datamanim/book/issues/new?title=Issue%20on%20page%20%2Fdataset/99_pandas/pandasMainQ.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -340,7 +338,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/Datamanim/book/gh-pages/?urlpath=tree/_sources/dataset/99_pandas/pandasMain.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Datamanim/book/gh-pages/?urlpath=tree/_sources/dataset/99_pandas/pandasMainQ.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -348,7 +346,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/Datamanim/book/blob/gh-pages//_sources/dataset/99_pandas/pandasMain.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/Datamanim/book/blob/gh-pages//_sources/dataset/99_pandas/pandasMainQ.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -445,13 +443,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Question 1</p>
 <p><strong>데이터를 로드하라. 데이터는 \t을 기준으로 구분되어있다.</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DataUrl</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -467,13 +458,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="admonition-question-2 admonition">
 <p class="admonition-title">Question 2</p>
 <p><strong>데이터의 상위 5개 행을 출력하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -673,13 +657,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Question 4</p>
 <p><strong>전체 컬럼을 출력하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -711,13 +688,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Question 5</p>
 <p><strong>6번째 컬럼을 출력하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -733,13 +703,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="admonition-question-6 admonition">
 <p class="admonition-title">Question 6</p>
 <p><strong>6번째 컬럼의 데이터 타입을 확인하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">[</span><span class="s1">&#39;firstBlood&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,13 +720,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Question 7</p>
 <p><strong>데이터셋의 인덱스 구성은 어떤가</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> 
@@ -779,13 +735,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="admonition-question-8 admonition">
 <p class="admonition-title">Question 8</p>
 <p><strong>6번째 컬럼의 3번째 값은 무엇인가?</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -808,17 +757,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Question 9</p>
 <p><strong>데이터를 로드하라. 컬럼이 한글이기에 적절한 처리해줘야함</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/Jeju.csv&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
-
-<span class="c1">## or </span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/Jeju.csv&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;cp949&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -834,13 +772,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="admonition-question-10 admonition">
 <p class="admonition-title">Question 10</p>
 <p><strong>데이터 마지막 3개행을 출력하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -939,15 +870,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Question 11</p>
 <p><strong>수치형 변수를 가진 컬럼을 출력하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -966,13 +888,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Question 12</p>
 <p><strong>범주형 변수를 가진 컬럼을 출력하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -988,13 +903,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="admonition-question-13 admonition">
 <p class="admonition-title">Question 13</p>
 <p><strong>각 컬럼의 결측치 숫자를 파악하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1059,13 +967,6 @@ memory usage: 977.3+ KB
 <div class="admonition-question-15 admonition">
 <p class="admonition-title">Question 15</p>
 <p><strong>각 수치형 변수의 분포(사분위, 평균, 표준편차, 최대 , 최소)를 확인하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1217,13 +1118,6 @@ memory usage: 977.3+ KB
 <p class="admonition-title">Question 16</p>
 <p><strong>거주인구 컬럼의 값들을 출력하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;거주인구&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -1251,13 +1145,6 @@ Name: 거주인구, Length: 9621, dtype: float64
 <p class="admonition-title">Question 17</p>
 <p><strong>평균 속도 컬럼의 4분위 범위(IQR) 값을 구하여라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;평균 속도&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">75</span><span class="p">)</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;평균 속도&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -1274,13 +1161,6 @@ Name: 거주인구, Length: 9621, dtype: float64
 <p class="admonition-title">Question 18</p>
 <p><strong>읍면동명 컬럼의 유일값 갯수를 출력하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;읍면동명&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -1296,13 +1176,6 @@ Name: 거주인구, Length: 9621, dtype: float64
 <div class="admonition-question-19 admonition">
 <p class="admonition-title">Question 19</p>
 <p><strong>읍면동명 컬럼의 유일값을 모두 출력하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;읍면동명&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1332,14 +1205,6 @@ Name: 거주인구, Length: 9621, dtype: float64
 <p class="admonition-title">Question 20</p>
 <p><strong>데이터를 로드하라.</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/chipo.csv&#39;</span><span class="p">)</span>
-<span class="n">Ans</span><span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -1355,17 +1220,6 @@ Name: 거주인구, Length: 9621, dtype: float64
 <div class="admonition-question-21 admonition">
 <p class="admonition-title">Question 21</p>
 <p><strong>quantity컬럼 값이 5인 데이터를 추출하여 첫 5행을 출력하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">quantity</span><span class="o">==</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="c1">#or</span>
-
-<span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">quantity</span><span class="o">==</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1448,13 +1302,6 @@ Name: 거주인구, Length: 9621, dtype: float64
 <p class="admonition-title">Question 22</p>
 <p><strong>quantity컬럼 값이 5인 데이터를 추출하여 index를 0부터 정렬하고 첫 5행을 출력하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">quantity</span><span class="o">==</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -1535,21 +1382,6 @@ Name: 거주인구, Length: 9621, dtype: float64
 <div class="admonition-question-23 admonition">
 <p class="admonition-title">Question 23</p>
 <p><strong>quantity , item_price 두개의 컬럼으로 구성된 새로운 데이터 프레임을 정의하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span><span class="s1">&#39;item_price&#39;</span><span class="p">]]</span>
-
-<span class="c1">## or</span>
-
-<span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
-
-<span class="c1">## or</span>
-
-<span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span><span class="s1">&#39;item_price&#39;</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1645,19 +1477,6 @@ Name: 거주인구, Length: 9621, dtype: float64
 <p class="admonition-title">Question 24</p>
 <p><strong>item_price 컬럼의 달러표시 문자를 제거하고 float 타입으로 저장하여 new_price 컬럼에 저장하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_price&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
-
-<span class="c1"># or</span>
-
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_price&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;item_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
-
-<span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -1678,30 +1497,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 25</p>
 <p><strong>new_price 컬럼이 5이하의 값을 가지는 데이터프레임을 추출하고, 전체 갯수를 구하여라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">new_price</span> <span class="o">&lt;=</span><span class="mi">5</span><span class="p">])</span>
-
-<span class="c1"># or</span>
-
-<span class="n">Ans</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_price&#39;</span><span class="p">]</span> <span class="o">&lt;=</span><span class="mi">5</span><span class="p">])</span>
-
-<span class="c1"># or</span>
-
-<span class="n">Ans</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_price&#39;</span><span class="p">]</span> <span class="o">&lt;=</span><span class="mi">5</span><span class="p">])</span>
-
-
-<span class="c1"># or</span>
-
-<span class="n">Ans</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">new_price</span> <span class="o">&lt;=</span><span class="mi">5</span><span class="p">])</span>
-
-<span class="c1"># or</span>
-
-<span class="n">Ans</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;new_price &lt;= 5&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -1717,13 +1512,6 @@ Name: new_price, dtype: float64
 <div class="admonition-question-26 admonition">
 <p class="admonition-title">Question 26</p>
 <p><strong>Chicken Salad Bowl 인 데이터 프레임을 추출하라고 index 값을 초기화 하여라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span> <span class="o">==</span><span class="s1">&#39;Chicken Salad Bowl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1793,13 +1581,6 @@ Name: new_price, dtype: float64
 <div class="admonition-question-27 admonition">
 <p class="admonition-title">Question 27</p>
 <p><strong>new_price값이 9 이하이고 item_name 값이 Chicken Salad Bowl 인 데이터 프레임을 추출하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span> <span class="o">==</span><span class="s1">&#39;Chicken Salad Bowl&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">new_price</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1888,13 +1669,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 28</p>
 <p><strong>df의 new_price 컬럼 값에 따라 오름차순으로 정리하고 index를 초기화 하여라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;new_price&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -1972,13 +1746,6 @@ Name: new_price, dtype: float64
 <div class="admonition-question-29 admonition">
 <p class="admonition-title">Question 29</p>
 <p><strong>df의 item_name 컬럼 값중 Chips 포함하는 경우의 데이터를 출력하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Chips&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2067,13 +1834,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 30</p>
 <p><strong>df의 짝수번째 컬럼만을 포함하는 데이터프레임을 출력하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,::</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -2142,13 +1902,6 @@ Name: new_price, dtype: float64
 <div class="admonition-question-31 admonition">
 <p class="admonition-title">Question 31</p>
 <p><strong>df의 new_price 컬럼 값에 따라 내림차순으로 정리하고 index를 초기화 하여라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;new_price&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2227,13 +1980,6 @@ Name: new_price, dtype: float64
 <div class="admonition-question-32 admonition">
 <p class="admonition-title">Question 32</p>
 <p><strong>df의 item_name 컬럼 값이 Steak Salad 또는 Bowl 인 데이터를 인덱싱하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span> <span class="o">==</span><span class="s1">&#39;Steak Salad&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span> <span class="o">==</span><span class="s1">&#39;Bowl&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2331,13 +2077,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 33</p>
 <p><strong>df의 item_name 컬럼 값이 Steak Salad 또는 Bowl 인 데이터를 데이터 프레임화 한 후, item_name를 기준으로 중복행이 있으면 제거하되 첫번째 케이스만 남겨라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span> <span class="o">==</span><span class="s1">&#39;Steak Salad&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span> <span class="o">==</span><span class="s1">&#39;Bowl&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;item_name&#39;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -2398,13 +2137,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 34</p>
 <p><strong>df의 item_name 컬럼 값이 Steak Salad 또는 Bowl 인 데이터를 데이터 프레임화 한 후, item_name를 기준으로 중복행이 있으면 제거하되 마지막 케이스만 남겨라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span> <span class="o">==</span><span class="s1">&#39;Steak Salad&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span> <span class="o">==</span><span class="s1">&#39;Bowl&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;item_name&#39;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -2464,13 +2196,6 @@ Name: new_price, dtype: float64
 <div class="admonition-question-35 admonition">
 <p class="admonition-title">Question 35</p>
 <p><strong>df의 데이터 중 new_price값이 new_price값의 평균값을 가지는 데이터들을 인덱싱하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">new_price</span> <span class="o">&gt;=</span> <span class="n">df</span><span class="o">.</span><span class="n">new_price</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2559,14 +2284,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 36</p>
 <p><strong>df의 데이터 중 item_name의 값이 Izze 데이터를 Fizzy Lizzy로 수정하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span> <span class="o">==</span><span class="s1">&#39;Izze&#39;</span><span class="p">,</span><span class="s1">&#39;item_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Fizzy Lizzy&#39;</span>
-<span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -2636,13 +2353,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 37</p>
 <p><strong>df의 데이터 중 choice_description 값이 NaN 인 데이터의 갯수를 구하여라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">choice_description</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -2658,14 +2368,6 @@ Name: new_price, dtype: float64
 <div class="admonition-question-38 admonition">
 <p class="admonition-title">Question 38</p>
 <p><strong>df의 데이터 중 choice_description 값이 NaN 인 데이터를 NoData 값으로 대체하라(loc 이용)</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">choice_description</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span><span class="s1">&#39;choice_description&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;NoData&#39;</span>
-<span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2754,13 +2456,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 39</p>
 <p><strong>df의 데이터 중 choice_description 값에 Black이 들어가는 경우를 인덱싱하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">choice_description</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Black&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -2848,13 +2543,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 40</p>
 <p><strong>df의 데이터 중 choice_description 값에 Vegetables 들어가지 않는 경우의 갯수를 출력하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">choice_description</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Vegetables&#39;</span><span class="p">)])</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -2870,13 +2558,6 @@ Name: new_price, dtype: float64
 <div class="admonition-question-41 admonition">
 <p class="admonition-title">Question 41</p>
 <p><strong>df의 데이터 중 item_name 값이 N으로 시작하는 데이터를 모두 추출하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2947,13 +2628,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 42</p>
 <p><strong>df의 데이터 중 item_name 값의 단어갯수가 15개 이상인 데이터를 인덱싱하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">item_name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;=</span><span class="mi">15</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -3023,13 +2697,6 @@ Name: new_price, dtype: float64
 <p class="admonition-title">Question 43</p>
 <p><strong>df의 데이터 중 new_price값이 lst에 해당하는 경우의 데이터 프레임을 구하고 그 갯수를 출력하라</strong>
 lst =[1.69, 2.39, 3.39, 4.45, 9.25, 10.98, 11.75, 16.98]</p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">new_price</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">lst</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3111,15 +2778,6 @@ lst =[1.69, 2.39, 3.39, 4.45, 9.25, 10.98, 11.75, 16.98]</p>
 <div class="admonition-question-44 admonition">
 <p class="admonition-title">Question 44</p>
 <p><strong>데이터를 로드하고 상위 5개 컬럼을 출력하라</strong></p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/AB_NYC_2019.csv&#39;</span><span class="p">)</span>
-
-<span class="n">Ans</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3268,17 +2926,6 @@ lst =[1.69, 2.39, 3.39, 4.45, 9.25, 10.98, 11.75, 16.98]</p>
 <p class="admonition-title">Question 45</p>
 <p><strong>데이터의 각 host_name의 빈도수를 구하고 host_name으로 정렬하여 상위 5개를 출력하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;host_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-
-<span class="c1"># or</span>
-
-<span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">host_name</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -3299,15 +2946,6 @@ Name: host_name, dtype: int64
 <div class="admonition-question-46 admonition">
 <p class="admonition-title">Question 46</p>
 <p><strong>데이터의 각 host_name의 빈도수를 구하고 빈도수 기준 내림차순 정렬한 데이터 프레임을 만들어라. 빈도수 컬럼은 counts로 명명하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;host_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span>\
-                <span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;counts&#39;</span><span class="p">})</span><span class="o">.</span>\
-                <span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;counts&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3369,13 +3007,6 @@ Name: host_name, dtype: int64
 <div class="admonition-question-47 admonition">
 <p class="admonition-title">Question 47</p>
 <p><strong>neighbourhood_group의 값에 따른 neighbourhood컬럼 값의 갯수를 구하여라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">,</span><span class="s1">&#39;neighbourhood&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3439,14 +3070,6 @@ Name: host_name, dtype: int64
 <div class="admonition-question-48 admonition">
 <p class="admonition-title">Question 48</p>
 <p><strong>neighbourhood_group의 값에 따른 neighbourhood컬럼 값 중 neighbourhood_group그룹의 최댓값들을 출력하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">,</span><span class="s1">&#39;neighbourhood&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>\
-                  <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3516,13 +3139,6 @@ Name: host_name, dtype: int64
 <div class="admonition-question-49 admonition">
 <p class="admonition-title">Question 49</p>
 <p><strong>neighbourhood_group 값에 따른 price값의 평균, 분산, 최대, 최소 값을 구하여라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;var&#39;</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">,</span><span class="s1">&#39;min&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3614,13 +3230,6 @@ Name: host_name, dtype: int64
 <p class="admonition-title">Question 50</p>
 <p><strong>neighbourhood_group 값에 따른 reviews_per_month 평균, 분산, 최대, 최소 값을 구하여라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">,</span><span class="s1">&#39;reviews_per_month&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;var&#39;</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">,</span><span class="s1">&#39;min&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -3711,13 +3320,6 @@ Name: host_name, dtype: int64
 <p class="admonition-title">Question 51</p>
 <p><strong>neighbourhood 값과 neighbourhood_group 값에 따른 price 의 평균을 구하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;neighbourhood&#39;</span><span class="p">,</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
@@ -3745,13 +3347,6 @@ Name: price, Length: 221, dtype: float64
 <div class="admonition-question-52 admonition">
 <p class="admonition-title">Question 52</p>
 <p><strong>neighbourhood 값과 neighbourhood_group 값에 따른 price 의 평균을 계층적 indexing 없이 구하라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;neighbourhood&#39;</span><span class="p">,</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3891,13 +3486,6 @@ Name: price, Length: 221, dtype: float64
 <p class="admonition-title">Question 53</p>
 <p><strong>neighbourhood 값과 neighbourhood_group 값에 따른 price 의 평균을 계층적 indexing 없이 구하고 nan 값은 -999값으로 채워라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;neighbourhood&#39;</span><span class="p">,</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">999</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -3979,13 +3567,6 @@ Name: price, Length: 221, dtype: float64
 <p class="admonition-title">Question 54</p>
 <p><strong>데이터중 neighbourhood_group 값이 Queens값을 가지는 데이터들 중 neighbourhood 그룹별로 price값의 평균, 분산, 최대, 최소값을 구하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">neighbourhood_group</span><span class="o">==</span><span class="s1">&#39;Queens&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;neighbourhood&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;var&#39;</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">,</span><span class="s1">&#39;min&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -4060,14 +3641,6 @@ Name: price, Length: 221, dtype: float64
 <div class="admonition-question-55 admonition">
 <p class="admonition-title">Question 55</p>
 <p><strong>데이터중 neighbourhood_group 값에 따른 room_type 컬럼의 숫자를 구하고 neighbourhood_group 값을 기준으로 각 값의 비율을 구하여라</strong></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">,</span><span class="s1">&#39;room_type&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">,</span><span class="s1">&#39;room_type&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
-<span class="n">Ans</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,:]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ans</span><span class="o">.</span><span class="n">values</span> <span class="o">/</span><span class="n">Ans</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4183,8 +3756,6 @@ Name: price, Length: 221, dtype: float64
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="README.html" title="previous page">업데이트 로그</a>
-    <a class='right-next' id="next-link" href="../03_dataq/README.html" title="next page">업데이트</a>
 
         </div>
         
