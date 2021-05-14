@@ -17,22 +17,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-{
-  "tags": [
-    "hide-input"
-  ],
-  "trusted": true
-}
+type(df)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-1-18cefe011276>[0m in [0;36m<module>[0;34m[0m
-[1;32m      3[0m     [0;34m"hide-input"[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m   ],
-[0;32m----> 5[0;31m   [0;34m"trusted"[0m[0;34m:[0m [0mtrue[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      6[0m }
-
-[0;31mNameError[0m: name 'true' is not defined
-NameError: name 'true' is not defined
+[0;32m<ipython-input-2-16f65e8a7555>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mtype[0m[0;34m([0m[0mdf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNameError[0m: name 'df' is not defined
+NameError: name 'df' is not defined
 
