@@ -200,7 +200,62 @@ commentsRunWhenDOMLoaded(addUtterances);
     <ul class="current collapse-ul">
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Pandas
+       판다스 연습 튜토리얼
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#getting-knowing-your-data">
+       01_Getting_&amp;_Knowing_Your_Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#filtering-sorting">
+       02_Filtering_&amp;_Sorting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#grouping">
+       03_Grouping
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#apply">
+       04_Apply
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#merge">
+       05_Merge
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#stats">
+       06_Stats
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#visualization">
+       07_Visualization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#creating-series-and-dataframes">
+       08_Creating_Series_and_DataFrames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#time-series">
+       09_Time_Series
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#deleting">
+       10_Deleting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#indexing">
+       11_Indexing
       </a>
      </li>
     </ul>
@@ -362,6 +417,76 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   판다스 연습 튜토리얼
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-knowing-your-data">
+   01_Getting_&amp;_Knowing_Your_Data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering-sorting">
+   02_Filtering_&amp;_Sorting
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grouping">
+   03_Grouping
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply">
+   04_Apply
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merge">
+   05_Merge
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stats">
+   06_Stats
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualization">
+   07_Visualization
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-series-and-dataframes">
+   08_Creating_Series_and_DataFrames
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series">
+   09_Time_Series
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deleting">
+   10_Deleting
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing">
+   11_Indexing
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -377,6 +502,63 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>정보출처 : <a class="reference external" href="https://github.com/guipsamora/pandas_exercises">원본 깃헙주소</a><br />
 <strong>번역 및 전체 통합, 문제 일부 수정작업 진행했습니다.</strong></p>
 </div>
+</div>
+<div class="section" id="getting-knowing-your-data">
+<h1>01_Getting_&amp;_Knowing_Your_Data<a class="headerlink" href="#getting-knowing-your-data" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dfdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dfdf
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtering-sorting">
+<h1>02_Filtering_&amp;_Sorting<a class="headerlink" href="#filtering-sorting" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dfdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dfdf
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="grouping">
+<h1>03_Grouping<a class="headerlink" href="#grouping" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="apply">
+<h1>04_Apply<a class="headerlink" href="#apply" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="merge">
+<h1>05_Merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="stats">
+<h1>06_Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="visualization">
+<h1>07_Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="creating-series-and-dataframes">
+<h1>08_Creating_Series_and_DataFrames<a class="headerlink" href="#creating-series-and-dataframes" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="time-series">
+<h1>09_Time_Series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="deleting">
+<h1>10_Deleting<a class="headerlink" href="#deleting" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="indexing">
+<h1>11_Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
