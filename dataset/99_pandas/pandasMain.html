@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pandas &#8212; DataManim</title>
+    <title>판다스 연습 튜토리얼 &#8212; DataManim</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -435,23 +435,914 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <div class="section" id="pandas">
-<h1>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="id1">
+<h1>판다스 연습 튜토리얼<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;hide-input&quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;trusted&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>정보출처 : <a class="reference external" href="https://github.com/guipsamora/pandas_exercises">원본 깃헙주소</a><br />
-<strong>번역 및 전체 통합, 문제 일부 수정작업 진행했습니다.</strong></p>
+<p>목차 및 구성 출처 : <a class="reference external" href="https://github.com/guipsamora/pandas_exercises">원본 깃헙주소</a><br />
+<strong>데이터 일부 수정 후 작업 진행했습니다.</strong></p>
 </div>
 <div class="section" id="getting-knowing-data">
 <h2>01 Getting &amp; Knowing Data<a class="headerlink" href="#getting-knowing-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dfdf&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>롤 랭킹 데이터 : <a class="reference external" href="https://www.kaggle.com/datasnaek/league-of-legends">https://www.kaggle.com/datasnaek/league-of-legends</a><br />
+<strong>DataUrl = ‘<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/pandas/main/lol.csv">https://raw.githubusercontent.com/Datamanim/pandas/main/lol.csv</a>’</strong></p>
+</div>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p><strong>데이터를 로드하라. 데이터는 \t을 기준으로 구분되어있다.</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DataUrl</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dfdf
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-2 admonition">
+<p class="admonition-title">Question 2</p>
+<p><strong>데이터의 상위 5개 행을 출력하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gameId</th>
+      <th>creationTime</th>
+      <th>gameDuration</th>
+      <th>seasonId</th>
+      <th>winner</th>
+      <th>firstBlood</th>
+      <th>firstTower</th>
+      <th>firstInhibitor</th>
+      <th>firstBaron</th>
+      <th>firstDragon</th>
+      <th>...</th>
+      <th>t2_towerKills</th>
+      <th>t2_inhibitorKills</th>
+      <th>t2_baronKills</th>
+      <th>t2_dragonKills</th>
+      <th>t2_riftHeraldKills</th>
+      <th>t2_ban1</th>
+      <th>t2_ban2</th>
+      <th>t2_ban3</th>
+      <th>t2_ban4</th>
+      <th>t2_ban5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3326086514</td>
+      <td>1504279457970</td>
+      <td>1949</td>
+      <td>9</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>114</td>
+      <td>67</td>
+      <td>43</td>
+      <td>16</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3229566029</td>
+      <td>1497848803862</td>
+      <td>1851</td>
+      <td>9</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>67</td>
+      <td>238</td>
+      <td>51</td>
+      <td>420</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3327363504</td>
+      <td>1504360103310</td>
+      <td>1493</td>
+      <td>9</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>...</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>157</td>
+      <td>238</td>
+      <td>121</td>
+      <td>57</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3326856598</td>
+      <td>1504348503996</td>
+      <td>1758</td>
+      <td>9</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>164</td>
+      <td>18</td>
+      <td>141</td>
+      <td>40</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3330080762</td>
+      <td>1504554410899</td>
+      <td>2094</td>
+      <td>9</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>86</td>
+      <td>11</td>
+      <td>201</td>
+      <td>122</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 61 columns</p>
+</div></div></div>
+</div>
+<div class="admonition-question-3 admonition">
+<p class="admonition-title">Question 3</p>
+<p><strong>데이터의 행과 열의 갯수를 파악하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;행:&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;열:&#39;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(51490, 61)
+행: 51490
+열: 61
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-4 admonition">
+<p class="admonition-title">Question 4</p>
+<p><strong>전체 컬럼을 출력하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;gameId&#39;, &#39;creationTime&#39;, &#39;gameDuration&#39;, &#39;seasonId&#39;, &#39;winner&#39;,
+       &#39;firstBlood&#39;, &#39;firstTower&#39;, &#39;firstInhibitor&#39;, &#39;firstBaron&#39;,
+       &#39;firstDragon&#39;, &#39;firstRiftHerald&#39;, &#39;t1_champ1id&#39;, &#39;t1_champ1_sum1&#39;,
+       &#39;t1_champ1_sum2&#39;, &#39;t1_champ2id&#39;, &#39;t1_champ2_sum1&#39;, &#39;t1_champ2_sum2&#39;,
+       &#39;t1_champ3id&#39;, &#39;t1_champ3_sum1&#39;, &#39;t1_champ3_sum2&#39;, &#39;t1_champ4id&#39;,
+       &#39;t1_champ4_sum1&#39;, &#39;t1_champ4_sum2&#39;, &#39;t1_champ5id&#39;, &#39;t1_champ5_sum1&#39;,
+       &#39;t1_champ5_sum2&#39;, &#39;t1_towerKills&#39;, &#39;t1_inhibitorKills&#39;, &#39;t1_baronKills&#39;,
+       &#39;t1_dragonKills&#39;, &#39;t1_riftHeraldKills&#39;, &#39;t1_ban1&#39;, &#39;t1_ban2&#39;, &#39;t1_ban3&#39;,
+       &#39;t1_ban4&#39;, &#39;t1_ban5&#39;, &#39;t2_champ1id&#39;, &#39;t2_champ1_sum1&#39;, &#39;t2_champ1_sum2&#39;,
+       &#39;t2_champ2id&#39;, &#39;t2_champ2_sum1&#39;, &#39;t2_champ2_sum2&#39;, &#39;t2_champ3id&#39;,
+       &#39;t2_champ3_sum1&#39;, &#39;t2_champ3_sum2&#39;, &#39;t2_champ4id&#39;, &#39;t2_champ4_sum1&#39;,
+       &#39;t2_champ4_sum2&#39;, &#39;t2_champ5id&#39;, &#39;t2_champ5_sum1&#39;, &#39;t2_champ5_sum2&#39;,
+       &#39;t2_towerKills&#39;, &#39;t2_inhibitorKills&#39;, &#39;t2_baronKills&#39;, &#39;t2_dragonKills&#39;,
+       &#39;t2_riftHeraldKills&#39;, &#39;t2_ban1&#39;, &#39;t2_ban2&#39;, &#39;t2_ban3&#39;, &#39;t2_ban4&#39;,
+       &#39;t2_ban5&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-5 admonition">
+<p class="admonition-title">Question 5</p>
+<p><strong>6번째 컬럼을 출력하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;firstBlood&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-6 admonition">
+<p class="admonition-title">Question 6</p>
+<p><strong>6번째 컬럼의 데이터 타입을 확인하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">[</span><span class="s1">&#39;firstBlood&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-7 admonition">
+<p class="admonition-title">Question 7</p>
+<p><strong>데이터셋의 인덱스 구성은 어떤가</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=51490, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-8 admonition">
+<p class="admonition-title">Question 8</p>
+<p><strong>6번째 컬럼의 3번째 값은 무엇인가?</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>제주 날씨,인구에 따른 교통량데이터 : 출처 제주 데이터 허브
+<strong>DataUrl = ‘<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/pandas/main/Jeju.csv">https://raw.githubusercontent.com/Datamanim/pandas/main/Jeju.csv</a>’</strong></p>
+</div>
+<div class="admonition-question-9 admonition">
+<p class="admonition-title">Question 9</p>
+<p><strong>데이터를 로드하라. 컬럼이 한글이기에 적절한 처리해줘야함</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/Jeju.csv&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
+
+<span class="c1">## or </span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/Jeju.csv&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;cp949&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-10 admonition">
+<p class="admonition-title">Question 10</p>
+<p><strong>데이터 마지막 3개행을 출력하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>일자</th>
+      <th>시도명</th>
+      <th>읍면동명</th>
+      <th>거주인구</th>
+      <th>근무인구</th>
+      <th>방문인구</th>
+      <th>총 유동인구</th>
+      <th>평균 속도</th>
+      <th>평균 소요 시간</th>
+      <th>평균 기온</th>
+      <th>일강수량</th>
+      <th>평균 풍속</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9618</th>
+      <td>32066</td>
+      <td>2020-04-30</td>
+      <td>제주시</td>
+      <td>도두동</td>
+      <td>28397.481</td>
+      <td>3144.895</td>
+      <td>84052.697</td>
+      <td>115595.073</td>
+      <td>41.053</td>
+      <td>29.421</td>
+      <td>20.3</td>
+      <td>0.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>9619</th>
+      <td>32067</td>
+      <td>2020-04-30</td>
+      <td>서귀포시</td>
+      <td>안덕면</td>
+      <td>348037.846</td>
+      <td>29106.286</td>
+      <td>251129.660</td>
+      <td>628273.792</td>
+      <td>46.595</td>
+      <td>49.189</td>
+      <td>17.6</td>
+      <td>0.0</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>9620</th>
+      <td>32068</td>
+      <td>2020-04-30</td>
+      <td>제주시</td>
+      <td>연동</td>
+      <td>1010643.372</td>
+      <td>65673.477</td>
+      <td>447622.068</td>
+      <td>1523938.917</td>
+      <td>40.863</td>
+      <td>27.765</td>
+      <td>14.1</td>
+      <td>0.0</td>
+      <td>4.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-11 admonition">
+<p class="admonition-title">Question 11</p>
+<p><strong>수치형 변수를 가진 컬럼을 출력하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;id&#39;, &#39;거주인구&#39;, &#39;근무인구&#39;, &#39;방문인구&#39;, &#39;총 유동인구&#39;, &#39;평균 속도&#39;, &#39;평균 소요 시간&#39;, &#39;평균 기온&#39;,
+       &#39;일강수량&#39;, &#39;평균 풍속&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-12 admonition">
+<p class="admonition-title">Question 12</p>
+<p><strong>범주형 변수를 가진 컬럼을 출력하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;일자&#39;, &#39;시도명&#39;, &#39;읍면동명&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-13 admonition">
+<p class="admonition-title">Question 13</p>
+<p><strong>각 컬럼의 결측치 숫자를 파악하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id          0
+일자          0
+시도명         0
+읍면동명        0
+거주인구        0
+근무인구        0
+방문인구        0
+총 유동인구      0
+평균 속도       0
+평균 소요 시간    0
+평균 기온       0
+일강수량        0
+평균 풍속       0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-14 admonition">
+<p class="admonition-title">Question 14</p>
+<p><strong>각 컬럼의 데이터수, 데이터타입을 한번에 확인하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 9621 entries, 0 to 9620
+Data columns (total 13 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   id        9621 non-null   int64  
+ 1   일자        9621 non-null   object 
+ 2   시도명       9621 non-null   object 
+ 3   읍면동명      9621 non-null   object 
+ 4   거주인구      9621 non-null   float64
+ 5   근무인구      9621 non-null   float64
+ 6   방문인구      9621 non-null   float64
+ 7   총 유동인구    9621 non-null   float64
+ 8   평균 속도     9621 non-null   float64
+ 9   평균 소요 시간  9621 non-null   float64
+ 10  평균 기온     9621 non-null   float64
+ 11  일강수량      9621 non-null   float64
+ 12  평균 풍속     9621 non-null   float64
+dtypes: float64(9), int64(1), object(3)
+memory usage: 977.3+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-15 admonition">
+<p class="admonition-title">Question 15</p>
+<p><strong>각 수치형 변수의 분포(사분위, 평균, 표준편차, 최대 , 최소)를 확인하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>거주인구</th>
+      <th>근무인구</th>
+      <th>방문인구</th>
+      <th>총 유동인구</th>
+      <th>평균 속도</th>
+      <th>평균 소요 시간</th>
+      <th>평균 기온</th>
+      <th>일강수량</th>
+      <th>평균 풍속</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>9621.000000</td>
+      <td>9.621000e+03</td>
+      <td>9621.000000</td>
+      <td>9621.000000</td>
+      <td>9.621000e+03</td>
+      <td>9621.000000</td>
+      <td>9621.000000</td>
+      <td>9621.000000</td>
+      <td>9621.000000</td>
+      <td>9621.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>27258.000000</td>
+      <td>3.174315e+05</td>
+      <td>35471.201510</td>
+      <td>195889.561802</td>
+      <td>5.487922e+05</td>
+      <td>41.109084</td>
+      <td>37.215873</td>
+      <td>13.550828</td>
+      <td>6.972426</td>
+      <td>2.753171</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2777.487804</td>
+      <td>2.982079e+05</td>
+      <td>40381.214775</td>
+      <td>140706.090325</td>
+      <td>4.608802e+05</td>
+      <td>8.758631</td>
+      <td>12.993786</td>
+      <td>7.745515</td>
+      <td>27.617260</td>
+      <td>1.498538</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>22448.000000</td>
+      <td>9.305552e+03</td>
+      <td>1407.936000</td>
+      <td>11538.322000</td>
+      <td>2.225181e+04</td>
+      <td>24.333000</td>
+      <td>12.667000</td>
+      <td>-9.600000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>24853.000000</td>
+      <td>9.539939e+04</td>
+      <td>12074.498000</td>
+      <td>99632.153000</td>
+      <td>2.216910e+05</td>
+      <td>34.250000</td>
+      <td>27.889000</td>
+      <td>7.600000</td>
+      <td>0.000000</td>
+      <td>1.700000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>27258.000000</td>
+      <td>2.221105e+05</td>
+      <td>21960.928000</td>
+      <td>152805.335000</td>
+      <td>3.866935e+05</td>
+      <td>39.640000</td>
+      <td>34.500000</td>
+      <td>13.400000</td>
+      <td>0.000000</td>
+      <td>2.400000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>29663.000000</td>
+      <td>4.106671e+05</td>
+      <td>40192.032000</td>
+      <td>236325.109000</td>
+      <td>6.406918e+05</td>
+      <td>49.105000</td>
+      <td>46.176000</td>
+      <td>19.700000</td>
+      <td>1.500000</td>
+      <td>3.400000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>32068.000000</td>
+      <td>1.364504e+06</td>
+      <td>263476.965000</td>
+      <td>723459.209000</td>
+      <td>2.066484e+06</td>
+      <td>103.000000</td>
+      <td>172.200000</td>
+      <td>30.400000</td>
+      <td>587.500000</td>
+      <td>13.333000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-16 admonition">
+<p class="admonition-title">Question 16</p>
+<p><strong>거주인구 컬럼의 값들을 출력하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;거주인구&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0         32249.987
+1        213500.997
+2       1212382.218
+3         33991.653
+4        155036.925
+           ...     
+9616     228260.005
+9617     459959.064
+9618      28397.481
+9619     348037.846
+9620    1010643.372
+Name: 거주인구, Length: 9621, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-17 admonition">
+<p class="admonition-title">Question 17</p>
+<p><strong>평균 속도 컬럼의 4분위 범위(IQR) 값을 구하여라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;평균 속도&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">75</span><span class="p">)</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;평균 속도&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.854999999999997
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-18 admonition">
+<p class="admonition-title">Question 18</p>
+<p><strong>읍면동명 컬럼의 유일값 갯수를 출력하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;읍면동명&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>41
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-19 admonition">
+<p class="admonition-title">Question 19</p>
+<p><strong>읍면동명 컬럼의 유일값을 모두 출력하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;읍면동명&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;도두동&#39;, &#39;외도동&#39;, &#39;이도2동&#39;, &#39;일도1동&#39;, &#39;대천동&#39;, &#39;서홍동&#39;, &#39;한경면&#39;, &#39;송산동&#39;, &#39;조천읍&#39;,
+       &#39;일도2동&#39;, &#39;영천동&#39;, &#39;예래동&#39;, &#39;대륜동&#39;, &#39;삼도1동&#39;, &#39;이호동&#39;, &#39;건입동&#39;, &#39;중앙동&#39;, &#39;삼양동&#39;,
+       &#39;삼도2동&#39;, &#39;이도1동&#39;, &#39;남원읍&#39;, &#39;대정읍&#39;, &#39;정방동&#39;, &#39;효돈동&#39;, &#39;아라동&#39;, &#39;한림읍&#39;, &#39;구좌읍&#39;,
+       &#39;용담1동&#39;, &#39;오라동&#39;, &#39;화북동&#39;, &#39;연동&#39;, &#39;표선면&#39;, &#39;중문동&#39;, &#39;성산읍&#39;, &#39;안덕면&#39;, &#39;천지동&#39;,
+       &#39;노형동&#39;, &#39;동홍동&#39;, &#39;용담2동&#39;, &#39;봉개동&#39;, &#39;애월읍&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -459,18 +1350,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="filtering-sorting">
 <h2>02 Filtering &amp; Sorting<a class="headerlink" href="#filtering-sorting" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dfdf&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dfdf
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="grouping">
 <h2>03_Grouping<a class="headerlink" href="#grouping" title="Permalink to this headline">¶</a></h2>
