@@ -86,6 +86,8 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 
@@ -382,28 +384,23 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apply">
-   04_Apply
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#merge">
-   05_Merge
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#stats">
-   06_Stats
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-series-and-dataframes">
-   08_Creating_Series_and_DataFrames
+  <a class="reference internal nav-link" href="#apply-map">
+   04_Apply , Map
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#time-series">
-   09_Time_Series
+   05_Time_Series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pivot">
+   06_Pivot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merge-concat">
+   07_Merge , Concat
   </a>
  </li>
 </ul>
@@ -3714,20 +3711,3475 @@ Name: price, Length: 221, dtype: float64
 </div></div></div>
 </div>
 </div>
-<div class="section" id="apply">
-<h2>04_Apply<a class="headerlink" href="#apply" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="apply-map">
+<h2>04_Apply , Map<a class="headerlink" href="#apply-map" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>카드이용데이터 : <a class="reference external" href="https://www.kaggle.com/sakshigoyal7/credit-card-customers">https://www.kaggle.com/sakshigoyal7/credit-card-customers</a>
+<strong>DataUrl = ‘<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/pandas/main/BankChurnersUp.csv">https://raw.githubusercontent.com/Datamanim/pandas/main/BankChurnersUp.csv</a>’</strong></p>
 </div>
-<div class="section" id="merge">
-<h2>05_Merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question-56 admonition">
+<p class="admonition-title">Question 56</p>
+<p><strong>데이터를 로드하고 데이터 행과 열의 갯수를 출력하라</strong></p>
 </div>
-<div class="section" id="stats">
-<h2>06_Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
 </div>
-<div class="section" id="creating-series-and-dataframes">
-<h2>08_Creating_Series_and_DataFrames<a class="headerlink" href="#creating-series-and-dataframes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10127, 18)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-57 admonition">
+<p class="admonition-title">Question 57</p>
+<p><strong>Income_Category의 카테고리를 map 함수를 이용하여 다음과 같이 변경하여 newIncome 컬럼에 매핑하라</strong>
+Unknown        : N
+Less than <span class="math notranslate nohighlight">\(40K : a
+\)</span>40K - <span class="math notranslate nohighlight">\(60K    : b
+\)</span>60K - <span class="math notranslate nohighlight">\(80K    : c
+\)</span>80K - <span class="math notranslate nohighlight">\(120K   : d
+\)</span>120K +’       : e</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    c
+1    a
+2    d
+3    a
+Name: newIncome, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-58 admonition">
+<p class="admonition-title">Question 58</p>
+<p><strong>Income_Category의 카테고리를 apply 함수를 이용하여 다음과 같이 변경하여 newIncome 컬럼에 매핑하라</strong>
+Unknown        : N
+Less than <span class="math notranslate nohighlight">\(40K : a
+\)</span>40K - <span class="math notranslate nohighlight">\(60K    : b
+\)</span>60K - <span class="math notranslate nohighlight">\(80K    : c
+\)</span>80K - <span class="math notranslate nohighlight">\(120K   : d
+\)</span>120K +’       : e</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    c
+1    a
+2    d
+3    a
+Name: newIncome, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-59 admonition">
+<p class="admonition-title">Question 59</p>
+<p><strong>Customer_Age의 값을 이용하여 나이 구간을 AgeState 컬럼으로 정의하라. (0~9 : 0 , 10~19 :10 , 20~29 :20 … 각 구간의 빈도수를 출력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20     195
+30    1841
+40    4561
+50    2998
+60     530
+70       2
+Name: AgeState, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-60 admonition">
+<p class="admonition-title">Question 60</p>
+<p><strong>Education_Level의 값중 Graduate단어가 포함되는 값은 1 그렇지 않은 경우에는 0으로 변경하여 newEduLevel 컬럼을 정의하고 빈도수를 출력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    6483
+1    3644
+Name: newEduLevel, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-61 admonition">
+<p class="admonition-title">Question 61</p>
+<p><strong>Credit_Limit 컬럼값이 4500 이상인 경우 1 그외의 경우에는 모두 0으로 하는 newLimit 정의하라. newLimit 각 값들의 빈도수를 출력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    5096
+0    5031
+Name: newLimit, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-62 admonition">
+<p class="admonition-title">Question 62</p>
+<p><strong>Marital_Status 컬럼값이 Married 이고 Card_Category 컬럼의 값이 Platinum인 경우 1 그외의 경우에는 모두 0으로 하는 newState컬럼을 정의하라. newState의 각 값들의 빈도수를 출력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    10120
+1        7
+Name: newState, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-63 admonition">
+<p class="admonition-title">Question 63</p>
+<p><strong>Gender 컬럼값 M인 경우 male F인 경우 female로 값을 변경하여 Gender 컬럼에 새롭게 정의하라. 각 value의 빈도를 출력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>female    5358
+male      4769
+Name: Gender, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="time-series">
-<h2>09_Time_Series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
+<h2>05_Time_Series<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>주가 데이터 : <a class="reference external" href="https://raw.githubusercontent.com/guipsamora/pandas_exercises/master/06_Stats/Wind_Stats/wind.data">https://raw.githubusercontent.com/guipsamora/pandas_exercises/master/06_Stats/Wind_Stats/wind.data</a>
+<strong>DataUrl = ‘<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/pandas/main/timeTest.csv">https://raw.githubusercontent.com/Datamanim/pandas/main/timeTest.csv</a>’</strong></p>
+</div>
+<div class="admonition-question-64 admonition">
+<p class="admonition-title">Question 64</p>
+<p><strong>데이터를 로드하고 각 열의 데이터 타입을 파악하라</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/timeTest.csv&#39;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 6574 entries, 0 to 6573
+Data columns (total 13 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   Yr_Mo_Dy  6574 non-null   object 
+ 1   RPT       6568 non-null   float64
+ 2   VAL       6571 non-null   float64
+ 3   ROS       6572 non-null   float64
+ 4   KIL       6569 non-null   float64
+ 5   SHA       6572 non-null   float64
+ 6   BIR       6574 non-null   float64
+ 7   DUB       6571 non-null   float64
+ 8   CLA       6572 non-null   float64
+ 9   MUL       6571 non-null   float64
+ 10  CLO       6573 non-null   float64
+ 11  BEL       6574 non-null   float64
+ 12  MAL       6570 non-null   float64
+dtypes: float64(12), object(1)
+memory usage: 667.8+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-65 admonition">
+<p class="admonition-title">Question 65</p>
+<p><strong>Yr_Mo_Dy을 판다스에서 인식할 수 있는 datetime64타입으로 변경하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   2061-01-01
+1   2061-01-02
+2   2061-01-03
+3   2061-01-04
+Name: Yr_Mo_Dy, dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-66 admonition">
+<p class="admonition-title">Question 66</p>
+<p><strong>Yr_Mo_Dy에 존재하는 년도의 유일값을 모두 출력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2061, 2062, 2063, 2064, 2065, 2066, 2067, 2068, 2069, 2070, 1971,
+       1972, 1973, 1974, 1975, 1976, 1977, 1978])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-67 admonition">
+<p class="admonition-title">Question 67</p>
+<p><strong>Yr_Mo_Dy에 년도가 2061년 이상의 경우에는 모두 잘못된 데이터이다. 해당경우의 값은 100을 빼서 새롭게 날짜를 Yr_Mo_Dy 컬럼에 정의하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Yr_Mo_Dy</th>
+      <th>RPT</th>
+      <th>VAL</th>
+      <th>ROS</th>
+      <th>KIL</th>
+      <th>SHA</th>
+      <th>BIR</th>
+      <th>DUB</th>
+      <th>CLA</th>
+      <th>MUL</th>
+      <th>CLO</th>
+      <th>BEL</th>
+      <th>MAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1961-01-01</td>
+      <td>15.04</td>
+      <td>14.96</td>
+      <td>13.17</td>
+      <td>9.29</td>
+      <td>NaN</td>
+      <td>9.87</td>
+      <td>13.67</td>
+      <td>10.25</td>
+      <td>10.83</td>
+      <td>12.58</td>
+      <td>18.50</td>
+      <td>15.04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1961-01-02</td>
+      <td>14.71</td>
+      <td>NaN</td>
+      <td>10.83</td>
+      <td>6.50</td>
+      <td>12.62</td>
+      <td>7.67</td>
+      <td>11.50</td>
+      <td>10.04</td>
+      <td>9.79</td>
+      <td>9.67</td>
+      <td>17.54</td>
+      <td>13.83</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1961-01-03</td>
+      <td>18.50</td>
+      <td>16.88</td>
+      <td>12.33</td>
+      <td>10.13</td>
+      <td>11.17</td>
+      <td>6.17</td>
+      <td>11.25</td>
+      <td>NaN</td>
+      <td>8.50</td>
+      <td>7.67</td>
+      <td>12.75</td>
+      <td>12.71</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1961-01-04</td>
+      <td>10.58</td>
+      <td>6.63</td>
+      <td>11.75</td>
+      <td>4.58</td>
+      <td>4.54</td>
+      <td>2.88</td>
+      <td>8.63</td>
+      <td>1.79</td>
+      <td>5.83</td>
+      <td>5.88</td>
+      <td>5.46</td>
+      <td>10.88</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-68 admonition">
+<p class="admonition-title">Question 68</p>
+<p><strong>년도별 각컬럼의 평균값을 구하여라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RPT</th>
+      <th>VAL</th>
+      <th>ROS</th>
+      <th>KIL</th>
+      <th>SHA</th>
+      <th>BIR</th>
+      <th>DUB</th>
+      <th>CLA</th>
+      <th>MUL</th>
+      <th>CLO</th>
+      <th>BEL</th>
+      <th>MAL</th>
+    </tr>
+    <tr>
+      <th>Yr_Mo_Dy</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1961</th>
+      <td>12.299583</td>
+      <td>10.351796</td>
+      <td>11.362369</td>
+      <td>6.958227</td>
+      <td>10.881763</td>
+      <td>7.729726</td>
+      <td>9.733923</td>
+      <td>8.858788</td>
+      <td>8.647652</td>
+      <td>9.835577</td>
+      <td>13.502795</td>
+      <td>13.680773</td>
+    </tr>
+    <tr>
+      <th>1962</th>
+      <td>12.246923</td>
+      <td>10.110438</td>
+      <td>11.732712</td>
+      <td>6.960440</td>
+      <td>10.657918</td>
+      <td>7.393068</td>
+      <td>11.020712</td>
+      <td>8.793753</td>
+      <td>8.316822</td>
+      <td>9.676247</td>
+      <td>12.930685</td>
+      <td>14.323956</td>
+    </tr>
+    <tr>
+      <th>1963</th>
+      <td>12.813452</td>
+      <td>10.836986</td>
+      <td>12.541151</td>
+      <td>7.330055</td>
+      <td>11.724110</td>
+      <td>8.434712</td>
+      <td>11.075699</td>
+      <td>10.336548</td>
+      <td>8.903589</td>
+      <td>10.224438</td>
+      <td>13.638877</td>
+      <td>14.999014</td>
+    </tr>
+    <tr>
+      <th>1964</th>
+      <td>12.363661</td>
+      <td>10.920164</td>
+      <td>12.104372</td>
+      <td>6.787787</td>
+      <td>11.454481</td>
+      <td>7.570874</td>
+      <td>10.259153</td>
+      <td>9.467350</td>
+      <td>7.789016</td>
+      <td>10.207951</td>
+      <td>13.740546</td>
+      <td>14.910301</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-69 admonition">
+<p class="admonition-title">Question 69</p>
+<p><strong>weekday컬럼을 만들고 요일별로 매핑하라 ( 월요일: 0 ~ 일요일 :6)</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weekday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-70 admonition">
+<p class="admonition-title">Question 70</p>
+<p><strong>weekday컬럼을 기준으로 주말이면 1 평일이면 0의 값을 가지는 WeekCheck 컬럼을 만들어라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WeekCheck</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-71 admonition">
+<p class="admonition-title">Question 71</p>
+<p><strong>년도, 일자 상관없이 모든 컬럼의 각 달의 평균을 구하여라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RPT</th>
+      <th>VAL</th>
+      <th>ROS</th>
+      <th>KIL</th>
+      <th>SHA</th>
+      <th>BIR</th>
+      <th>DUB</th>
+      <th>CLA</th>
+      <th>MUL</th>
+      <th>CLO</th>
+      <th>BEL</th>
+      <th>MAL</th>
+      <th>weeday</th>
+      <th>weekday</th>
+      <th>WeekCheck</th>
+    </tr>
+    <tr>
+      <th>Yr_Mo_Dy</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>14.847325</td>
+      <td>12.914560</td>
+      <td>13.299624</td>
+      <td>7.199498</td>
+      <td>11.667734</td>
+      <td>8.054839</td>
+      <td>11.819355</td>
+      <td>9.512047</td>
+      <td>9.543208</td>
+      <td>10.053566</td>
+      <td>14.550520</td>
+      <td>18.028763</td>
+      <td>2.989247</td>
+      <td>2.989247</td>
+      <td>0.284946</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>13.710906</td>
+      <td>12.111122</td>
+      <td>12.879132</td>
+      <td>6.942411</td>
+      <td>11.551772</td>
+      <td>7.633858</td>
+      <td>11.206024</td>
+      <td>9.341437</td>
+      <td>9.313169</td>
+      <td>9.518051</td>
+      <td>13.728898</td>
+      <td>17.156142</td>
+      <td>3.005906</td>
+      <td>3.005906</td>
+      <td>0.287402</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>13.158687</td>
+      <td>11.505842</td>
+      <td>12.648118</td>
+      <td>7.265907</td>
+      <td>11.554516</td>
+      <td>7.959409</td>
+      <td>11.310179</td>
+      <td>9.635896</td>
+      <td>9.700324</td>
+      <td>10.096953</td>
+      <td>13.810609</td>
+      <td>16.909317</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.283154</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>12.555648</td>
+      <td>10.429759</td>
+      <td>12.204815</td>
+      <td>6.898037</td>
+      <td>10.677667</td>
+      <td>7.441389</td>
+      <td>10.221315</td>
+      <td>8.909056</td>
+      <td>8.930870</td>
+      <td>9.158019</td>
+      <td>12.664759</td>
+      <td>14.937611</td>
+      <td>3.011111</td>
+      <td>3.011111</td>
+      <td>0.288889</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-72 admonition">
+<p class="admonition-title">Question 72</p>
+<p><strong>모든 결측치는 컬럼기준 직전의 값으로 대체하고 첫번째 행에 결측치가 있을경우 뒤에있는 값으로 대채하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Yr_Mo_Dy     0
+RPT          0
+VAL          0
+ROS          0
+KIL          0
+SHA          0
+BIR          0
+DUB          0
+CLA          0
+MUL          0
+CLO          0
+BEL          0
+MAL          0
+weeday       0
+weekday      0
+WeekCheck    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-73 admonition">
+<p class="admonition-title">Question 73</p>
+<p><strong>년도 - 월을 기준으로 모든 컬럼의 평균값을 구하여라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RPT</th>
+      <th>VAL</th>
+      <th>ROS</th>
+      <th>KIL</th>
+      <th>SHA</th>
+      <th>BIR</th>
+      <th>DUB</th>
+      <th>CLA</th>
+      <th>MUL</th>
+      <th>CLO</th>
+      <th>BEL</th>
+      <th>MAL</th>
+      <th>weeday</th>
+      <th>weekday</th>
+      <th>WeekCheck</th>
+    </tr>
+    <tr>
+      <th>Yr_Mo_Dy</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1961-01</th>
+      <td>14.932581</td>
+      <td>12.084194</td>
+      <td>13.431613</td>
+      <td>7.736774</td>
+      <td>11.215806</td>
+      <td>8.588065</td>
+      <td>11.184839</td>
+      <td>9.270968</td>
+      <td>9.085806</td>
+      <td>10.107419</td>
+      <td>13.880968</td>
+      <td>14.703226</td>
+      <td>2.935484</td>
+      <td>2.935484</td>
+      <td>0.290323</td>
+    </tr>
+    <tr>
+      <th>1961-02</th>
+      <td>16.269286</td>
+      <td>14.975357</td>
+      <td>14.324643</td>
+      <td>9.116786</td>
+      <td>13.852143</td>
+      <td>10.937500</td>
+      <td>11.890714</td>
+      <td>11.846071</td>
+      <td>11.821429</td>
+      <td>12.714286</td>
+      <td>18.583214</td>
+      <td>15.411786</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.285714</td>
+    </tr>
+    <tr>
+      <th>1961-03</th>
+      <td>11.015806</td>
+      <td>11.296452</td>
+      <td>10.752903</td>
+      <td>7.137742</td>
+      <td>10.509355</td>
+      <td>8.866774</td>
+      <td>9.644194</td>
+      <td>9.829677</td>
+      <td>10.646129</td>
+      <td>11.251935</td>
+      <td>16.410968</td>
+      <td>15.637742</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.258065</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-74 admonition">
+<p class="admonition-title">Question 74</p>
+<p><strong>RPT 컬럼의 값을 일자별 기준으로 1차차분하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     NaN
+1   -0.33
+2    3.79
+Name: RPT, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-75 admonition">
+<p class="admonition-title">Question 75</p>
+<p><strong>RPT와 VAL의 컬럼을 일주일 간격으로 각각 이동평균한값을 구하여라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RPT</th>
+      <th>VAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>14.124286</td>
+      <td>12.727143</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>13.541429</td>
+      <td>11.982857</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>13.237143</td>
+      <td>11.392857</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>서울시 미세먼지 데이터 : <a class="reference external" href="https://www.airkorea.or.kr/web/realSearch?pMENU_NO=97">https://www.airkorea.or.kr/web/realSearch?pMENU_NO=97</a>
+<strong>DataUrl = ‘<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/pandas/main/seoul_pm.csv">https://raw.githubusercontent.com/Datamanim/pandas/main/seoul_pm.csv</a>’</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/seoul_pm.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-76 admonition">
+<p class="admonition-title">Question 76</p>
+<p><strong>년-월-일:시 컬럼을 pandas에서 인식할 수 있는 datetime 형태로 변경하라. 서울시의 제공데이터의 경우 0시가 24시로 표현된다</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(년-월-일:시)</th>
+      <th>PM10등급</th>
+      <th>PM10</th>
+      <th>PM2.5등급</th>
+      <th>PM2.5</th>
+      <th>오존등급</th>
+      <th>오존</th>
+      <th>이산화질소등급</th>
+      <th>이산화질소</th>
+      <th>일산화탄소등급</th>
+      <th>일산화탄소</th>
+      <th>아황산가스등급</th>
+      <th>아황산가스</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-05-15 15:00:00</td>
+      <td>보통</td>
+      <td>47.0</td>
+      <td>보통</td>
+      <td>19.0</td>
+      <td>좋음</td>
+      <td>0.017</td>
+      <td>좋음</td>
+      <td>0.023</td>
+      <td>좋음</td>
+      <td>0.4</td>
+      <td>좋음</td>
+      <td>0.003</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-05-15 14:00:00</td>
+      <td>보통</td>
+      <td>43.0</td>
+      <td>보통</td>
+      <td>20.0</td>
+      <td>좋음</td>
+      <td>0.024</td>
+      <td>좋음</td>
+      <td>0.019</td>
+      <td>좋음</td>
+      <td>0.3</td>
+      <td>좋음</td>
+      <td>0.003</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-05-15 13:00:00</td>
+      <td>보통</td>
+      <td>34.0</td>
+      <td>보통</td>
+      <td>24.0</td>
+      <td>보통</td>
+      <td>0.035</td>
+      <td>좋음</td>
+      <td>0.017</td>
+      <td>좋음</td>
+      <td>0.4</td>
+      <td>좋음</td>
+      <td>0.004</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-77 admonition">
+<p class="admonition-title">Question 77</p>
+<p><strong>일자별 영어요일 이름을 dayName 컬럼에 저장하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    Saturday
+1    Saturday
+2    Saturday
+3    Saturday
+4    Saturday
+Name: dayName, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-78 admonition">
+<p class="admonition-title">Question 78</p>
+<p><strong>일자별 각 PM10등급의 빈도수를 파악하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dayName</th>
+      <th>PM10등급</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Friday</td>
+      <td>나쁨</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Friday</td>
+      <td>매우나쁨</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Friday</td>
+      <td>보통</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Friday</td>
+      <td>좋음</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Monday</td>
+      <td>나쁨</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>PM10등급</th>
+      <th>나쁨</th>
+      <th>매우나쁨</th>
+      <th>보통</th>
+      <th>좋음</th>
+    </tr>
+    <tr>
+      <th>dayName</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Friday</th>
+      <td>31.0</td>
+      <td>17.0</td>
+      <td>120.0</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>Monday</th>
+      <td>1.0</td>
+      <td>21.0</td>
+      <td>83.0</td>
+      <td>63.0</td>
+    </tr>
+    <tr>
+      <th>Saturday</th>
+      <td>31.0</td>
+      <td>27.0</td>
+      <td>71.0</td>
+      <td>54.0</td>
+    </tr>
+    <tr>
+      <th>Sunday</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>67.0</td>
+      <td>98.0</td>
+    </tr>
+    <tr>
+      <th>Thursday</th>
+      <td>41.0</td>
+      <td>0.0</td>
+      <td>144.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>Tuesday</th>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>71.0</td>
+      <td>74.0</td>
+    </tr>
+    <tr>
+      <th>Wednesday</th>
+      <td>26.0</td>
+      <td>0.0</td>
+      <td>95.0</td>
+      <td>46.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-79 admonition">
+<p class="admonition-title">Question 79</p>
+<p><strong>시간이 연속적으로 존재하며 결측치가 없는지 확인하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-80 admonition">
+<p class="admonition-title">Question 80</p>
+<p><strong>오전 10시와 오후 10시(22시)의 PM10의 평균값을 각각 구하여라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PM10</th>
+    </tr>
+    <tr>
+      <th>(년-월-일:시)</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>70.384615</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>69.941176</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-81 admonition">
+<p class="admonition-title">Question 81</p>
+<p><strong>날짜 컬럼을 index로 만들어라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PM10등급</th>
+      <th>PM10</th>
+      <th>PM2.5등급</th>
+      <th>PM2.5</th>
+      <th>오존등급</th>
+      <th>오존</th>
+      <th>이산화질소등급</th>
+      <th>이산화질소</th>
+      <th>일산화탄소등급</th>
+      <th>일산화탄소</th>
+      <th>아황산가스등급</th>
+      <th>아황산가스</th>
+      <th>dayName</th>
+    </tr>
+    <tr>
+      <th>(년-월-일:시)</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-05-15 15:00:00</th>
+      <td>보통</td>
+      <td>47.0</td>
+      <td>보통</td>
+      <td>19.0</td>
+      <td>좋음</td>
+      <td>0.017</td>
+      <td>좋음</td>
+      <td>0.023</td>
+      <td>좋음</td>
+      <td>0.4</td>
+      <td>좋음</td>
+      <td>0.003</td>
+      <td>Saturday</td>
+    </tr>
+    <tr>
+      <th>2021-05-15 14:00:00</th>
+      <td>보통</td>
+      <td>43.0</td>
+      <td>보통</td>
+      <td>20.0</td>
+      <td>좋음</td>
+      <td>0.024</td>
+      <td>좋음</td>
+      <td>0.019</td>
+      <td>좋음</td>
+      <td>0.3</td>
+      <td>좋음</td>
+      <td>0.003</td>
+      <td>Saturday</td>
+    </tr>
+    <tr>
+      <th>2021-05-15 13:00:00</th>
+      <td>보통</td>
+      <td>34.0</td>
+      <td>보통</td>
+      <td>24.0</td>
+      <td>보통</td>
+      <td>0.035</td>
+      <td>좋음</td>
+      <td>0.017</td>
+      <td>좋음</td>
+      <td>0.4</td>
+      <td>좋음</td>
+      <td>0.004</td>
+      <td>Saturday</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-82 admonition">
+<p class="admonition-title">Question 82</p>
+<p><strong>데이터를 주단위로 뽑아서 최소,최대 평균, 표준표차를 구하여라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="4" halign="left">PM10</th>
+      <th colspan="4" halign="left">PM2.5</th>
+      <th colspan="2" halign="left">오존</th>
+      <th>...</th>
+      <th colspan="2" halign="left">이산화질소</th>
+      <th colspan="4" halign="left">일산화탄소</th>
+      <th colspan="4" halign="left">아황산가스</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>max</th>
+      <th>...</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>std</th>
+    </tr>
+    <tr>
+      <th>(년-월-일:시)</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-03-28</th>
+      <td>6.0</td>
+      <td>160.0</td>
+      <td>72.747368</td>
+      <td>43.345462</td>
+      <td>4.0</td>
+      <td>113.0</td>
+      <td>44.705263</td>
+      <td>29.551928</td>
+      <td>0.002</td>
+      <td>0.085</td>
+      <td>...</td>
+      <td>0.044579</td>
+      <td>0.023722</td>
+      <td>0.3</td>
+      <td>1.4</td>
+      <td>0.611579</td>
+      <td>0.232408</td>
+      <td>0.002</td>
+      <td>0.006</td>
+      <td>0.003274</td>
+      <td>0.000961</td>
+    </tr>
+    <tr>
+      <th>2021-04-04</th>
+      <td>3.0</td>
+      <td>598.0</td>
+      <td>97.148810</td>
+      <td>129.911976</td>
+      <td>1.0</td>
+      <td>120.0</td>
+      <td>23.168675</td>
+      <td>22.399578</td>
+      <td>0.003</td>
+      <td>0.055</td>
+      <td>...</td>
+      <td>0.027929</td>
+      <td>0.014978</td>
+      <td>0.3</td>
+      <td>0.9</td>
+      <td>0.445833</td>
+      <td>0.135741</td>
+      <td>0.002</td>
+      <td>0.004</td>
+      <td>0.002732</td>
+      <td>0.000541</td>
+    </tr>
+    <tr>
+      <th>2021-04-11</th>
+      <td>17.0</td>
+      <td>102.0</td>
+      <td>41.059524</td>
+      <td>16.325911</td>
+      <td>7.0</td>
+      <td>70.0</td>
+      <td>21.761905</td>
+      <td>11.479343</td>
+      <td>0.009</td>
+      <td>0.070</td>
+      <td>...</td>
+      <td>0.022583</td>
+      <td>0.009562</td>
+      <td>0.3</td>
+      <td>0.7</td>
+      <td>0.389286</td>
+      <td>0.087573</td>
+      <td>0.002</td>
+      <td>0.004</td>
+      <td>0.002744</td>
+      <td>0.000569</td>
+    </tr>
+    <tr>
+      <th>2021-04-18</th>
+      <td>3.0</td>
+      <td>367.0</td>
+      <td>48.180723</td>
+      <td>43.254468</td>
+      <td>2.0</td>
+      <td>38.0</td>
+      <td>17.066265</td>
+      <td>7.867952</td>
+      <td>0.002</td>
+      <td>0.070</td>
+      <td>...</td>
+      <td>0.023753</td>
+      <td>0.013553</td>
+      <td>0.3</td>
+      <td>0.6</td>
+      <td>0.386747</td>
+      <td>0.084954</td>
+      <td>0.002</td>
+      <td>0.004</td>
+      <td>0.002464</td>
+      <td>0.000579</td>
+    </tr>
+    <tr>
+      <th>2021-04-25</th>
+      <td>17.0</td>
+      <td>126.0</td>
+      <td>55.119048</td>
+      <td>26.659936</td>
+      <td>7.0</td>
+      <td>61.0</td>
+      <td>26.392857</td>
+      <td>13.094788</td>
+      <td>0.006</td>
+      <td>0.090</td>
+      <td>...</td>
+      <td>0.028571</td>
+      <td>0.014640</td>
+      <td>0.3</td>
+      <td>0.8</td>
+      <td>0.457143</td>
+      <td>0.122142</td>
+      <td>0.001</td>
+      <td>0.011</td>
+      <td>0.003631</td>
+      <td>0.001763</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 24 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="pivot">
+<h2>06_Pivot<a class="headerlink" href="#pivot" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>국가별 5세이하 사망비율 통계 : <a class="reference external" href="https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete">https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete</a>
+Dataurl = ‘<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/pandas/main/under5MortalityRate.csv">https://raw.githubusercontent.com/Datamanim/pandas/main/under5MortalityRate.csv</a>’</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/under5MortalityRate.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-83 admonition">
+<p class="admonition-title">Question 83</p>
+<p><strong>Indicator을 삭제하고 First Tooltip 컬럼에서 신뢰구간에 해당하는 표현을 지워라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Location</th>
+      <th>Period</th>
+      <th>Dim1</th>
+      <th>First Tooltip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>2019</td>
+      <td>Both sexes</td>
+      <td>60.27</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>2019</td>
+      <td>Male</td>
+      <td>63.83</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>2019</td>
+      <td>Female</td>
+      <td>56.57</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Afghanistan</td>
+      <td>2018</td>
+      <td>Both sexes</td>
+      <td>62.54</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-84 admonition">
+<p class="admonition-title">Question 84</p>
+<p><strong>년도가 2015년 이상, Dim1이 Both sexes인 케이스만 추출하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Location</th>
+      <th>Period</th>
+      <th>Dim1</th>
+      <th>First Tooltip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>2019</td>
+      <td>Both sexes</td>
+      <td>60.27</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Afghanistan</td>
+      <td>2018</td>
+      <td>Both sexes</td>
+      <td>62.54</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Afghanistan</td>
+      <td>2017</td>
+      <td>Both sexes</td>
+      <td>64.94</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-85 admonition">
+<p class="admonition-title">Question 85</p>
+<p><strong>84번 문제에서 추출한 데이터로 아래와 같이 나라에 따른 년도별 사망률을 데이터 프레임화 하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Period</th>
+      <th>2015</th>
+      <th>2016</th>
+      <th>2017</th>
+      <th>2018</th>
+      <th>2019</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <td>70.44</td>
+      <td>67.57</td>
+      <td>64.94</td>
+      <td>62.54</td>
+      <td>60.27</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>9.57</td>
+      <td>9.42</td>
+      <td>9.42</td>
+      <td>9.53</td>
+      <td>9.68</td>
+    </tr>
+    <tr>
+      <th>Algeria</th>
+      <td>25.18</td>
+      <td>24.79</td>
+      <td>24.32</td>
+      <td>23.81</td>
+      <td>23.26</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-86 admonition">
+<p class="admonition-title">Question 86</p>
+<p><strong>Dim1에 따른 년도별 사망비율의 평균을 구하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Period</th>
+      <th>1950</th>
+      <th>1951</th>
+      <th>1952</th>
+      <th>1953</th>
+    </tr>
+    <tr>
+      <th>Dim1</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Both sexes</th>
+      <td>147.700816</td>
+      <td>155.537544</td>
+      <td>157.811094</td>
+      <td>156.147206</td>
+    </tr>
+    <tr>
+      <th>Female</th>
+      <td>140.909796</td>
+      <td>149.210175</td>
+      <td>151.516094</td>
+      <td>150.250882</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>154.151224</td>
+      <td>161.538246</td>
+      <td>163.760781</td>
+      <td>161.742059</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>올림픽 메달리스트 정보 데이터: <a class="reference external" href="https://www.kaggle.com/the-guardian/olympic-games">https://www.kaggle.com/the-guardian/olympic-games</a>
+dataUrl =’<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/pandas/main/winter.csv">https://raw.githubusercontent.com/Datamanim/pandas/main/winter.csv</a>’</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/winter.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question-87 admonition">
+<p class="admonition-title">Question 87</p>
+<p><strong>데이터에서 한국 KOR 데이터만 추출하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Discipline</th>
+      <th>Athlete</th>
+      <th>Country</th>
+      <th>Gender</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2652</th>
+      <td>1992</td>
+      <td>Albertville</td>
+      <td>Skating</td>
+      <td>Short Track Speed Skating</td>
+      <td>LEE, Jun-Ho</td>
+      <td>KOR</td>
+      <td>Men</td>
+      <td>1000M</td>
+      <td>Bronze</td>
+    </tr>
+    <tr>
+      <th>2653</th>
+      <td>1992</td>
+      <td>Albertville</td>
+      <td>Skating</td>
+      <td>Short Track Speed Skating</td>
+      <td>KIM, Ki-Hoon</td>
+      <td>KOR</td>
+      <td>Men</td>
+      <td>1000M</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>2671</th>
+      <td>1992</td>
+      <td>Albertville</td>
+      <td>Skating</td>
+      <td>Short Track Speed Skating</td>
+      <td>KIM, Ki-Hoon</td>
+      <td>KOR</td>
+      <td>Men</td>
+      <td>5000M Relay</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>2672</th>
+      <td>1992</td>
+      <td>Albertville</td>
+      <td>Skating</td>
+      <td>Short Track Speed Skating</td>
+      <td>LEE, Jun-Ho</td>
+      <td>KOR</td>
+      <td>Men</td>
+      <td>5000M Relay</td>
+      <td>Gold</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-88 admonition">
+<p class="admonition-title">Question 88</p>
+<p><strong>한국 올림픽 메달리스트 데이터에서 년도에 따른 medal 갯수를 데이터프레임화 하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Medal</th>
+      <th>Bronze</th>
+      <th>Gold</th>
+      <th>Silver</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1994</th>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>2.0</td>
+      <td>14.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>2.0</td>
+      <td>7.0</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-89 admonition">
+<p class="admonition-title">Question 89</p>
+<p><strong>전체 데이터에서 sport종류에 따른 성별수를 구하여라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Gender</th>
+      <th>Men</th>
+      <th>Women</th>
+    </tr>
+    <tr>
+      <th>Sport</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Biathlon</th>
+      <td>270</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>Bobsleigh</th>
+      <td>416</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>Curling</th>
+      <td>97</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>Ice Hockey</th>
+      <td>1231</td>
+      <td>305</td>
+    </tr>
+    <tr>
+      <th>Luge</th>
+      <td>135</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>Skating</th>
+      <td>665</td>
+      <td>564</td>
+    </tr>
+    <tr>
+      <th>Skiing</th>
+      <td>1130</td>
+      <td>651</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-90 admonition">
+<p class="admonition-title">Question 90</p>
+<p><strong>전체 데이터에서 Discipline종류에 따른 따른 Medal수를 구하여라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Medal</th>
+      <th>Bronze</th>
+      <th>Gold</th>
+      <th>Silver</th>
+    </tr>
+    <tr>
+      <th>Discipline</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Alpine Skiing</th>
+      <td>141</td>
+      <td>143</td>
+      <td>144</td>
+    </tr>
+    <tr>
+      <th>Biathlon</th>
+      <td>139</td>
+      <td>140</td>
+      <td>141</td>
+    </tr>
+    <tr>
+      <th>Bobsleigh</th>
+      <td>147</td>
+      <td>134</td>
+      <td>141</td>
+    </tr>
+    <tr>
+      <th>Cross Country Skiing</th>
+      <td>263</td>
+      <td>264</td>
+      <td>262</td>
+    </tr>
+    <tr>
+      <th>Curling</th>
+      <td>56</td>
+      <td>58</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>Figure skating</th>
+      <td>118</td>
+      <td>122</td>
+      <td>119</td>
+    </tr>
+    <tr>
+      <th>Freestyle Skiing</th>
+      <td>34</td>
+      <td>34</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>Ice Hockey</th>
+      <td>512</td>
+      <td>510</td>
+      <td>514</td>
+    </tr>
+    <tr>
+      <th>Luge</th>
+      <td>60</td>
+      <td>62</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>Nordic Combined</th>
+      <td>55</td>
+      <td>55</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>Short Track Speed Skating</th>
+      <td>96</td>
+      <td>97</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th>Skeleton</th>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>Ski Jumping</th>
+      <td>68</td>
+      <td>69</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>Snowboard</th>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>Speed skating</th>
+      <td>190</td>
+      <td>193</td>
+      <td>197</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="merge-concat">
+<h2>07_Merge , Concat<a class="headerlink" href="#merge-concat" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>국가별 5세이하 사망비율 통계 : <a class="reference external" href="https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete">https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete</a><br />
+데이터 변형<br />
+Dataurl = ‘<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/pandas/main/mergeTEst.csv">https://raw.githubusercontent.com/Datamanim/pandas/main/mergeTEst.csv</a>’</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/mergeTEst.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">4</span><span class="p">,:]</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">:,:]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2010</th>
+      <th>2011</th>
+      <th>2012</th>
+      <th>2013</th>
+      <th>2014</th>
+      <th>2015</th>
+      <th>2016</th>
+      <th>2017</th>
+      <th>2018</th>
+      <th>2019</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <td>64.023</td>
+      <td>61.640</td>
+      <td>59.367</td>
+      <td>57.170</td>
+      <td>55.08</td>
+      <td>53.107</td>
+      <td>51.267</td>
+      <td>49.560</td>
+      <td>47.983</td>
+      <td>46.453</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>11.803</td>
+      <td>10.807</td>
+      <td>9.943</td>
+      <td>9.267</td>
+      <td>8.79</td>
+      <td>8.493</td>
+      <td>8.363</td>
+      <td>8.363</td>
+      <td>8.453</td>
+      <td>8.597</td>
+    </tr>
+    <tr>
+      <th>Algeria</th>
+      <td>23.540</td>
+      <td>22.907</td>
+      <td>22.450</td>
+      <td>22.117</td>
+      <td>21.85</td>
+      <td>21.587</td>
+      <td>21.257</td>
+      <td>20.850</td>
+      <td>20.407</td>
+      <td>19.930</td>
+    </tr>
+    <tr>
+      <th>Andorra</th>
+      <td>4.240</td>
+      <td>4.033</td>
+      <td>3.843</td>
+      <td>3.667</td>
+      <td>3.49</td>
+      <td>3.330</td>
+      <td>3.187</td>
+      <td>3.060</td>
+      <td>2.933</td>
+      <td>2.827</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2010</th>
+      <th>2011</th>
+      <th>2012</th>
+      <th>2013</th>
+      <th>2014</th>
+      <th>2015</th>
+      <th>2016</th>
+      <th>2017</th>
+      <th>2018</th>
+      <th>2019</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Angola</th>
+      <td>75.713</td>
+      <td>71.280</td>
+      <td>67.233</td>
+      <td>63.570</td>
+      <td>60.430</td>
+      <td>57.757</td>
+      <td>55.510</td>
+      <td>53.460</td>
+      <td>51.757</td>
+      <td>50.093</td>
+    </tr>
+    <tr>
+      <th>Antigua and Barbuda</th>
+      <td>8.667</td>
+      <td>8.223</td>
+      <td>7.807</td>
+      <td>7.420</td>
+      <td>7.070</td>
+      <td>6.757</td>
+      <td>6.483</td>
+      <td>6.230</td>
+      <td>6.000</td>
+      <td>5.783</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>12.887</td>
+      <td>12.380</td>
+      <td>11.840</td>
+      <td>11.283</td>
+      <td>10.733</td>
+      <td>10.203</td>
+      <td>9.683</td>
+      <td>9.177</td>
+      <td>8.680</td>
+      <td>8.227</td>
+    </tr>
+    <tr>
+      <th>Armenia</th>
+      <td>16.497</td>
+      <td>15.677</td>
+      <td>14.897</td>
+      <td>14.170</td>
+      <td>13.477</td>
+      <td>12.817</td>
+      <td>12.183</td>
+      <td>11.583</td>
+      <td>11.007</td>
+      <td>10.497</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>3.993</td>
+      <td>3.803</td>
+      <td>3.623</td>
+      <td>3.467</td>
+      <td>3.343</td>
+      <td>3.253</td>
+      <td>3.183</td>
+      <td>3.137</td>
+      <td>3.090</td>
+      <td>3.047</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>3.573</td>
+      <td>3.463</td>
+      <td>3.333</td>
+      <td>3.210</td>
+      <td>3.113</td>
+      <td>3.043</td>
+      <td>2.987</td>
+      <td>2.943</td>
+      <td>2.897</td>
+      <td>2.843</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-91 admonition">
+<p class="admonition-title">Question 91</p>
+<p><strong>df1과 df2 데이터를 하나의 데이터 프레임으로 합쳐라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2010</th>
+      <th>2011</th>
+      <th>2012</th>
+      <th>2013</th>
+      <th>2014</th>
+      <th>2015</th>
+      <th>2016</th>
+      <th>2017</th>
+      <th>2018</th>
+      <th>2019</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <td>64.023</td>
+      <td>61.640</td>
+      <td>59.367</td>
+      <td>57.170</td>
+      <td>55.080</td>
+      <td>53.107</td>
+      <td>51.267</td>
+      <td>49.560</td>
+      <td>47.983</td>
+      <td>46.453</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>11.803</td>
+      <td>10.807</td>
+      <td>9.943</td>
+      <td>9.267</td>
+      <td>8.790</td>
+      <td>8.493</td>
+      <td>8.363</td>
+      <td>8.363</td>
+      <td>8.453</td>
+      <td>8.597</td>
+    </tr>
+    <tr>
+      <th>Algeria</th>
+      <td>23.540</td>
+      <td>22.907</td>
+      <td>22.450</td>
+      <td>22.117</td>
+      <td>21.850</td>
+      <td>21.587</td>
+      <td>21.257</td>
+      <td>20.850</td>
+      <td>20.407</td>
+      <td>19.930</td>
+    </tr>
+    <tr>
+      <th>Andorra</th>
+      <td>4.240</td>
+      <td>4.033</td>
+      <td>3.843</td>
+      <td>3.667</td>
+      <td>3.490</td>
+      <td>3.330</td>
+      <td>3.187</td>
+      <td>3.060</td>
+      <td>2.933</td>
+      <td>2.827</td>
+    </tr>
+    <tr>
+      <th>Angola</th>
+      <td>75.713</td>
+      <td>71.280</td>
+      <td>67.233</td>
+      <td>63.570</td>
+      <td>60.430</td>
+      <td>57.757</td>
+      <td>55.510</td>
+      <td>53.460</td>
+      <td>51.757</td>
+      <td>50.093</td>
+    </tr>
+    <tr>
+      <th>Antigua and Barbuda</th>
+      <td>8.667</td>
+      <td>8.223</td>
+      <td>7.807</td>
+      <td>7.420</td>
+      <td>7.070</td>
+      <td>6.757</td>
+      <td>6.483</td>
+      <td>6.230</td>
+      <td>6.000</td>
+      <td>5.783</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>12.887</td>
+      <td>12.380</td>
+      <td>11.840</td>
+      <td>11.283</td>
+      <td>10.733</td>
+      <td>10.203</td>
+      <td>9.683</td>
+      <td>9.177</td>
+      <td>8.680</td>
+      <td>8.227</td>
+    </tr>
+    <tr>
+      <th>Armenia</th>
+      <td>16.497</td>
+      <td>15.677</td>
+      <td>14.897</td>
+      <td>14.170</td>
+      <td>13.477</td>
+      <td>12.817</td>
+      <td>12.183</td>
+      <td>11.583</td>
+      <td>11.007</td>
+      <td>10.497</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>3.993</td>
+      <td>3.803</td>
+      <td>3.623</td>
+      <td>3.467</td>
+      <td>3.343</td>
+      <td>3.253</td>
+      <td>3.183</td>
+      <td>3.137</td>
+      <td>3.090</td>
+      <td>3.047</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>3.573</td>
+      <td>3.463</td>
+      <td>3.333</td>
+      <td>3.210</td>
+      <td>3.113</td>
+      <td>3.043</td>
+      <td>2.987</td>
+      <td>2.943</td>
+      <td>2.897</td>
+      <td>2.843</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">df4</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">:,</span><span class="mi">3</span><span class="p">:]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df3</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2010</th>
+      <th>2011</th>
+      <th>2012</th>
+      <th>2013</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <td>64.023</td>
+      <td>61.640</td>
+      <td>59.367</td>
+      <td>57.170</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>11.803</td>
+      <td>10.807</td>
+      <td>9.943</td>
+      <td>9.267</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2013</th>
+      <th>2014</th>
+      <th>2015</th>
+      <th>2016</th>
+      <th>2017</th>
+      <th>2018</th>
+      <th>2019</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Antigua and Barbuda</th>
+      <td>7.420</td>
+      <td>7.070</td>
+      <td>6.757</td>
+      <td>6.483</td>
+      <td>6.230</td>
+      <td>6.000</td>
+      <td>5.783</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>11.283</td>
+      <td>10.733</td>
+      <td>10.203</td>
+      <td>9.683</td>
+      <td>9.177</td>
+      <td>8.680</td>
+      <td>8.227</td>
+    </tr>
+    <tr>
+      <th>Armenia</th>
+      <td>14.170</td>
+      <td>13.477</td>
+      <td>12.817</td>
+      <td>12.183</td>
+      <td>11.583</td>
+      <td>11.007</td>
+      <td>10.497</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>3.467</td>
+      <td>3.343</td>
+      <td>3.253</td>
+      <td>3.183</td>
+      <td>3.137</td>
+      <td>3.090</td>
+      <td>3.047</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>3.210</td>
+      <td>3.113</td>
+      <td>3.043</td>
+      <td>2.987</td>
+      <td>2.943</td>
+      <td>2.897</td>
+      <td>2.843</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-92 admonition">
+<p class="admonition-title">Question 92</p>
+<p><strong>df3과 df4 데이터를 하나의 데이터 프레임으로 합쳐라. 둘다 포함하고 있는 년도에 대해서만 고려한다</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2013</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <td>57.170</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>9.267</td>
+    </tr>
+    <tr>
+      <th>Antigua and Barbuda</th>
+      <td>7.420</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>11.283</td>
+    </tr>
+    <tr>
+      <th>Armenia</th>
+      <td>14.170</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>3.467</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>3.210</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-93 admonition">
+<p class="admonition-title">Question 93</p>
+<p><strong>df3과 df4 데이터를 하나의 데이터 프레임으로 합쳐라. 모든 컬럼을 포함하고, 결측치는 0으로 대체한다</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2010</th>
+      <th>2011</th>
+      <th>2012</th>
+      <th>2013</th>
+      <th>2014</th>
+      <th>2015</th>
+      <th>2016</th>
+      <th>2017</th>
+      <th>2018</th>
+      <th>2019</th>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <td>64.023</td>
+      <td>61.640</td>
+      <td>59.367</td>
+      <td>57.170</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>11.803</td>
+      <td>10.807</td>
+      <td>9.943</td>
+      <td>9.267</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>Antigua and Barbuda</th>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>7.420</td>
+      <td>7.070</td>
+      <td>6.757</td>
+      <td>6.483</td>
+      <td>6.230</td>
+      <td>6.000</td>
+      <td>5.783</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>11.283</td>
+      <td>10.733</td>
+      <td>10.203</td>
+      <td>9.683</td>
+      <td>9.177</td>
+      <td>8.680</td>
+      <td>8.227</td>
+    </tr>
+    <tr>
+      <th>Armenia</th>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>14.170</td>
+      <td>13.477</td>
+      <td>12.817</td>
+      <td>12.183</td>
+      <td>11.583</td>
+      <td>11.007</td>
+      <td>10.497</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>3.467</td>
+      <td>3.343</td>
+      <td>3.253</td>
+      <td>3.183</td>
+      <td>3.137</td>
+      <td>3.090</td>
+      <td>3.047</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>3.210</td>
+      <td>3.113</td>
+      <td>3.043</td>
+      <td>2.987</td>
+      <td>2.943</td>
+      <td>2.897</td>
+      <td>2.843</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df5</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">7</span><span class="p">,:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span>
+<span class="n">df6</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">6</span><span class="p">:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df5</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Location</th>
+      <th>Afghanistan</th>
+      <th>Albania</th>
+      <th>Algeria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2010</th>
+      <td>64.023</td>
+      <td>11.803</td>
+      <td>23.540</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>61.640</td>
+      <td>10.807</td>
+      <td>22.907</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>59.367</td>
+      <td>9.943</td>
+      <td>22.450</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>57.170</td>
+      <td>9.267</td>
+      <td>22.117</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>55.080</td>
+      <td>8.790</td>
+      <td>21.850</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>53.107</td>
+      <td>8.493</td>
+      <td>21.587</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>51.267</td>
+      <td>8.363</td>
+      <td>21.257</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Location</th>
+      <th>Algeria</th>
+      <th>Andorra</th>
+      <th>Angola</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016</th>
+      <td>21.257</td>
+      <td>3.187</td>
+      <td>55.510</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>20.850</td>
+      <td>3.060</td>
+      <td>53.460</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>20.407</td>
+      <td>2.933</td>
+      <td>51.757</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>19.930</td>
+      <td>2.827</td>
+      <td>50.093</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-95 admonition">
+<p class="admonition-title">Question 95</p>
+<p><strong>df5과 df6 데이터를 하나의 데이터 프레임으로 merge함수를 이용하여 합쳐라. Algeria컬럼을 key로 하고 두 데이터 모두 포함하는 데이터만 출력하라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Location</th>
+      <th>Afghanistan</th>
+      <th>Albania</th>
+      <th>Algeria</th>
+      <th>Andorra</th>
+      <th>Angola</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016</th>
+      <td>51.267</td>
+      <td>8.363</td>
+      <td>21.257</td>
+      <td>3.187</td>
+      <td>55.51</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition-question-95 admonition">
+<p class="admonition-title">Question 95</p>
+<p><strong>df5과 df6 데이터를 하나의 데이터 프레임으로 merge함수를 이용하여 합쳐라. Algeria컬럼을 key로 하고 합집합으로 합쳐라</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Location</th>
+      <th>Afghanistan</th>
+      <th>Albania</th>
+      <th>Algeria</th>
+      <th>Andorra</th>
+      <th>Angola</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2010</th>
+      <td>64.023</td>
+      <td>11.803</td>
+      <td>23.540</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>61.640</td>
+      <td>10.807</td>
+      <td>22.907</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>59.367</td>
+      <td>9.943</td>
+      <td>22.450</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>57.170</td>
+      <td>9.267</td>
+      <td>22.117</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>55.080</td>
+      <td>8.790</td>
+      <td>21.850</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>53.107</td>
+      <td>8.493</td>
+      <td>21.587</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>51.267</td>
+      <td>8.363</td>
+      <td>21.257</td>
+      <td>3.187</td>
+      <td>55.510</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>20.850</td>
+      <td>3.060</td>
+      <td>53.460</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>20.407</td>
+      <td>2.933</td>
+      <td>51.757</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>19.930</td>
+      <td>2.827</td>
+      <td>50.093</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </div>
 </div>
 
