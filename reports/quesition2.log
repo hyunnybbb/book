@@ -17,14 +17,24 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-uniqueDf.head(3)
+import os
+
+# os.chdir -> 데이터가 저장된 경로
+os.chdir('../../../../data/02_mushroom/mushroom')
+
+import pandas as pd
+import matplotlib.pyplot as plt
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-4-d2afbfee295a>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0muniqueDf[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;36m3[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mNameError[0m: name 'uniqueDf' is not defined
-NameError: name 'uniqueDf' is not defined
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-1-341a34f8e615>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m# os.chdir -> 데이터가 저장된 경로[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mos[0m[0;34m.[0m[0mchdir[0m[0;34m([0m[0;34m'../../../../data/02_mushroom/mushroom'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../../../data/02_mushroom/mushroom'
+FileNotFoundError: [Errno 2] No such file or directory: '../../../../data/02_mushroom/mushroom'
 
