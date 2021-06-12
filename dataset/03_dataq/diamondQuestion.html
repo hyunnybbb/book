@@ -406,9 +406,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;carat&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;carat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatter plot Caret -Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -420,6 +424,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Question 2</p>
 <p><strong>carat과 price사이의 상관계수와 상관계수의 p-value값은?</strong></p>
 </div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_by_pandas</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">corr_by_pandas</span><span class="p">)</span>
@@ -427,7 +438,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9215913011934687
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9215913011935697
 </pre></div>
 </div>
 </div>
@@ -439,6 +450,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_by_scipy</span> <span class="p">,</span><span class="n">pv</span><span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;carat&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">corr_by_scipy</span><span class="p">)</span>
@@ -446,7 +464,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9215913011934771
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9215913011934769
 </pre></div>
 </div>
 </div>
@@ -484,12 +502,25 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;color&#39;, ylabel=&#39;price&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/diamondQuestion_12_1.png" src="../../_images/diamondQuestion_12_1.png" />
+<img alt="../../_images/diamondQuestion_14_1.png" src="../../_images/diamondQuestion_14_1.png" />
 </div>
 </div>
 <div class="admonition-question-3-1 admonition">
 <p class="admonition-title">Question 3-1</p>
 <p><strong>Diamond의 평균가격은 3932로 알려져있다. ‘H’ color를 가지는 다이아몬드 집단의 평균에 대한 일표본 t검정을 시행하려한다. 통계량과 pvalue값을 구하시오. 유의수준 0.05에서 귀무가설 채택여부를 boolean 값으로 표현할 변수(hypo) 만들고 출력하시오</strong></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H_prop</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;H&#39;</span><span class="p">]</span>
+<span class="n">static</span><span class="p">,</span> <span class="n">pv</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_1samp</span><span class="p">(</span><span class="n">H_prop</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="mi">3932</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">pv</span><span class="o">&lt;</span><span class="mf">0.05</span><span class="p">:</span>
+    <span class="n">hypo</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">hypo</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -511,6 +542,18 @@ False
 <p class="admonition-title">Question 3-2</p>
 <p><strong>그래프상에서 ‘F’와 ‘G’는 평균이 유사해보인다.이를 확인하기 위해 집단간 등분산(levene,fligner,bartlett) 검정을 시행 후 결과를 출력하고조건에 맞는 독립표본 t검정을 시행하라</strong></p>
 </div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;F&#39;</span><span class="p">]</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;G&#39;</span><span class="p">]</span>
+
+<span class="n">leve</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">G</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="n">fli</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">fligner</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">G</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="n">bartlet</span><span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">bartlett</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">G</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">leve</span><span class="p">)</span>
@@ -522,12 +565,19 @@ False
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LeveneResult(statistic=53.627886257416655, pvalue=2.511093007074788e-13)
 FlignerResult(statistic=37.04347553879807, pvalue=1.155244880009172e-09)
-BartlettResult(statistic=47.52732212014331, pvalue=5.424264079257202e-12)
+BartlettResult(statistic=47.52732212008511, pvalue=5.424264079418252e-12)
 </pre></div>
 </div>
 </div>
 </div>
-<p>등분산 조건 확인시 귀무가설 기각(p-value &lt;0.05), 유의수준하에 ‘H와 G 집단간 분산은 같지 않다’</p>
+<p>등분산 조건 확인시 귀무가설 기각(p-value &lt;0.05), 유의수준하에 ‘F와 G 집단간 분산은 같지 않다’</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_test_FG</span> <span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">F</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_test_FG</span>
@@ -535,17 +585,28 @@ BartlettResult(statistic=47.52732212014331, pvalue=5.424264079257202e-12)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=-5.045279980436125, pvalue=4.5670321227041464e-07)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=5.045279980436125, pvalue=4.5670321227041464e-07)
 </pre></div>
 </div>
 </div>
 </div>
-<p>독립표본 t검정 시행시 귀무가설 기각(p-value &lt;0.05), 유의수준하에 ‘H와 G 집단간 평균은 같지 않다’</p>
+<p>독립표본 t검정 시행시 귀무가설 기각(p-value &lt;0.05), 유의수준하에 ‘F와 G 집단간 평균은 같지 않다’</p>
 <div class="admonition-question-3-3 admonition">
 <p class="admonition-title">Question 3-3</p>
 <p><strong>color ‘F’,’G’,’D’ 세집단의 price값들에 대해 anova분석을 시행하라.</strong></p>
 </div>
 <p>등분산검정</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
+
+<span class="n">levene</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">G</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="n">fligner</span> <span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">fligner</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">G</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="n">bartlett</span> <span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">bartlett</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">G</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bartlett</span><span class="p">)</span>
@@ -555,8 +616,8 @@ BartlettResult(statistic=47.52732212014331, pvalue=5.424264079257202e-12)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BartlettResult(statistic=289.1436443252346, pvalue=1.6340125811454025e-63)
-FlignerResult(statistic=494.6459169558573, pvalue=3.881538382653629e-108)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BartlettResult(statistic=289.14364432535103, pvalue=1.634012581050329e-63)
+FlignerResult(statistic=494.64591695585733, pvalue=3.881538382653518e-108)
 LeveneResult(statistic=118.97521469312785, pvalue=3.557425577381817e-52)
 </pre></div>
 </div>
@@ -575,6 +636,13 @@ LeveneResult(statistic=118.97521469312785, pvalue=3.557425577381817e-52)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.06151941343574685, pvalue=1.852300346010811e-17)
 KstestResult(statistic=0.09505504118130681, pvalue=6.994405055138486e-15)
 KstestResult(statistic=0.12093708375978551, pvalue=2.0167762615717943e-54)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anova</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">F</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">G</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
