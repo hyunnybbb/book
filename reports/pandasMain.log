@@ -17,14 +17,35 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-df = pd.read_csv(DataUrl,sep='\t')
+Ans = pd.merge(df5,df6,on='Algeria',how='inner',left_index=True,right_index=True)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-2-4076b5107078>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mDataUrl[0m[0;34m,[0m[0msep[0m[0;34m=[0m[0;34m'\t'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mMergeError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-193-b8153d64ed6c>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mAns[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mmerge[0m[0;34m([0m[0mdf5[0m[0;34m,[0m[0mdf6[0m[0;34m,[0m[0mon[0m[0;34m=[0m[0;34m'Algeria'[0m[0;34m,[0m[0mhow[0m[0;34m=[0m[0;34m'inner'[0m[0;34m,[0m[0mleft_index[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0mright_index[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
-[0;31mNameError[0m: name 'DataUrl' is not defined
-NameError: name 'DataUrl' is not defined
+[0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pandas/core/reshape/merge.py[0m in [0;36mmerge[0;34m(left, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)[0m
+[1;32m     72[0m     [0mvalidate[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     73[0m ) -> "DataFrame":
+[0;32m---> 74[0;31m     op = _MergeOperation(
+[0m[1;32m     75[0m         [0mleft[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     76[0m         [0mright[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pandas/core/reshape/merge.py[0m in [0;36m__init__[0;34m(self, left, right, how, on, left_on, right_on, axis, left_index, right_index, sort, suffixes, copy, indicator, validate)[0m
+[1;32m    648[0m             [0mwarnings[0m[0;34m.[0m[0mwarn[0m[0;34m([0m[0mmsg[0m[0;34m,[0m [0mUserWarning[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    649[0m [0;34m[0m[0m
+[0;32m--> 650[0;31m         [0mself[0m[0;34m.[0m[0m_validate_specification[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    651[0m [0;34m[0m[0m
+[1;32m    652[0m         [0mcross_col[0m [0;34m=[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pandas/core/reshape/merge.py[0m in [0;36m_validate_specification[0;34m(self)[0m
+[1;32m   1301[0m                 )
+[1;32m   1302[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mleft_index[0m [0;32mor[0m [0mself[0m[0;34m.[0m[0mright_index[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1303[0;31m                 raise MergeError(
+[0m[1;32m   1304[0m                     [0;34m'Can only pass argument "on" OR "left_index" '[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1305[0m                     [0;34m'and "right_index", not a combination of both.'[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mMergeError[0m: Can only pass argument "on" OR "left_index" and "right_index", not a combination of both.
+MergeError: Can only pass argument "on" OR "left_index" and "right_index", not a combination of both.
 

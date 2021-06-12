@@ -698,7 +698,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="admonition-question-5 admonition">
 <p class="admonition-title">Question 5</p>
-<p><strong>6번째 컬럼을 출력하라</strong></p>
+<p><strong>6번째 컬럼명을 출력하라</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1231,7 +1231,7 @@ Name: 거주인구, Length: 9621, dtype: float64
 </div>
 <div class="admonition-question-21 admonition">
 <p class="admonition-title">Question 21</p>
-<p><strong>quantity컬럼 값이 5인 데이터를 추출하여 첫 5행을 출력하라</strong></p>
+<p><strong>quantity컬럼 값이 3인 데이터를 추출하여 첫 5행을 출력하라</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1312,7 +1312,7 @@ Name: 거주인구, Length: 9621, dtype: float64
 </div>
 <div class="admonition-question-22 admonition">
 <p class="admonition-title">Question 22</p>
-<p><strong>quantity컬럼 값이 5인 데이터를 추출하여 index를 0부터 정렬하고 첫 5행을 출력하라</strong></p>
+<p><strong>quantity컬럼 값이 3인 데이터를 추출하여 index를 0부터 정렬하고 첫 5행을 출력하라</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1496,10 +1496,11 @@ Name: 거주인구, Length: 9621, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    2.39
-1    3.39
-2    3.39
-3    2.39
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     2.39
+1     3.39
+2     3.39
+3     2.39
+4    16.98
 Name: new_price, dtype: float64
 </pre></div>
 </div>
@@ -1523,7 +1524,7 @@ Name: new_price, dtype: float64
 </div>
 <div class="admonition-question-26 admonition">
 <p class="admonition-title">Question 26</p>
-<p><strong>Chicken Salad Bowl 인 데이터 프레임을 추출하라고 index 값을 초기화 하여라</strong></p>
+<p><strong>item_name명이 Chicken Salad Bowl 인 데이터 프레임을 추출하라고 index 값을 초기화 하여라</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2207,7 +2208,7 @@ Name: new_price, dtype: float64
 </div>
 <div class="admonition-question-35 admonition">
 <p class="admonition-title">Question 35</p>
-<p><strong>df의 데이터 중 new_price값이 new_price값의 평균값을 가지는 데이터들을 인덱싱하라</strong></p>
+<p><strong>df의 데이터 중 new_price값이 new_price값의 평균값 이상을 가지는 데이터들을 인덱싱하라</strong></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3907,39 +3908,6 @@ Name: Gender, dtype: int64
 <p class="admonition-title">Question 64</p>
 <p><strong>데이터를 로드하고 각 열의 데이터 타입을 파악하라</strong></p>
 </div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/pandas/main/timeTest.csv&#39;</span><span class="p">)</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 6574 entries, 0 to 6573
-Data columns (total 13 columns):
- #   Column    Non-Null Count  Dtype  
----  ------    --------------  -----  
- 0   Yr_Mo_Dy  6574 non-null   object 
- 1   RPT       6568 non-null   float64
- 2   VAL       6571 non-null   float64
- 3   ROS       6572 non-null   float64
- 4   KIL       6569 non-null   float64
- 5   SHA       6572 non-null   float64
- 6   BIR       6574 non-null   float64
- 7   DUB       6571 non-null   float64
- 8   CLA       6572 non-null   float64
- 9   MUL       6571 non-null   float64
- 10  CLO       6573 non-null   float64
- 11  BEL       6574 non-null   float64
- 12  MAL       6570 non-null   float64
-dtypes: float64(12), object(1)
-memory usage: 667.8+ KB
-</pre></div>
-</div>
-</div>
-</div>
 <div class="admonition-question-65 admonition">
 <p class="admonition-title">Question 65</p>
 <p><strong>Yr_Mo_Dy을 판다스에서 인식할 수 있는 datetime64타입으로 변경하라</strong></p>
@@ -4352,13 +4320,11 @@ Name: Yr_Mo_Dy, dtype: datetime64[ns]
       <th>CLO</th>
       <th>BEL</th>
       <th>MAL</th>
-      <th>weeday</th>
       <th>weekday</th>
       <th>WeekCheck</th>
     </tr>
     <tr>
       <th>Yr_Mo_Dy</th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -4391,7 +4357,6 @@ Name: Yr_Mo_Dy, dtype: datetime64[ns]
       <td>14.550520</td>
       <td>18.028763</td>
       <td>2.989247</td>
-      <td>2.989247</td>
       <td>0.284946</td>
     </tr>
     <tr>
@@ -4408,7 +4373,6 @@ Name: Yr_Mo_Dy, dtype: datetime64[ns]
       <td>9.518051</td>
       <td>13.728898</td>
       <td>17.156142</td>
-      <td>3.005906</td>
       <td>3.005906</td>
       <td>0.287402</td>
     </tr>
@@ -4427,7 +4391,6 @@ Name: Yr_Mo_Dy, dtype: datetime64[ns]
       <td>13.810609</td>
       <td>16.909317</td>
       <td>3.000000</td>
-      <td>3.000000</td>
       <td>0.283154</td>
     </tr>
     <tr>
@@ -4444,7 +4407,6 @@ Name: Yr_Mo_Dy, dtype: datetime64[ns]
       <td>9.158019</td>
       <td>12.664759</td>
       <td>14.937611</td>
-      <td>3.011111</td>
       <td>3.011111</td>
       <td>0.288889</td>
     </tr>
@@ -4476,7 +4438,6 @@ MUL          0
 CLO          0
 BEL          0
 MAL          0
-weeday       0
 weekday      0
 WeekCheck    0
 dtype: int64
@@ -4525,13 +4486,11 @@ dtype: int64
       <th>CLO</th>
       <th>BEL</th>
       <th>MAL</th>
-      <th>weeday</th>
       <th>weekday</th>
       <th>WeekCheck</th>
     </tr>
     <tr>
       <th>Yr_Mo_Dy</th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -4564,7 +4523,6 @@ dtype: int64
       <td>13.880968</td>
       <td>14.703226</td>
       <td>2.935484</td>
-      <td>2.935484</td>
       <td>0.290323</td>
     </tr>
     <tr>
@@ -4582,7 +4540,6 @@ dtype: int64
       <td>18.583214</td>
       <td>15.411786</td>
       <td>3.000000</td>
-      <td>3.000000</td>
       <td>0.285714</td>
     </tr>
     <tr>
@@ -4599,7 +4556,6 @@ dtype: int64
       <td>11.251935</td>
       <td>16.410968</td>
       <td>15.637742</td>
-      <td>3.000000</td>
       <td>3.000000</td>
       <td>0.258065</td>
     </tr>
@@ -6889,137 +6845,6 @@ Dataurl = ‘<a class="reference external" href="https://raw.githubusercontent.c
       <td>2.943</td>
       <td>2.897</td>
       <td>2.843</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df5</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">7</span><span class="p">,:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span>
-<span class="n">df6</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">6</span><span class="p">:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">df5</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df6</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Location</th>
-      <th>Afghanistan</th>
-      <th>Albania</th>
-      <th>Algeria</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2010</th>
-      <td>64.023</td>
-      <td>11.803</td>
-      <td>23.540</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>61.640</td>
-      <td>10.807</td>
-      <td>22.907</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <td>59.367</td>
-      <td>9.943</td>
-      <td>22.450</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <td>57.170</td>
-      <td>9.267</td>
-      <td>22.117</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <td>55.080</td>
-      <td>8.790</td>
-      <td>21.850</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <td>53.107</td>
-      <td>8.493</td>
-      <td>21.587</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <td>51.267</td>
-      <td>8.363</td>
-      <td>21.257</td>
-    </tr>
-  </tbody>
-</table>
-</div></div><div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Location</th>
-      <th>Algeria</th>
-      <th>Andorra</th>
-      <th>Angola</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2016</th>
-      <td>21.257</td>
-      <td>3.187</td>
-      <td>55.510</td>
-    </tr>
-    <tr>
-      <th>2017</th>
-      <td>20.850</td>
-      <td>3.060</td>
-      <td>53.460</td>
-    </tr>
-    <tr>
-      <th>2018</th>
-      <td>20.407</td>
-      <td>2.933</td>
-      <td>51.757</td>
-    </tr>
-    <tr>
-      <th>2019</th>
-      <td>19.930</td>
-      <td>2.827</td>
-      <td>50.093</td>
     </tr>
   </tbody>
 </table>
