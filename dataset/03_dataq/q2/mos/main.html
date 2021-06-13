@@ -581,7 +581,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="n">pred</span><span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xt</span><span class="p">)</span>
 <span class="n">predxg</span><span class="o">=</span> <span class="n">xg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xt</span><span class="p">)</span>
 
-<span class="n">Ans</span> <span class="o">=</span> <span class="s1">&#39;randomforest r2 : &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span><span class="n">yt</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39; </span><span class="se">\n</span><span class="s1">xgboost r2 : &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">predxg</span><span class="p">,</span><span class="n">yt</span><span class="p">))</span>
+<span class="n">Ans</span> <span class="o">=</span> <span class="s1">&#39;randomforest r2 : &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">yt</span><span class="p">,</span><span class="n">pred</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39; </span><span class="se">\n</span><span class="s1">xgboost r2 : &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">yt</span><span class="p">,</span><span class="n">predxg</span><span class="p">))</span>
 
 
 <span class="n">subDF</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
@@ -600,8 +600,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>randomforest r2 : 0.8124358796337134 
-xgboost r2 : 0.8237392692167604
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>randomforest r2 : 0.8477788464778293 
+xgboost r2 : 0.8494664636000008
 </pre></div>
 </div>
 </div>
@@ -618,7 +618,7 @@ xgboost r2 : 0.8237392692167604
     <span class="n">sub</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./submission.csv&#39;</span><span class="p">)</span>
     <span class="n">pred</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
     <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
-    <span class="n">mse</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span><span class="n">y_true</span><span class="p">[</span><span class="s1">&#39;mosquito_ratio&#39;</span><span class="p">])</span>    
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">[</span><span class="s1">&#39;mosquito_ratio&#39;</span><span class="p">],</span><span class="n">pred</span><span class="p">)</span>    
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;submission mse score : &#39;</span><span class="p">,</span><span class="n">mse</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">mse</span>
 </pre></div>
@@ -632,7 +632,7 @@ xgboost r2 : 0.8237392692167604
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>submission mse score :  0.8651963948863564
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>submission mse score :  0.8800627717083699
 </pre></div>
 </div>
 </div>
