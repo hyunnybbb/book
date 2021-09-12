@@ -409,7 +409,37 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
-     02
+     02 유방암 발생여부 예측
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     03 2018년도 성인의 건강검진 데이터로부터 흡연여부 예측
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     04 자동차 보험 가입 여부 예측
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     05 심장질환 여부 예측
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     06 핸드폰 가격예측
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     07 비행탑승 경험 만족도
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     08 수질 음용성 여부
     </a>
    </li>
   </ul>
@@ -418,6 +448,28 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal nav-link" href="#regression">
    Regression
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     01 의료 비용예측 문제
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     02 킹카운티 주거지 가격 예측문제
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     03 대학원 입학 가능성 예측문제
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     04 레드 와인 퀄리티 예측문제
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -436,7 +488,143 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p><strong>캐글 공개 데이터셋을 간단한 전처리 후 Train, test셋으로 구분하여 깃헙레포에 저장했습니다.</strong><br />
-<strong>데이터 확인은 url을 통해서 로드할 수 있습니다</strong></p>
+<strong>데이터 확인은 url을 통해서 로드할 수 있습니다</strong><br />
+<strong>지속적으로 업데이트 예정입니다</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##로드 예시</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RowNumber</th>
+      <th>CustomerId</th>
+      <th>Surname</th>
+      <th>CreditScore</th>
+      <th>Geography</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Tenure</th>
+      <th>Balance</th>
+      <th>NumOfProducts</th>
+      <th>HasCrCard</th>
+      <th>IsActiveMember</th>
+      <th>EstimatedSalary</th>
+      <th>Exited</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6842</td>
+      <td>15793491</td>
+      <td>Cherkasova</td>
+      <td>714</td>
+      <td>Germany</td>
+      <td>Male</td>
+      <td>26</td>
+      <td>3</td>
+      <td>119545.48</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>65482.94</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8963</td>
+      <td>15607874</td>
+      <td>Keane</td>
+      <td>687</td>
+      <td>France</td>
+      <td>Male</td>
+      <td>38</td>
+      <td>0</td>
+      <td>144450.58</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>137276.83</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7047</td>
+      <td>15737627</td>
+      <td>Rivero</td>
+      <td>589</td>
+      <td>Germany</td>
+      <td>Female</td>
+      <td>20</td>
+      <td>2</td>
+      <td>121093.29</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3529.72</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7503</td>
+      <td>15697844</td>
+      <td>Whitehouse</td>
+      <td>721</td>
+      <td>Spain</td>
+      <td>Female</td>
+      <td>32</td>
+      <td>10</td>
+      <td>0.00</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>136119.96</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3439</td>
+      <td>15722404</td>
+      <td>Carpenter</td>
+      <td>445</td>
+      <td>France</td>
+      <td>Female</td>
+      <td>30</td>
+      <td>3</td>
+      <td>0.00</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>127939.19</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="section" id="classification">
 <h2>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
@@ -448,7 +636,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/train.csv</a>
 <a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/test.csv</a>
 <a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/submission.csv</a></p>
-<p>Target : Exited (0,1)</p>
+<p><strong>Target : Exited (0,1)</strong></p>
 <p>출처 : <a class="reference external" href="https://www.kaggle.com/shubh0799/churn-modelling">https://www.kaggle.com/shubh0799/churn-modelling</a></p>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -586,11 +774,1717 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="section" id="id2">
-<h3>02<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>02 유방암 발생여부 예측<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/cancer/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/cancer/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/cancer/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/cancer/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/cancer/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/cancer/submission.csv</a></p>
+<p><strong>Target : diagnosis B(양성),M(악성)</strong></p>
+<p>출처 : <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Breast%20Cancer%20Wisconsin%20%28Diagnostic%29">https://archive.ics.uci.edu/ml/datasets/Breast Cancer Wisconsin (Diagnostic)</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/cancer/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>diagnosis</th>
+      <th>radius_mean</th>
+      <th>texture_mean</th>
+      <th>perimeter_mean</th>
+      <th>area_mean</th>
+      <th>smoothness_mean</th>
+      <th>compactness_mean</th>
+      <th>concavity_mean</th>
+      <th>points_mean</th>
+      <th>...</th>
+      <th>radius_worst</th>
+      <th>texture_worst</th>
+      <th>perimeter_worst</th>
+      <th>area_worst</th>
+      <th>smoothness_worst</th>
+      <th>compactness_worst</th>
+      <th>concavity_worst</th>
+      <th>points_worst</th>
+      <th>symmetry_worst</th>
+      <th>dimension_worst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8812844</td>
+      <td>B</td>
+      <td>10.18</td>
+      <td>17.53</td>
+      <td>65.12</td>
+      <td>313.1</td>
+      <td>0.10610</td>
+      <td>0.08502</td>
+      <td>0.01768</td>
+      <td>0.01915</td>
+      <td>...</td>
+      <td>11.17</td>
+      <td>22.84</td>
+      <td>71.94</td>
+      <td>375.6</td>
+      <td>0.14060</td>
+      <td>0.1440</td>
+      <td>0.06572</td>
+      <td>0.05575</td>
+      <td>0.3055</td>
+      <td>0.08797</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>904689</td>
+      <td>B</td>
+      <td>12.96</td>
+      <td>18.29</td>
+      <td>84.18</td>
+      <td>525.2</td>
+      <td>0.07351</td>
+      <td>0.07899</td>
+      <td>0.04057</td>
+      <td>0.01883</td>
+      <td>...</td>
+      <td>14.13</td>
+      <td>24.61</td>
+      <td>96.31</td>
+      <td>621.9</td>
+      <td>0.09329</td>
+      <td>0.2318</td>
+      <td>0.16040</td>
+      <td>0.06608</td>
+      <td>0.3207</td>
+      <td>0.07247</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>924632</td>
+      <td>B</td>
+      <td>12.88</td>
+      <td>28.92</td>
+      <td>82.50</td>
+      <td>514.3</td>
+      <td>0.08123</td>
+      <td>0.05824</td>
+      <td>0.06195</td>
+      <td>0.02343</td>
+      <td>...</td>
+      <td>13.89</td>
+      <td>35.74</td>
+      <td>88.84</td>
+      <td>595.7</td>
+      <td>0.12270</td>
+      <td>0.1620</td>
+      <td>0.24390</td>
+      <td>0.06493</td>
+      <td>0.2372</td>
+      <td>0.07242</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>924084</td>
+      <td>B</td>
+      <td>12.77</td>
+      <td>29.43</td>
+      <td>81.35</td>
+      <td>507.9</td>
+      <td>0.08276</td>
+      <td>0.04234</td>
+      <td>0.01997</td>
+      <td>0.01499</td>
+      <td>...</td>
+      <td>13.87</td>
+      <td>36.00</td>
+      <td>88.10</td>
+      <td>594.7</td>
+      <td>0.12340</td>
+      <td>0.1064</td>
+      <td>0.08653</td>
+      <td>0.06498</td>
+      <td>0.2407</td>
+      <td>0.06484</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>9011495</td>
+      <td>B</td>
+      <td>12.21</td>
+      <td>18.02</td>
+      <td>78.31</td>
+      <td>458.4</td>
+      <td>0.09231</td>
+      <td>0.07175</td>
+      <td>0.04392</td>
+      <td>0.02027</td>
+      <td>...</td>
+      <td>14.29</td>
+      <td>24.04</td>
+      <td>93.85</td>
+      <td>624.6</td>
+      <td>0.13680</td>
+      <td>0.2170</td>
+      <td>0.24130</td>
+      <td>0.08829</td>
+      <td>0.3218</td>
+      <td>0.07470</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 32 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>03 2018년도 성인의 건강검진 데이터로부터 흡연여부 예측<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/smoke/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/smoke/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/smoke/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/smoke/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/smoke/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/smoke/submission.csv</a></p>
+<p><strong>흡연상태 : 0 ,1</strong></p>
+<p>출처 : <a class="reference external" href="https://www.data.go.kr/data/15007122/fileData.do">https://www.data.go.kr/data/15007122/fileData.do</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/smoke/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>성별코드</th>
+      <th>연령대코드(5세단위)</th>
+      <th>신장(5Cm단위)</th>
+      <th>체중(5Kg단위)</th>
+      <th>허리둘레</th>
+      <th>시력(좌)</th>
+      <th>시력(우)</th>
+      <th>청력(좌)</th>
+      <th>청력(우)</th>
+      <th>수축기혈압</th>
+      <th>...</th>
+      <th>혈색소</th>
+      <th>요단백</th>
+      <th>혈청크레아티닌</th>
+      <th>(혈청지오티)AST</th>
+      <th>(혈청지오티)ALT</th>
+      <th>감마지티피</th>
+      <th>흡연상태</th>
+      <th>구강검진수검여부</th>
+      <th>치아우식증유무</th>
+      <th>치석</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>F</td>
+      <td>55</td>
+      <td>145</td>
+      <td>55</td>
+      <td>73.0</td>
+      <td>0.7</td>
+      <td>0.5</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>129.0</td>
+      <td>...</td>
+      <td>12.9</td>
+      <td>1.0</td>
+      <td>0.9</td>
+      <td>172.0</td>
+      <td>209.0</td>
+      <td>15.0</td>
+      <td>0</td>
+      <td>Y</td>
+      <td>0.0</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>M</td>
+      <td>40</td>
+      <td>180</td>
+      <td>55</td>
+      <td>74.0</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>102.0</td>
+      <td>...</td>
+      <td>15.6</td>
+      <td>1.0</td>
+      <td>0.8</td>
+      <td>30.0</td>
+      <td>19.0</td>
+      <td>23.0</td>
+      <td>1</td>
+      <td>Y</td>
+      <td>0.0</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>F</td>
+      <td>55</td>
+      <td>150</td>
+      <td>50</td>
+      <td>72.0</td>
+      <td>1.0</td>
+      <td>0.2</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>116.0</td>
+      <td>...</td>
+      <td>14.1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>31.0</td>
+      <td>19.0</td>
+      <td>10.0</td>
+      <td>0</td>
+      <td>Y</td>
+      <td>0.0</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>M</td>
+      <td>40</td>
+      <td>170</td>
+      <td>85</td>
+      <td>89.0</td>
+      <td>1.0</td>
+      <td>0.8</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>124.0</td>
+      <td>...</td>
+      <td>16.7</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>26.0</td>
+      <td>38.0</td>
+      <td>108.0</td>
+      <td>1</td>
+      <td>Y</td>
+      <td>1.0</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>F</td>
+      <td>40</td>
+      <td>155</td>
+      <td>45</td>
+      <td>62.0</td>
+      <td>0.5</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>127.0</td>
+      <td>...</td>
+      <td>12.9</td>
+      <td>1.0</td>
+      <td>0.7</td>
+      <td>20.0</td>
+      <td>11.0</td>
+      <td>13.0</td>
+      <td>0</td>
+      <td>Y</td>
+      <td>0.0</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 26 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>04 자동차 보험 가입 여부 예측<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/insurance/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/insurance/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/insurance/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/insurance/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/insurance/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/insurance/submission.csv</a></p>
+<p><strong>Target : Response (0,1)</strong></p>
+<p>출처 : <a class="reference external" href="https://www.kaggle.com/anmolkumar/health-insurance-cross-sell-prediction">https://www.kaggle.com/anmolkumar/health-insurance-cross-sell-prediction</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/insurance/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Driving_License</th>
+      <th>Region_Code</th>
+      <th>Previously_Insured</th>
+      <th>Vehicle_Age</th>
+      <th>Vehicle_Damage</th>
+      <th>Annual_Premium</th>
+      <th>Policy_Sales_Channel</th>
+      <th>Vintage</th>
+      <th>Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>188957</td>
+      <td>Female</td>
+      <td>25</td>
+      <td>1</td>
+      <td>17.0</td>
+      <td>1</td>
+      <td>&lt; 1 Year</td>
+      <td>No</td>
+      <td>38785.0</td>
+      <td>152.0</td>
+      <td>59</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>275631</td>
+      <td>Male</td>
+      <td>20</td>
+      <td>1</td>
+      <td>22.0</td>
+      <td>0</td>
+      <td>&lt; 1 Year</td>
+      <td>No</td>
+      <td>2630.0</td>
+      <td>160.0</td>
+      <td>113</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>329036</td>
+      <td>Female</td>
+      <td>40</td>
+      <td>1</td>
+      <td>41.0</td>
+      <td>0</td>
+      <td>1-2 Year</td>
+      <td>Yes</td>
+      <td>33165.0</td>
+      <td>124.0</td>
+      <td>188</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>227288</td>
+      <td>Female</td>
+      <td>28</td>
+      <td>1</td>
+      <td>30.0</td>
+      <td>1</td>
+      <td>&lt; 1 Year</td>
+      <td>No</td>
+      <td>29038.0</td>
+      <td>152.0</td>
+      <td>233</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>300441</td>
+      <td>Female</td>
+      <td>50</td>
+      <td>1</td>
+      <td>28.0</td>
+      <td>0</td>
+      <td>1-2 Year</td>
+      <td>Yes</td>
+      <td>31325.0</td>
+      <td>124.0</td>
+      <td>258</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>05 심장질환 여부 예측<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/heart/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/heart/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/heart/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/heart/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/heart/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/heart/submission.csv</a></p>
+<p><strong>target : 0 ,1</strong></p>
+<p>출처 : <a class="reference external" href="https://www.kaggle.com/ronitf/heart-disease-uci">https://www.kaggle.com/ronitf/heart-disease-uci</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/heart/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>cp</th>
+      <th>trestbps</th>
+      <th>chol</th>
+      <th>fbs</th>
+      <th>restecg</th>
+      <th>thalach</th>
+      <th>exang</th>
+      <th>oldpeak</th>
+      <th>slope</th>
+      <th>ca</th>
+      <th>thal</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>60</td>
+      <td>1</td>
+      <td>0</td>
+      <td>140</td>
+      <td>293</td>
+      <td>0</td>
+      <td>0</td>
+      <td>170</td>
+      <td>0</td>
+      <td>1.2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>51</td>
+      <td>0</td>
+      <td>2</td>
+      <td>120</td>
+      <td>295</td>
+      <td>0</td>
+      <td>0</td>
+      <td>157</td>
+      <td>0</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>51</td>
+      <td>1</td>
+      <td>3</td>
+      <td>125</td>
+      <td>213</td>
+      <td>0</td>
+      <td>0</td>
+      <td>125</td>
+      <td>1</td>
+      <td>1.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>59</td>
+      <td>1</td>
+      <td>2</td>
+      <td>150</td>
+      <td>212</td>
+      <td>1</td>
+      <td>1</td>
+      <td>157</td>
+      <td>0</td>
+      <td>1.6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>1</td>
+      <td>0</td>
+      <td>125</td>
+      <td>258</td>
+      <td>0</td>
+      <td>0</td>
+      <td>141</td>
+      <td>1</td>
+      <td>2.8</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>06 핸드폰 가격예측<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/mobile/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/mobile/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/mobile/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/mobile/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/mobile/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/mobile/submission.csv</a></p>
+<p><strong>target :price_range  0(저렴) ~ 3(매우비쌈)</strong></p>
+<p>출처 : <a class="reference external" href="https://www.kaggle.com/iabhishekofficial/mobile-price-classification?select=train.csv">https://www.kaggle.com/iabhishekofficial/mobile-price-classification?select=train.csv</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/mobile/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>battery_power</th>
+      <th>blue</th>
+      <th>clock_speed</th>
+      <th>dual_sim</th>
+      <th>fc</th>
+      <th>four_g</th>
+      <th>int_memory</th>
+      <th>m_dep</th>
+      <th>mobile_wt</th>
+      <th>n_cores</th>
+      <th>pc</th>
+      <th>px_height</th>
+      <th>px_width</th>
+      <th>ram</th>
+      <th>sc_h</th>
+      <th>sc_w</th>
+      <th>talk_time</th>
+      <th>three_g</th>
+      <th>touch_screen</th>
+      <th>wifi</th>
+      <th>price_range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>842</td>
+      <td>0</td>
+      <td>2.2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7</td>
+      <td>0.6</td>
+      <td>188</td>
+      <td>2</td>
+      <td>2</td>
+      <td>20</td>
+      <td>756</td>
+      <td>2549</td>
+      <td>9</td>
+      <td>7</td>
+      <td>19</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1021</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>53</td>
+      <td>0.7</td>
+      <td>136</td>
+      <td>3</td>
+      <td>6</td>
+      <td>905</td>
+      <td>1988</td>
+      <td>2631</td>
+      <td>17</td>
+      <td>3</td>
+      <td>7</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>563</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>41</td>
+      <td>0.9</td>
+      <td>145</td>
+      <td>5</td>
+      <td>6</td>
+      <td>1263</td>
+      <td>1716</td>
+      <td>2603</td>
+      <td>11</td>
+      <td>2</td>
+      <td>9</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>615</td>
+      <td>1</td>
+      <td>2.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>0.8</td>
+      <td>131</td>
+      <td>6</td>
+      <td>9</td>
+      <td>1216</td>
+      <td>1786</td>
+      <td>2769</td>
+      <td>16</td>
+      <td>8</td>
+      <td>11</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1821</td>
+      <td>1</td>
+      <td>1.2</td>
+      <td>0</td>
+      <td>13</td>
+      <td>1</td>
+      <td>44</td>
+      <td>0.6</td>
+      <td>141</td>
+      <td>2</td>
+      <td>14</td>
+      <td>1208</td>
+      <td>1212</td>
+      <td>1411</td>
+      <td>8</td>
+      <td>2</td>
+      <td>15</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>07 비행탑승 경험 만족도<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/airline/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/airline/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/airline/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/airline/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/airline/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/airline/submission.csv</a></p>
+<p><strong>target : satisfaction  ‘neutral or dissatisfied’ or ‘satisfied’</strong></p>
+<p>출처 : <a class="reference external" href="https://www.kaggle.com/teejmahal20/airline-passenger-satisfaction?select=train.csv">https://www.kaggle.com/teejmahal20/airline-passenger-satisfaction?select=train.csv</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/airline/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>Gender</th>
+      <th>Customer Type</th>
+      <th>Age</th>
+      <th>Type of Travel</th>
+      <th>Class</th>
+      <th>Flight Distance</th>
+      <th>Inflight wifi service</th>
+      <th>Departure/Arrival time convenient</th>
+      <th>Ease of Online booking</th>
+      <th>Gate location</th>
+      <th>Food and drink</th>
+      <th>Online boarding</th>
+      <th>Seat comfort</th>
+      <th>Inflight entertainment</th>
+      <th>On-board service</th>
+      <th>Leg room service</th>
+      <th>Baggage handling</th>
+      <th>Checkin service</th>
+      <th>Inflight service</th>
+      <th>Cleanliness</th>
+      <th>Departure Delay in Minutes</th>
+      <th>Arrival Delay in Minutes</th>
+      <th>satisfaction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>55882</td>
+      <td>Male</td>
+      <td>Loyal Customer</td>
+      <td>42</td>
+      <td>Business travel</td>
+      <td>Business</td>
+      <td>473</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>3</td>
+      <td>5</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>satisfied</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>31906</td>
+      <td>Female</td>
+      <td>Loyal Customer</td>
+      <td>31</td>
+      <td>Business travel</td>
+      <td>Business</td>
+      <td>3271</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+      <td>3</td>
+      <td>5</td>
+      <td>5</td>
+      <td>3</td>
+      <td>4</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5.0</td>
+      <td>satisfied</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>85481</td>
+      <td>Male</td>
+      <td>Loyal Customer</td>
+      <td>51</td>
+      <td>Personal Travel</td>
+      <td>Eco</td>
+      <td>214</td>
+      <td>5</td>
+      <td>0</td>
+      <td>5</td>
+      <td>4</td>
+      <td>3</td>
+      <td>5</td>
+      <td>3</td>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>satisfied</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>102134</td>
+      <td>Male</td>
+      <td>Loyal Customer</td>
+      <td>44</td>
+      <td>Business travel</td>
+      <td>Business</td>
+      <td>3097</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>satisfied</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>31580</td>
+      <td>Male</td>
+      <td>Loyal Customer</td>
+      <td>33</td>
+      <td>Business travel</td>
+      <td>Business</td>
+      <td>3286</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2</td>
+      <td>5</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>satisfied</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>08 수질 음용성 여부<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/waters/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/waters/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/waters/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/waters/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/waters/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/waters/submission.csv</a></p>
+<p><strong>target : Potablillity  : 0 ,1</strong></p>
+<p>출처 : <a class="reference external" href="https://www.kaggle.com/adityakadiwal/water-potability">https://www.kaggle.com/adityakadiwal/water-potability</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/waters/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ph</th>
+      <th>Hardness</th>
+      <th>Solids</th>
+      <th>Chloramines</th>
+      <th>Sulfate</th>
+      <th>Conductivity</th>
+      <th>Organic_carbon</th>
+      <th>Trihalomethanes</th>
+      <th>Turbidity</th>
+      <th>Potability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7.918150</td>
+      <td>214.186611</td>
+      <td>23823.492888</td>
+      <td>7.290878</td>
+      <td>341.173322</td>
+      <td>411.424483</td>
+      <td>19.585002</td>
+      <td>25.057375</td>
+      <td>4.028958</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.422446</td>
+      <td>205.266080</td>
+      <td>18542.957451</td>
+      <td>5.491963</td>
+      <td>306.702227</td>
+      <td>382.080129</td>
+      <td>10.504023</td>
+      <td>67.493450</td>
+      <td>2.911751</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.341547</td>
+      <td>187.672402</td>
+      <td>21273.457066</td>
+      <td>7.784003</td>
+      <td>NaN</td>
+      <td>332.084293</td>
+      <td>16.842334</td>
+      <td>55.019151</td>
+      <td>4.025644</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9.056245</td>
+      <td>197.666301</td>
+      <td>17403.532167</td>
+      <td>7.688917</td>
+      <td>337.460176</td>
+      <td>414.766631</td>
+      <td>15.349869</td>
+      <td>63.696746</td>
+      <td>3.319354</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.039374</td>
+      <td>142.860598</td>
+      <td>40829.353167</td>
+      <td>7.271543</td>
+      <td>NaN</td>
+      <td>386.803057</td>
+      <td>16.823773</td>
+      <td>52.297113</td>
+      <td>4.957420</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="regression">
 <h2>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>01 의료 비용예측 문제<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/MedicalCost/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/MedicalCost/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/MedicalCost/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/MedicalCost/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/MedicalCost/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/MedicalCost/submission.csv</a></p>
+<p><strong>target : charges</strong></p>
+<p>출처 : <a class="reference external" href="https://www.kaggle.com/mirichoi0218/insurance/code">https://www.kaggle.com/mirichoi0218/insurance/code</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/MedicalCost/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>bmi</th>
+      <th>children</th>
+      <th>smoker</th>
+      <th>region</th>
+      <th>charges</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>64</td>
+      <td>female</td>
+      <td>39.330</td>
+      <td>0</td>
+      <td>no</td>
+      <td>northeast</td>
+      <td>14901.51670</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>47</td>
+      <td>female</td>
+      <td>27.830</td>
+      <td>0</td>
+      <td>yes</td>
+      <td>southeast</td>
+      <td>23065.42070</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>52</td>
+      <td>female</td>
+      <td>33.300</td>
+      <td>2</td>
+      <td>no</td>
+      <td>southwest</td>
+      <td>10806.83900</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>33</td>
+      <td>female</td>
+      <td>22.135</td>
+      <td>1</td>
+      <td>no</td>
+      <td>northeast</td>
+      <td>5354.07465</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>30</td>
+      <td>male</td>
+      <td>31.400</td>
+      <td>1</td>
+      <td>no</td>
+      <td>southwest</td>
+      <td>3659.34600</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>02 킹카운티 주거지 가격 예측문제<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/kingcountyprice/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/kingcountyprice/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/kingcountyprice/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/kingcountyprice/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/kingcountyprice/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/kingcountyprice/submission.csv</a></p>
+<p><strong>target : price</strong></p>
+<p>출처 : <a class="reference external" href="https://www.kaggle.com/harlfoxem/housesalesprediction">https://www.kaggle.com/harlfoxem/housesalesprediction</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/kingcountyprice/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>date</th>
+      <th>price</th>
+      <th>bedrooms</th>
+      <th>bathrooms</th>
+      <th>sqft_living</th>
+      <th>sqft_lot</th>
+      <th>floors</th>
+      <th>waterfront</th>
+      <th>view</th>
+      <th>condition</th>
+      <th>grade</th>
+      <th>sqft_above</th>
+      <th>sqft_basement</th>
+      <th>yr_built</th>
+      <th>yr_renovated</th>
+      <th>zipcode</th>
+      <th>lat</th>
+      <th>long</th>
+      <th>sqft_living15</th>
+      <th>sqft_lot15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8961990160</td>
+      <td>20150413T000000</td>
+      <td>567500.0</td>
+      <td>3</td>
+      <td>2.5</td>
+      <td>2080</td>
+      <td>4556</td>
+      <td>2.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>8</td>
+      <td>2080</td>
+      <td>0</td>
+      <td>1999</td>
+      <td>0</td>
+      <td>98074</td>
+      <td>47.6036</td>
+      <td>-122.014</td>
+      <td>1530</td>
+      <td>5606</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9455200205</td>
+      <td>20140604T000000</td>
+      <td>525000.0</td>
+      <td>3</td>
+      <td>2.0</td>
+      <td>1540</td>
+      <td>7800</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>8</td>
+      <td>1540</td>
+      <td>0</td>
+      <td>2004</td>
+      <td>0</td>
+      <td>98125</td>
+      <td>47.7041</td>
+      <td>-122.288</td>
+      <td>1510</td>
+      <td>7800</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7853220670</td>
+      <td>20140918T000000</td>
+      <td>540000.0</td>
+      <td>3</td>
+      <td>2.5</td>
+      <td>2860</td>
+      <td>8935</td>
+      <td>2.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>8</td>
+      <td>2860</td>
+      <td>0</td>
+      <td>2004</td>
+      <td>0</td>
+      <td>98065</td>
+      <td>47.5336</td>
+      <td>-121.855</td>
+      <td>2650</td>
+      <td>6167</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3298201170</td>
+      <td>20141110T000000</td>
+      <td>350000.0</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>940</td>
+      <td>7811</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>6</td>
+      <td>940</td>
+      <td>0</td>
+      <td>1959</td>
+      <td>0</td>
+      <td>98008</td>
+      <td>47.6195</td>
+      <td>-122.118</td>
+      <td>1180</td>
+      <td>7490</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7972604355</td>
+      <td>20140521T000000</td>
+      <td>218000.0</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>1020</td>
+      <td>7874</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>7</td>
+      <td>1020</td>
+      <td>0</td>
+      <td>1956</td>
+      <td>0</td>
+      <td>98106</td>
+      <td>47.5175</td>
+      <td>-122.346</td>
+      <td>1290</td>
+      <td>7320</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>03 대학원 입학 가능성 예측문제<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/admission/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/admission/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/admission/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/admission/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/admission/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/admission/submission.csv</a></p>
+<p><strong>target : Chance of Admit</strong></p>
+<p>출처 : <a class="reference external" href="https://www.kaggle.com/mohansacharya/graduate-admissions">https://www.kaggle.com/mohansacharya/graduate-admissions</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/admission/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Serial No.</th>
+      <th>GRE Score</th>
+      <th>TOEFL Score</th>
+      <th>University Rating</th>
+      <th>SOP</th>
+      <th>LOR</th>
+      <th>CGPA</th>
+      <th>Research</th>
+      <th>Chance of Admit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>246</td>
+      <td>328</td>
+      <td>110</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>2.5</td>
+      <td>9.02</td>
+      <td>1</td>
+      <td>0.81</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100</td>
+      <td>323</td>
+      <td>113</td>
+      <td>3</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>8.88</td>
+      <td>1</td>
+      <td>0.79</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>79</td>
+      <td>296</td>
+      <td>95</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>7.54</td>
+      <td>1</td>
+      <td>0.44</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53</td>
+      <td>334</td>
+      <td>116</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>8.00</td>
+      <td>1</td>
+      <td>0.78</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>444</td>
+      <td>321</td>
+      <td>114</td>
+      <td>5</td>
+      <td>4.5</td>
+      <td>4.5</td>
+      <td>9.16</td>
+      <td>1</td>
+      <td>0.87</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>04 레드 와인 퀄리티 예측문제<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보 (분류문제로 볼수도 있음)</p>
+<p><strong>DataUrl [train,test,submisson]</strong><br />
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/redwine/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/redwine/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/redwine/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/redwine/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/redwine/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/redwine/submission.csv</a></p>
+<p><strong>target : quality</strong></p>
+<p>출처 : <a class="reference external" href="https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009">https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/redwine/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fixed acidity</th>
+      <th>volatile acidity</th>
+      <th>citric acid</th>
+      <th>residual sugar</th>
+      <th>chlorides</th>
+      <th>free sulfur dioxide</th>
+      <th>total sulfur dioxide</th>
+      <th>density</th>
+      <th>pH</th>
+      <th>sulphates</th>
+      <th>alcohol</th>
+      <th>quality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.0</td>
+      <td>0.38</td>
+      <td>0.01</td>
+      <td>1.6</td>
+      <td>0.048</td>
+      <td>26.0</td>
+      <td>60.0</td>
+      <td>0.99084</td>
+      <td>3.70</td>
+      <td>0.75</td>
+      <td>14.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.0</td>
+      <td>0.42</td>
+      <td>0.24</td>
+      <td>2.0</td>
+      <td>0.060</td>
+      <td>19.0</td>
+      <td>50.0</td>
+      <td>0.99170</td>
+      <td>3.72</td>
+      <td>0.74</td>
+      <td>14.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.1</td>
+      <td>0.36</td>
+      <td>0.30</td>
+      <td>1.6</td>
+      <td>0.080</td>
+      <td>35.0</td>
+      <td>70.0</td>
+      <td>0.99693</td>
+      <td>3.44</td>
+      <td>0.50</td>
+      <td>9.4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7.6</td>
+      <td>0.29</td>
+      <td>0.49</td>
+      <td>2.7</td>
+      <td>0.092</td>
+      <td>25.0</td>
+      <td>60.0</td>
+      <td>0.99710</td>
+      <td>3.31</td>
+      <td>0.61</td>
+      <td>10.1</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7.7</td>
+      <td>0.51</td>
+      <td>0.28</td>
+      <td>2.1</td>
+      <td>0.087</td>
+      <td>23.0</td>
+      <td>54.0</td>
+      <td>0.99800</td>
+      <td>3.42</td>
+      <td>0.74</td>
+      <td>9.2</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
 </div>
 </div>
 
