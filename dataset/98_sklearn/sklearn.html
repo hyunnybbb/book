@@ -133,8 +133,22 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../000_dataset/README.html">
+     00_연습데이터셋 모음
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../000_dataset/main.html">
+       코   드
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../00_olympic/README.html">
-     00_올림픽 데이터셋
+     01_올림픽 데이터셋
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
@@ -148,7 +162,7 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../01_ufc/README.html">
-     01_ufc 기록 데이터셋
+     02_ufc 기록 데이터셋
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
@@ -167,7 +181,7 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../02_mushroomClassification/README.html">
-     02_버섯 분류 데이터셋
+     03_버섯 분류 데이터셋
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
@@ -461,6 +475,45 @@ url =https://scikit-learn.org/stable/modules/classes.html#module</p>
  &#39;GroupKFold&#39;,
  &#39;GroupShuffleSplit&#39;,
  &#39;KFold&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-all admonition">
+<p class="admonition-title"><strong>all</strong> 을 이용한 탐색</p>
+<p><strong>import sklearn 만 진행한후 __all__을 이용해서 하위 모듈들을 확인할 수 있습니다.</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="n">sklearn</span><span class="o">.</span><span class="n">__all__</span><span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;neural_network&#39;,
+ &#39;pipeline&#39;,
+ &#39;preprocessing&#39;,
+ &#39;random_projection&#39;,
+ &#39;semi_supervised&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.preprocessing</span>
+<span class="n">sklearn</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">__all__</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Binarizer&#39;,
+ &#39;FunctionTransformer&#39;,
+ &#39;KBinsDiscretizer&#39;,
+ &#39;KernelCenterer&#39;,
+ &#39;LabelBinarizer&#39;,
+ &#39;LabelEncoder&#39;]
 </pre></div>
 </div>
 </div>
