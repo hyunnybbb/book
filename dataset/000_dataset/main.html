@@ -404,7 +404,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     01
+     01  회사 서비스 이탈 예측
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -441,7 +441,149 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="section" id="classification">
 <h2>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>01<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>01  회사 서비스 이탈 예측<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="admonition- admonition">
+<p class="admonition-title">데이터정보</p>
+<p><strong>DataUrl [train,test,submisson]</strong>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/train.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/train.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/test.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/test.csv</a>
+<a class="reference external" href="https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/submission.csv">https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/submission.csv</a></p>
+<p>Target : Exited (0,1)
+출처 : <a class="reference external" href="https://www.kaggle.com/shubh0799/churn-modelling">https://www.kaggle.com/shubh0799/churn-modelling</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Datamanim/datarepo/main/churn/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RowNumber</th>
+      <th>CustomerId</th>
+      <th>Surname</th>
+      <th>CreditScore</th>
+      <th>Geography</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Tenure</th>
+      <th>Balance</th>
+      <th>NumOfProducts</th>
+      <th>HasCrCard</th>
+      <th>IsActiveMember</th>
+      <th>EstimatedSalary</th>
+      <th>Exited</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6842</td>
+      <td>15793491</td>
+      <td>Cherkasova</td>
+      <td>714</td>
+      <td>Germany</td>
+      <td>Male</td>
+      <td>26</td>
+      <td>3</td>
+      <td>119545.48</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>65482.94</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8963</td>
+      <td>15607874</td>
+      <td>Keane</td>
+      <td>687</td>
+      <td>France</td>
+      <td>Male</td>
+      <td>38</td>
+      <td>0</td>
+      <td>144450.58</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>137276.83</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7047</td>
+      <td>15737627</td>
+      <td>Rivero</td>
+      <td>589</td>
+      <td>Germany</td>
+      <td>Female</td>
+      <td>20</td>
+      <td>2</td>
+      <td>121093.29</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3529.72</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7503</td>
+      <td>15697844</td>
+      <td>Whitehouse</td>
+      <td>721</td>
+      <td>Spain</td>
+      <td>Female</td>
+      <td>32</td>
+      <td>10</td>
+      <td>0.00</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>136119.96</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3439</td>
+      <td>15722404</td>
+      <td>Carpenter</td>
+      <td>445</td>
+      <td>France</td>
+      <td>Female</td>
+      <td>30</td>
+      <td>3</td>
+      <td>0.00</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>127939.19</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </div>
 <div class="section" id="id2">
 <h3>02<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
